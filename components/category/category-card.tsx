@@ -27,19 +27,30 @@ export function CategoryCard({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       className={cn(
-        "group relative rounded-lg p-6 bg-background hover:bg-muted/50 transition-colors",
+        "group relative rounded-lg  bg-background transition-all duration-300",
         "border border-border shadow-sm",
+        "hover:bg-[#363aed] hover:border-[#363aed]",
         className
       )}
     >
       <div className="flex flex-col h-full">
-        <div className="mb-4 text-primary">{icon}</div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground mb-4 flex-grow">{description}</p>
-        <Button variant="ghost" className="group w-fit p-0">
-          Read More
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Button>
+        <div className="p-6">
+          <div className="mb-4 text-primary group-hover:!text-white  transition-colors">
+            {icon}
+          </div>
+          <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">
+            {title}
+          </h3>
+          <p className="text-muted-foreground mb-2 flex-grow group-hover:text-white/90 transition-colors">
+            {description}
+          </p>
+        </div>
+        <div className="group bg-[#f9f9ff] dark:bg-[#212121] group-hover:bg-transparent  w-full p-5 group-hover:text-white hover:text-white transition-colors">
+          <Button variant="ghost" className="">
+            Read More
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </div>
       </div>
     </motion.div>
   );

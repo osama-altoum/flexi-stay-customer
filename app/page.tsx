@@ -1,5 +1,5 @@
-import { HeroSection } from "@/components/hero/hero-section";
 import { OurCategory } from "@/components/category/our-category";
+import { HeroSection } from "@/components/hero/hero-section";
 
 export default function Home() {
   return (

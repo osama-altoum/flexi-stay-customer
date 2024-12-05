@@ -17,40 +17,50 @@ const categories = [
   {
     title: "Apartments",
     description: "An apartment is a self-contained housing unit that",
-    icon: <Building2 className="h-8 w-8" />,
-    className:
-      "bg-blue-600 text-white dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600",
+    icon: (
+      <Building2 className="h-10 w-8 text-[#363aed] group-hover:!text-white" />
+    ),
   },
   {
     title: "House",
     description: "A house is a standalone building that is designed for",
-    icon: <Home className="h-8 w-8" />,
+    icon: <Home className="h-12 w-12 text-[#23814b] group-hover:!text-white" />,
   },
   {
     title: "Family",
     description: "A family house is a type of residential building that is",
-    icon: <Users className="h-8 w-8" />,
+    icon: (
+      <Users className="h-12 w-12 text-[#9c742c] group-hover:!text-white " />
+    ),
   },
   {
     title: "Residential",
     description: "Residential refers to buildings or areas that are designed",
-    icon: <Building className="h-8 w-8" />,
+    icon: (
+      <Building className="h-12 w-12 text-[#171717] group-hover:!text-white" />
+    ),
   },
   {
     title: "Industrial",
     description: 'There is no such thing as an "industrial home". Industrial',
-    icon: <Factory className="h-8 w-8" />,
+    icon: (
+      <Factory className="h-12 w-12 text-[#363aed] group-hover:!text-white" />
+    ),
   },
   {
     title: "Commercial",
     description: "Commercial refers to activities, buildings, or areas",
-    icon: <Store className="h-8 w-8" />,
+    icon: (
+      <Store className="h-12 w-12 text-[#23814b] group-hover:!text-white" />
+    ),
   },
   {
     title: "Villas",
     description:
       "A villa is a type of large, luxurious house that is typically",
-    icon: <Landmark className="h-8 w-8" />,
+    icon: (
+      <Landmark className="h-12 w-12  text-[#9c742c]  group-hover:!text-white" />
+    ),
   },
 ];
 
@@ -75,7 +85,7 @@ export function OurCategory() {
           {categories.map((category, index) => (
             <CategoryCard key={category.title} index={index} {...category} />
           ))}
-          <StatsCard />
+          {/* <StatsCard /> */}
         </div>
       </div>
     </section>
