@@ -8,6 +8,8 @@ import { MobileNav } from "./mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 import { Button } from "@/components/ui/button";
+import { UserMenu } from "./user-menu";
+import { FavoritesButton } from "./favorites-button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -39,7 +41,9 @@ export function Header() {
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <Palmtree className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold">Flexi Stay</span>
+              <span className="text-2xl font-bold hidden md:block">
+                Flexi Stay
+              </span>
             </Link>
 
             <div className="hidden md:flex md:items-center md:space-x-6">
@@ -49,9 +53,11 @@ export function Header() {
             <div className="flex items-center space-x-4">
               <LanguageSwitcher />
               <ThemeToggle />
-              <div className="hidden md:block">
+              <FavoritesButton />
+              {/* <div className="hidden md:block">
                 <Button>List Property</Button>
-              </div>
+              </div> */}
+              <UserMenu />
               <MobileNav />
             </div>
           </div>
