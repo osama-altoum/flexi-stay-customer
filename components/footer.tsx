@@ -7,7 +7,7 @@ import { FooterPhone } from "./footer/footer-phone";
 
 export function Footer() {
   return (
-    <footer className="bg-white text-black dark:bg-black dark:text-white">
+    <footer className="bg-white text-black dark:bg-black dark:text-white shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Top Section */}
         <div className="flex justify-between items-center mb-12">

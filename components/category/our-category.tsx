@@ -12,6 +12,7 @@ import {
 import { CategoryCard } from "./category-card";
 import { StatsCard } from "./stats-card";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const categories = [
   {
@@ -65,8 +66,16 @@ const categories = [
 ];
 
 export function OurCategory() {
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
   return (
-    <section className="py-24 bg-muted/30">
+    <section
+      className={`py-24 ${
+        isDarkMode
+          ? "bg-[#121212] bg-[url('/assets/images/bg-top-rate-2.png')]"
+          : "bg-[#fbf7f6] bg-[url('/assets/images/bg-top-rated.png')]"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

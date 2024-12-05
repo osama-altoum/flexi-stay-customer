@@ -163,7 +163,7 @@ export function SearchForm() {
           <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500 invisible">
             Search
           </label>
-          <Button className="w-full bg-black text-white hover:bg-black/90">
+          <Button className="w-full bg-[#363aed] text-white hover:bg-[#363aed55] rounded-lg">
             <Search className="mr-2 h-4 w-4" />
             Search
           </Button>

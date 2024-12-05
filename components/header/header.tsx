@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Palmtree } from "lucide-react";
+import { Facebook, Palmtree } from "lucide-react";
 import { NavMenu } from "./nav-menu";
 import { MobileNav } from "./mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -40,10 +40,17 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <Palmtree className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold hidden md:block">
-                Flexi Stay
-              </span>
+              <Facebook className="h-8 w-8 text-primary" />
+              <div className="relative">
+                {/* Main Text */}
+                <span className="text-2xl md:text-3xl font-extrabold hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+                  Flexi Stay
+                </span>
+                {/* Mirrored Reflection */}
+                <span className="absolute -bottom-5 left-0 w-full text-2xl md:text-3xl font-extrabold hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 opacity-[0.15] transform scale-y-[-1]">
+                  Flexi Stay
+                </span>
+              </div>
             </Link>
 
             <div className="hidden md:flex md:items-center md:space-x-6">

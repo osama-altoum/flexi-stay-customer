@@ -7,43 +7,13 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import slides from "@/data/hero.json";
 
-const slides = [
-  {
-    id: 1,
-    tag: "Discovery the World",
-    title: "Unleash Your Wanderlust",
-    subtitle: "Book Your Next Journey",
-    description:
-      "Crafting Exceptional Journeys: Your Global Escape Planner. Unleash Your Wanderlust: Seamless Travel, Extraordinary Adventures",
-    image:
-      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=2068&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    tag: "Explore Paradise",
-    title: "Adventure Awaits",
-    subtitle: "Create Lasting Memories",
-    description:
-      "Discover breathtaking destinations and unforgettable experiences. Your journey to paradise starts here.",
-    image:
-      "https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?q=80&w=2074&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    tag: "Discover Nature",
-    title: "Embrace the Wild",
-    subtitle: "Find Your Adventure",
-    description:
-      "Experience the raw beauty of nature. Let every destination tell its own unique story through your journey.",
-    image:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop",
-  },
-];
-
-const categories = ["Tours", "Hotels", "Tickets", "Rental", "Activities"];
+const categories = ["Apartments", "Houses", "Villas", "Studios", "Townhouses"];
 
 export function HeroSection() {
+  const { theme } = useTheme();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 5000 }),
   ]);
@@ -87,7 +57,16 @@ export function HeroSection() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: `url("${slide.image}")`,
+                  backgroundImage: `
+                  ${
+                    theme === "dark"
+                      ? "linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0))"
+                      : "linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0))"
+                  }, 
+                  url("${slide.image}")
+                `,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
               >
                 <div className="absolute inset-0 bg-black/40" />

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "tag": "Modern Apartments",
+    "title": "Find Your Perfect Home",
+    "subtitle": "Luxurious Living Spaces",
+    "description": "Explore premium apartments with world-class amenities. Your dream home awaits.",
+    "image": " https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6"
+  },
+  {
+    "id": 2,
+    "tag": "Family Homes",
+    "title": "Discover Spacious Houses",
+    "subtitle": "Comfort for Every Family",
+    "description": "Browse stunning houses designed for family living. Make memories in your new home.",
+    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2074&auto=format&fit=crop"
+  },
+  {
+    "id": 3,
+    "tag": "Exclusive Rentals",
+    "title": "Stylish Spaces for Rent",
+    "subtitle": "Find Your Ideal Property",
+    "description": "Handpicked rentals in prime locations. Start your journey to a new lifestyle today.",
+    "image": "https://www.baltana.com/files/wallpapers-14/House-Wallpaper-HD-36883.jpg"
+  }
+]

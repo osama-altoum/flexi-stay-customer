@@ -25,7 +25,7 @@ export function TopRated() {
       className={`py-24 ${
         isDarkMode
           ? "bg-[#121212] bg-[url('/assets/images/bg-top-rate-2.png')]"
-          : "bg-[#fff4f1] bg-[url('/assets/images/bg-top-rated.png')]"
+          : "bg-[#fbf7f6] bg-[url('/assets/images/bg-top-rated.png')]"
       }`}
     >
       <div className="container mx-auto px-4">
