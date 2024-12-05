@@ -18,11 +18,13 @@ export function SearchForm() {
   const [guests, setGuests] = useState("2 adults, 2 children");
 
   return (
-    <div className="flex flex-col gap-4 p-4 bg-white rounded-lg shadow-lg">
+    <div className="flex flex-col gap-4 p-4 bg-white dark:bg-black dark:text-white rounded-lg shadow-lg">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         {/* Location */}
         <div className="md:col-span-1">
-          <label className="block text-xs text-gray-700 mb-1">Location</label>
+          <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
+            Location
+          </label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -63,7 +65,9 @@ export function SearchForm() {
 
         {/* Check In */}
         <div className="md:col-span-1">
-          <label className="block text-xs text-gray-700 mb-1">Check In</label>
+          <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
+            Check In
+          </label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -87,7 +91,9 @@ export function SearchForm() {
 
         {/* Check Out */}
         <div className="md:col-span-1">
-          <label className="block text-xs text-gray-700 mb-1">Check Out</label>
+          <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
+            Check Out
+          </label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -111,7 +117,9 @@ export function SearchForm() {
 
         {/* Guests */}
         <div className="md:col-span-1">
-          <label className="block text-xs text-gray-700 mb-1">Guests</label>
+          <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
+            Guests
+          </label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -152,7 +160,7 @@ export function SearchForm() {
 
         {/* Search Button */}
         <div className="md:col-span-1">
-          <label className="block text-xs text-gray-700 mb-1 invisible">
+          <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500 invisible">
             Search
           </label>
           <Button className="w-full bg-black text-white hover:bg-black/90">
