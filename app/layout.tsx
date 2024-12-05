@@ -8,8 +8,9 @@ import { Footer } from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Modern Business Solution",
-  description: "Transform your business with our innovative solutions",
+  title: "Flexi Stay: Your Flexible Property Rental Solution",
+  description:
+    "Find and rent properties that fit your needs with Flexi Stay, offering flexible rental options for every lifestyle.",
 };
 
 export default function RootLayout({
