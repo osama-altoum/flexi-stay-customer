@@ -8,30 +8,8 @@ import { motion } from "framer-motion";
 
 interface PropertyCardProps extends TopRatedProperty {
   index: number;
+  amenities: any[];
 }
-
-const amenities = [
-  {
-    icon: Building2,
-    label: "Room",
-    value: "3",
-  },
-  {
-    icon: Bed,
-    label: "Bed",
-    value: "4",
-  },
-  {
-    icon: Bath,
-    label: "Bath",
-    value: "1",
-  },
-  {
-    icon: Maximize,
-    label: "sqft",
-    value: "732",
-  },
-];
 
 export function PropertyCard({
   title,
@@ -41,6 +19,7 @@ export function PropertyCard({
   reviews,
   image,
   index,
+  amenities,
 }: PropertyCardProps) {
   return (
     <motion.div
@@ -83,20 +62,35 @@ export function PropertyCard({
 
         {/* Amenities */}
         <div className="grid grid-cols-4 gap-2 mb-6 py-4 border-y border-gray-200 dark:border-gray-800">
-          {amenities.map((amenity) => (
-            <div
-              key={amenity.label}
-              className="flex flex-col items-center justify-center text-center"
-            >
-              <amenity.icon className="w-5 h-5 mb-1 text-gray-600 dark:text-gray-400" />
-              <div className="text-sm">
-                <span className="font-semibold text-gray-900 dark:text-gray-100">
-                  {amenity.value}
-                </span>{" "}
-                <span className="text-gray-500">{amenity.label}</span>
+          {amenities.map((amenity) => {
+            console.log("amenity", amenity.icon);
+
+            return (
+              <div
+                key={amenity.label}
+                className="flex flex-col items-center justify-center text-center"
+              >
+                {amenity.icon === "Bed" && (
+                  <Bed className="w-5 h-5 mb-1 text-gray-600 dark:text-gray-400" />
+                )}
+                {amenity.icon === "Building2" && (
+                  <Building2 className="w-5 h-5 mb-1 text-gray-600 dark:text-gray-400" />
+                )}
+                {amenity.icon === "Maximize" && (
+                  <Maximize className="w-5 h-5 mb-1 text-gray-600 dark:text-gray-400" />
+                )}
+                {amenity.icon === "Bath" && (
+                  <Bath className="w-5 h-5 mb-1 text-gray-600 dark:text-gray-400" />
+                )}
+                <div className="text-sm">
+                  <span className="font-semibold text-gray-900 dark:text-gray-100">
+                    {amenity.value}
+                  </span>{" "}
+                  <span className="text-gray-500">{amenity.label}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="flex items-center justify-between">

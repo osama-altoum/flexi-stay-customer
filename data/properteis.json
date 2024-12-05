@@ -1,0 +1,250 @@
+[
+  {
+    "id": "1",
+    "title": "Dubai Marina: Luxury Apartments",
+    "location": "Dubai, UAE",
+    "price": 17.32,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "3"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "4"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "1"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "732"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Abu Dhabi Desert Safari",
+    "location": "Abu Dhabi, UAE",
+    "price": 15.63,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "2"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "2"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "1"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "600"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Sharjah Cultural Heritage Tour",
+    "location": "Sharjah, UAE",
+    "price": 48.25,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "4"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "2"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "1000"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Jumeirah Beachfront Villas",
+    "location": "Dubai, UAE",
+    "price": 17.32,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "3"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "1500"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Al Ain Oasis Resort",
+    "location": "Al Ain, UAE",
+    "price": 17.32,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "2"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "3"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "1"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "800"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Fujairah Beachfront Resort",
+    "location": "Fujairah, UAE",
+    "price": 15.63,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "4"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "4"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "2"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "950"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Ras Al Khaimah Luxury Retreat",
+    "location": "Ras Al Khaimah, UAE",
+    "price": 48.25,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "6"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "8"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "1800"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Ajman Beachfront Villas",
+    "location": "Ajman, UAE",
+    "price": 17.32,
+    "rating": 4.96,
+    "reviews": 672,
+    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "amenities": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "3"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "4"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "2"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "1000"
+      }
+    ]
+  }
+]

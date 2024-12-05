@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
-import { topRatedPropertys } from "@/data/top-rated";
+import topRatedPropertys from "@/data/properteis.json";
 
 import { useTheme } from "next-themes";
 import { PropertyCard } from "./property-card";
@@ -36,7 +36,7 @@ export function TopRated() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-2">Top Rated Hotels</h2>
+            <h2 className="text-4xl font-bold mb-2">Top Rated Properties</h2>
             <p className="text-muted-foreground">
               Quality as judged by customers. Book at the ideal price!
             </p>
@@ -67,7 +67,7 @@ export function TopRated() {
           className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {topRatedPropertys.map((property, index) => (
+            {topRatedPropertys?.map((property, index: number) => (
               <CarouselItem
                 key={property.id}
                 className="p-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
