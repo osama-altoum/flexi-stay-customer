@@ -18,9 +18,10 @@ export function SearchForm() {
   const [guests, setGuests] = useState("2 adults, 2 children");
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 p-4 bg-white rounded-lg shadow-lg">
+    <div className="flex flex-col md:flex-row gap-4 px-4 py-6 bg-white rounded-lg shadow-lg">
       {/* Location */}
       <div className="flex-1">
+        <label className="block text-xs text-gray-700 mb-1">Location</label>
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -59,8 +60,11 @@ export function SearchForm() {
         </Popover>
       </div>
 
+      <div className="hidden md:block w-px bg-gray-300 mx-4" />
+
       {/* Check In */}
       <div className="flex-1">
+        <label className="block text-xs text-gray-700 mb-1">Check In</label>
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -82,8 +86,11 @@ export function SearchForm() {
         </Popover>
       </div>
 
+      <div className="hidden md:block w-px bg-gray-300 mx-4" />
+
       {/* Check Out */}
       <div className="flex-1">
+        <label className="block text-xs text-gray-700 mb-1">Check Out</label>
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -105,8 +112,11 @@ export function SearchForm() {
         </Popover>
       </div>
 
+      <div className="hidden md:block w-px bg-gray-300 mx-4" />
+
       {/* Guests */}
       <div className="flex-1">
+        <label className="block text-xs text-gray-700 mb-1">Guests</label>
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -145,11 +155,16 @@ export function SearchForm() {
         </Popover>
       </div>
 
+      <div className="hidden md:block w-px bg-gray-300 mx-4" />
+
       {/* Search Button */}
-      <Button className="bg-black text-white hover:bg-black/90">
-        <Search className="mr-2 h-4 w-4" />
-        Search
-      </Button>
+      <div className="flex-1 md:flex-none">
+        <label className="block text-xs text-gray-700 mb-1">&nbsp;</label>
+        <Button className="w-full bg-black text-white hover:bg-black/90">
+          <Search className="mr-2 h-4 w-4" />
+          Search
+        </Button>
+      </div>
     </div>
   );
 }

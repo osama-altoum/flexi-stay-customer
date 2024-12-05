@@ -33,8 +33,8 @@ const footerSections: FooterSection[] = [
   {
     title: "Services",
     links: [
-      { name: "Tour Guide", href: "/tour-guide" },
-      { name: "Tour Booking", href: "/tour-booking" },
+      { name: "Property Guide", href: "/property-guide" },
+      { name: "Property Booking", href: "/property-booking" },
       { name: "Hotel Booking", href: "/hotel-booking" },
       { name: "Ticket Booking", href: "/ticket-booking" },
       { name: "Rental Services", href: "/rental-services" },

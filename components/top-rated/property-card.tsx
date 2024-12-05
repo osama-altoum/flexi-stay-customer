@@ -2,14 +2,14 @@
 
 import { Heart, MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TopRatedTour } from "@/data/top-rated";
+import { TopRatedProperty } from "@/data/top-rated";
 import { motion } from "framer-motion";
 
-interface TourCardProps extends TopRatedTour {
+interface PropertyCardProps extends TopRatedProperty {
   index: number;
 }
 
-export function TourCard({
+export function PropertyCard({
   title,
   location,
   price,
@@ -17,7 +17,7 @@ export function TourCard({
   reviews,
   image,
   index,
-}: TourCardProps) {
+}: PropertyCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -38,15 +38,18 @@ export function TourCard({
         >
           <Heart className="w-5 h-5 text-gray-600" />
         </button>
-        <div className="absolute bottom-4 left-4 bg-white rounded-full px-3 py-1.5 text-sm flex items-center gap-1.5 shadow-sm">
+        <div className="absolute z-10 shadow-md bottom-4 left-4 bg-white dark:bg-black rounded-full px-3 py-1.5 text-sm flex items-center gap-1.5 ">
           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
           <span className="font-medium">{rating}</span>
           <span className="text-gray-500">({reviews} reviews)</span>
         </div>
       </div>
 
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-3 line-clamp-1 group-hover:text-blue-600 transition-colors">
+      <div
+        className="py-10 px-6 rounded-xl  relative bg-white/90 dark:bg-black/90"
+        style={{ marginTop: "-30px" }}
+      >
+        <h3 className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-blue-600 transition-colors">
           {title}
         </h3>
         <div className="flex items-center gap-2 mb-6 text-gray-500">
