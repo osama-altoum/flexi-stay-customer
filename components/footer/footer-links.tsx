@@ -58,7 +58,7 @@ export function FooterLinks() {
     <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
       {footerSections.map((section) => (
         <div key={section.title}>
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
             {section.title}
           </h3>
           <ul className="space-y-2">
@@ -66,7 +66,7 @@ export function FooterLinks() {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-black transition-colors"
                 >
                   {link.name}
                 </a>
