@@ -1,61 +1,33 @@
-import { Facebook, Instagram, Twitter } from 'lucide-react';
-import Link from 'next/link';
-
-const navigation = {
-  main: [
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Privacy', href: '/privacy' },
-    { name: 'Terms', href: '/terms' },
-  ],
-  social: [
-    {
-      name: 'Facebook',
-      href: '#',
-      icon: Facebook,
-    },
-    {
-      name: 'Instagram',
-      href: '#',
-      icon: Instagram,
-    },
-    {
-      name: 'Twitter',
-      href: '#',
-      icon: Twitter,
-    },
-  ],
-};
+import { FooterLogo } from "./footer/footer-logo";
+import { FooterLinks } from "./footer/footer-links";
+import { FooterContact } from "./footer/footer-contact";
+import { FooterSocial } from "./footer/footer-social";
+import { FooterBottom } from "./footer/footer-bottom";
+import { FooterPhone } from "./footer/footer-phone";
 
 export function Footer() {
   return (
-    <footer className="bg-background">
-      <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-        <nav className="flex flex-wrap justify-center">
-          {navigation.main.map((item) => (
-            <div key={item.name} className="px-6 py-2">
-              <Link href={item.href} className="text-sm">
-                {item.name}
-              </Link>
-            </div>
-          ))}
-        </nav>
-        <div className="mt-8 flex justify-center space-x-6">
-          {navigation.social.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </Link>
-          ))}
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Top Section */}
+        <div className="flex justify-between items-center mb-12">
+          <FooterLogo />
+          <FooterPhone />
         </div>
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Your Company, Inc. All rights reserved.
-        </p>
+
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="lg:col-span-1">
+            <FooterContact />
+            <FooterSocial />
+          </div>
+          <div className="lg:col-span-4">
+            <FooterLinks />
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <FooterBottom />
       </div>
     </footer>
   );

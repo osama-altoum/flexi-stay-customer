@@ -1,14 +1,18 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { MapPin, Calendar as CalendarIcon, Users, Search } from "lucide-react";
 import { format } from "date-fns";
 
 export function SearchForm() {
-  const [location, setLocation] = useState("New York, USA");
+  const [location, setLocation] = useState("Dubai, UAE");
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
   const [guests, setGuests] = useState("2 adults, 2 children");
@@ -32,23 +36,23 @@ export function SearchForm() {
               <Button
                 variant="ghost"
                 className="w-full justify-start"
-                onClick={() => setLocation("New York, USA")}
+                onClick={() => setLocation("Dubai, UAE")}
               >
-                New York, USA
+                Dubai, UAE
               </Button>
               <Button
                 variant="ghost"
                 className="w-full justify-start"
-                onClick={() => setLocation("London, UK")}
+                onClick={() => setLocation("Abu Dhabi, UAE")}
               >
-                London, UK
+                Abu Dhabi, UAE
               </Button>
               <Button
                 variant="ghost"
                 className="w-full justify-start"
-                onClick={() => setLocation("Paris, France")}
+                onClick={() => setLocation("Makkah, Saudi Arabia")}
               >
-                Paris, France
+                Makkah, Saudi Arabia
               </Button>
             </div>
           </PopoverContent>
