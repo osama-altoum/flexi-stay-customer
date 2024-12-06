@@ -8,11 +8,13 @@ import {
   Factory,
   Store,
   Landmark,
+  ArrowRight,
 } from "lucide-react";
 import { CategoryCard } from "./category-card";
 import { StatsCard } from "./stats-card";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import { Button } from "../ui/button";
 
 const categories = [
   {
@@ -77,18 +79,30 @@ export function OurCategory() {
       }`}
     >
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold mb-4">Browse by Category</h2>
-          <p className="text-muted-foreground">
-            Find your perfect property from our wide range of categories
-          </p>
-        </motion.div>
+        <div className="flex justify-between items-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-left mb-12"
+          >
+            <h2 className="text-3xl font-bold mb-4">Browse by Category</h2>
+            <p className="text-muted-foreground">
+              Find your perfect property from our wide range of categories
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Button variant="outline" className="gap-2">
+              View More <ArrowRight className="w-4 h-4" />
+            </Button>
+          </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (

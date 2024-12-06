@@ -52,7 +52,7 @@ export function PropertyCard({
         className="py-6 px-6 rounded-xl relative bg-white/90 dark:bg-black/90"
         style={{ marginTop: "-30px" }}
       >
-        <h3 className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors">
+        <h3 className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors cursor-pointer">
           {title}
         </h3>
         <div className="flex items-center gap-2 mb-4 text-gray-500">
@@ -95,7 +95,7 @@ export function PropertyCard({
 
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-2xl font-bold">${price}</span>
+            <span className="text-2xl font-bold">{price}</span>
             <span className="text-gray-500"> / SAR</span>
           </div>
           <Button
