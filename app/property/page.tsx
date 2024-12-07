@@ -12,7 +12,7 @@ import { PropertyGallery } from "@/components/property/property-gallery";
 
 export default function PropertyDetailsPage() {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-16 bg-muted/50 dark:bg-muted/10 ">
       <PropertyGallery />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
