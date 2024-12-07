@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About", href: "/abou" },
   { name: "Services", href: "/services" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/conta" },
 ];
 
 export function Navbar() {
