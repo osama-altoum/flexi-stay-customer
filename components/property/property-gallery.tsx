@@ -3,17 +3,20 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Grid, Image as ImageIcon } from "lucide-react";
-
-const images = [
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop",
-];
+import { images } from "@/data/images";
+import { ImageLightbox } from "./image-lightbox";
 
 export function PropertyGallery() {
   const [mainImage, setMainImage] = useState(images[0]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const slides = images.map((image) => ({
+    src: image,
+    width: 3840,
+    height: 2560,
+    alt: "Property Image",
+  }));
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -29,6 +32,10 @@ export function PropertyGallery() {
             variant="secondary"
             size="sm"
             className="absolute bottom-4 right-4 gap-2"
+            onClick={() => {
+              setIsOpen(true);
+              setCurrentIndex(images.indexOf(mainImage));
+            }}
           >
             <ImageIcon className="h-4 w-4" />
             <span>View all photos</span>
@@ -52,6 +59,13 @@ export function PropertyGallery() {
           ))}
         </div>
       </div>
+
+      <ImageLightbox
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        slides={slides}
+        currentIndex={currentIndex}
+      />
     </div>
   );
 }
