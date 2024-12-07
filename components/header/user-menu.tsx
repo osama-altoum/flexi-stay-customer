@@ -10,7 +10,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Heart, LogOut, Settings, User } from "lucide-react";
+import { Heart, LogIn, LogOut, Settings, User } from "lucide-react";
+import { AuthButton } from "./auth-button";
 
 export function UserMenu() {
   return (
@@ -52,6 +53,10 @@ export function UserMenu() {
           <span>Settings</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
+        {/* <DropdownMenuItem className="text-green-600">
+          <LogIn className="mr-2 h-4 w-4" />
+          <AuthButton />
+        </DropdownMenuItem> */}
         <DropdownMenuItem className="text-red-600">
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>

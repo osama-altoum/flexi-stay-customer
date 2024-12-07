@@ -12,9 +12,12 @@ import { UserMenu } from "./user-menu";
 import { FavoritesButton } from "./favorites-button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { AuthButton } from "./auth-button";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +67,7 @@ export function Header() {
               {/* <div className="hidden md:block">
                 <Button>List Property</Button>
               </div> */}
-              <UserMenu />
+              {isLoggedIn ? <UserMenu /> : <AuthButton />}
               <MobileNav />
             </div>
           </div>
