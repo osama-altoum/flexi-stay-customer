@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, MapPin, Building2, Bed, Bath, Maximize } from "lucide-react";
+import Link from "next/link";
 
 const bookings = [
   {
@@ -94,7 +95,9 @@ export function BookingsList() {
                 </div>
                 <div className="flex gap-3">
                   <Button variant="outline">View Details</Button>
-                  <Button>Contact Host</Button>
+                  <Link href="/messages">
+                    <Button>Contact Host</Button>
+                  </Link>
                 </div>
               </div>
             </div>
