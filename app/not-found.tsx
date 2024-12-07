@@ -36,10 +36,11 @@ export default function NotFound() {
 
         {/* Text Content */}
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          We Can't Find <span className="text-muted-foreground">This Page</span>
+          We Can&apos;t Find{" "}
+          <span className="text-muted-foreground">This Page</span>
         </h1>
         <p className="text-xl text-muted-foreground mb-8">
-          The page you are looking for doesn't exist or has been moved.
+          The page you are looking for doesn&apos;t exist or has been moved.
         </p>
 
         {/* Action Buttons */}
