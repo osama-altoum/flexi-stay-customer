@@ -22,10 +22,10 @@ const footerSections: FooterSection[] = [
   {
     title: "Company",
     links: [
-      { name: "About Us", href: "/abou" },
+      { name: "About Us", href: "/" },
       { name: "Community Blog", href: "/blog" },
       { name: "Jobs and Careers", href: "/careers" },
-      { name: "Contact Us", href: "/contact" },
+      { name: "Contact Us", href: "/" },
       { name: "Our Awards", href: "/awards" },
       { name: "Agencies", href: "/agencies" },
     ],
