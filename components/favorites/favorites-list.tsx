@@ -111,7 +111,7 @@ export function FavoritesList() {
             <PropertyCard
               {...property}
               index={index}
-              onRemove={() => removeFromFavorites(property.id)}
+              // onRemove={() => removeFromFavorites(property.id)}
             />
           </motion.div>
         ))}
