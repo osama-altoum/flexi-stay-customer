@@ -22,7 +22,7 @@ const footerSections: FooterSection[] = [
   {
     title: "Company",
     links: [
-      { name: "About Us", href: "/about" },
+      { name: "About Us", href: "/abou" },
       { name: "Community Blog", href: "/blog" },
       { name: "Jobs and Careers", href: "/careers" },
       { name: "Contact Us", href: "/contact" },

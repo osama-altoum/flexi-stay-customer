@@ -8,8 +8,8 @@ import Link from "next/link";
 
 const mobileLinks = [
   { name: "Properties", href: "/properties" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "/abou" },
+  { name: "Contact", href: "/conta" },
 ];
 
 export function MobileNav() {
