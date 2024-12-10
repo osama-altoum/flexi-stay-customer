@@ -5,8 +5,6 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import "yet-another-react-lightbox/styles.css";
-// import "yet-another-react-lightbox/plugins/fullscreen.css";
-// import "yet-another-react-lightbox/plugins/zoom.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 interface ImageLightboxProps {
@@ -56,8 +54,8 @@ export function ImageLightbox({
         showToggle: true,
       }}
       render={{
-        buttonPrev: (isFirstImage) => (isFirstImage ? null : undefined),
-        buttonNext: (isLastImage) => (isLastImage ? null : undefined),
+        buttonPrev: () => null, // No button when on the first image
+        buttonNext: () => null, // No button when on the last image
       }}
       styles={{
         container: { backgroundColor: "rgba(0, 0, 0, .9)" },
