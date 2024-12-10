@@ -8,6 +8,7 @@ import { ListingList } from "@/components/listing/listing-list";
 import { ListingViewToggle } from "@/components/listing/listing-view-toggle";
 import { ListingPagination } from "@/components/listing/listing-pagination";
 import properties from "@/data/properteis.json";
+import { useTheme } from "next-themes";
 
 export default function PropertiesPage() {
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -18,9 +19,17 @@ export default function PropertiesPage() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentProperties = properties.slice(startIndex, endIndex);
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
 
   return (
-    <div className="min-h-screen">
+    <div
+      className={`min-h-screen ${
+        isDarkMode
+          ? "bg-[#121212] bg-[url('/assets/images/bg-top-rate-2.png')]"
+          : "bg-[#fbf7f6] bg-[url('/assets/images/bg-top-rated.png')]"
+      }`}
+    >
       <ListingHero />
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-16 py-8">
