@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -16,10 +16,12 @@ import topRatedPropertys from "@/data/properteis.json";
 
 import { useTheme } from "next-themes";
 import { PropertyCard } from "./property-card";
+import { useRouter } from "next/navigation";
 
 export function TopRated() {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
+  const router = useRouter();
   return (
     <section
       className={`py-24 ${
@@ -48,7 +50,13 @@ export function TopRated() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Button variant="outline" className="gap-2">
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={() => {
+                router.push("/properties");
+              }}
+            >
               View More <ArrowRight className="w-4 h-4" />
             </Button>
           </motion.div>
