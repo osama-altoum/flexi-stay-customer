@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Grid, Image as ImageIcon } from "lucide-react";
-import { images } from "@/data/images";
-import { ImageLightbox } from "./image-lightbox";
 
-export function PropertyGallery() {
+import { ImageLightbox } from "./image-lightbox";
+import Image from "next/image";
+
+export function PropertyGallery({ images }: { images: string[] }) {
   const [mainImage, setMainImage] = useState(images[0]);
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,10 +24,11 @@ export function PropertyGallery() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Main Image */}
         <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-          <img
+          <Image
             src={mainImage}
             alt="Property"
-            className="w-full h-full object-cover"
+            fill
+            className=" w-full h-full  object-cover"
           />
           <Button
             variant="secondary"
@@ -50,9 +52,10 @@ export function PropertyGallery() {
               className="relative aspect-square rounded-lg overflow-hidden cursor-pointer"
               onClick={() => setMainImage(image)}
             >
-              <img
+              <Image
                 src={image}
                 alt={`Property ${index + 2}`}
+                fill
                 className="w-full h-full object-cover hover:opacity-90 transition-opacity"
               />
             </div>

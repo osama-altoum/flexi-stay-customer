@@ -33,12 +33,12 @@ interface StepPinConfirmProps {
   address: Address;
 }
 
-export function PropertyLocation() {
+export function PropertyLocation({ map }: any) {
   const { t } = useTranslation();
   const [markerPosition, setMarkerPosition] = useState({
-    lat: 24.480577,
+    lat: map.latitude,
 
-    lng: 54.355738,
+    lng: map.longitude,
   });
 
   const { isLoaded, loadError } = useLoadScript({

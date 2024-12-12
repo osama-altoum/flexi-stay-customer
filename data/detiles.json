@@ -1,0 +1,139 @@
+{
+  "id": "1",
+  "title": "Modern Home",
+  "location": "New York, USA",
+  "price": 17.32,
+  "rating": 4.96,
+  "reviewsTotal": 672,
+  "published": true,
+  "publishedAt": "2022-01-01T00:00:00.000Z",
+
+  "features": [
+    {
+      "icon": "Building2",
+      "label": "Rooms",
+      "value": "3"
+    },
+    {
+      "icon": "Bed",
+      "label": "Beds",
+      "value": "4"
+    },
+    {
+      "icon": "Bath",
+      "label": "Baths",
+      "value": "1"
+    },
+    {
+      "icon": "Maximize",
+      "label": "sqft",
+      "value": "732"
+    }
+  ],
+
+  "amenities": [
+    {
+      "icon": "Wind",
+      "label": "Air Condition"
+    },
+    {
+      "icon": "Wifi",
+      "label": "Free WiFi"
+    },
+    {
+      "icon": "Globe",
+      "label": "Internet"
+    },
+    {
+      "icon": "Clock",
+      "label": "Alarm"
+    },
+    {
+      "icon": "Shirt",
+      "label": "Laundry Room"
+    },
+    {
+      "icon": "Flame",
+      "label": "Flame"
+    },
+    {
+      "icon": "Car",
+      "label": "Car Parking"
+    },
+    {
+      "icon": "Dog",
+      "label": "Pets Allow"
+    },
+    {
+      "icon": "Blinds",
+      "label": "Window Cover"
+    },
+    {
+      "icon": "Dumbbell",
+      "label": "Gym"
+    },
+    {
+      "icon": "Flame",
+      "label": "Heating"
+    },
+    {
+      "icon": "Dumbbell",
+      "label": "Massage"
+    }
+  ],
+
+  "description": "Real estate is typically bought and sold through real estate agents or , who act as intermediaries between buyers and sellers. The real estate industry also includes such as appraisers, inspectors, and attorneys who provide various services related.",
+  "images": [
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+  ],
+
+  "map": {
+    "latitude": 24.480577,
+    "longitude": 54.355738
+  },
+  "video": "https://www.youtube.com/watch?v=24aRYFD5BAQ",
+
+  "reviews": [
+    {
+      "name": "John Doe",
+      "role": "Guest",
+      "rating": 4.5,
+      "date": "Mar 15, 2024",
+      "time": "09:30 am",
+      "content": "Amazing property with stunning views. The host was very accommodating and responsive. Would definitely stay here again!",
+      "replies": [
+        {
+          "name": "Jane Smith",
+          "role": "Host",
+          "date": "Mar 15, 2024",
+          "time": "10:00 am",
+          "content": "Thanks for your kind words! We're glad you enjoyed your stay."
+        }
+      ]
+    }
+  ],
+  "check-in": "2022-01-01T00:00:00.000Z",
+  "check-out": "2022-01-01T00:00:00.000Z",
+  "guests": 2,
+  "children": 1,
+  "nights": 3,
+  "host": {
+    "id": "1",
+    "name": "John Doe",
+    "avatar": "https://github.com/shadcn.png",
+    "phone": "123-456-7890",
+    "email": "xQKZP@example.com",
+    "location": "New York, USA",
+    "rating": 4.5,
+    "reviewsTotal": 12,
+    "property": 24,
+    "joined": "2022-01-01T00:00:00.000Z",
+    "verified": true,
+    "responsiveRate": 100,
+    "communicationRate": 100
+  }
+}
