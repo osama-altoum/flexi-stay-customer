@@ -24,14 +24,14 @@ export default function PropertyDetailsPage() {
             <PropertyAmenities amenities={property.amenities} />
             <PropertyLocation map={property.map} />
             <PropertyVideo video={property.video} />
-            <PropertyReviews />
+            <PropertyReviews property={property} />
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-8">
-              <PropertyBooking />
-              <PropertyHost />
+              <PropertyBooking property={property} />
+              <PropertyHost host={property.host} />
             </div>
           </div>
         </div>

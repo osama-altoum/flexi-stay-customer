@@ -52,7 +52,7 @@ export function ReviewCard({
 
       <p className="text-muted-foreground">{content}</p>
 
-      <div className="flex items-center gap-4">
+      {/* <div className="flex items-center gap-4">
         <Button variant="ghost" size="sm" className="gap-2">
           <ThumbsUp className="h-4 w-4" />
           <span>{likes}</span>
@@ -60,7 +60,7 @@ export function ReviewCard({
         <Button variant="ghost" size="sm" className="text-[#363aed]">
           Reply
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }

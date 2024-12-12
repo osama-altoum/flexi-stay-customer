@@ -1,88 +1,95 @@
 {
   "id": "1",
-  "title": "Modern Home",
-  "location": "New York, USA",
-  "price": 17.32,
-  "rating": 4.96,
-  "reviewsTotal": 672,
+  "title": "Modern Villa in Abu Dhabi",
+  "location": "Abu Dhabi, UAE",
+  "price": 63.67,
+  "serviceCharge": 10,
+  "totalPrice": 73.67,
+  "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+  "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+  "rating": 4.92,
+  "reviewsTotal": 540,
+  "guests": 4,
+  "children": 2,
+  "nights": 5,
   "published": true,
-  "publishedAt": "2022-01-01T00:00:00.000Z",
+  "publishedAt": "2023-05-15T00:00:00.000Z",
 
   "features": [
     {
       "icon": "Building2",
       "label": "Rooms",
-      "value": "3"
+      "value": "5"
     },
     {
       "icon": "Bed",
       "label": "Beds",
-      "value": "4"
+      "value": "6"
     },
     {
       "icon": "Bath",
       "label": "Baths",
-      "value": "1"
+      "value": "4"
     },
     {
       "icon": "Maximize",
       "label": "sqft",
-      "value": "732"
+      "value": "2500"
     }
   ],
 
   "amenities": [
     {
       "icon": "Wind",
-      "label": "Air Condition"
+      "label": "Central Air Conditioning"
     },
     {
       "icon": "Wifi",
-      "label": "Free WiFi"
+      "label": "Free High-Speed WiFi"
     },
     {
       "icon": "Globe",
-      "label": "Internet"
+      "label": "Smart Home System"
     },
     {
       "icon": "Clock",
-      "label": "Alarm"
+      "label": "24/7 Security"
     },
     {
       "icon": "Shirt",
-      "label": "Laundry Room"
+      "label": "Laundry Service"
     },
     {
       "icon": "Flame",
-      "label": "Flame"
+      "label": "Fireplace"
     },
     {
       "icon": "Car",
-      "label": "Car Parking"
+      "label": "Covered Parking"
     },
     {
       "icon": "Dog",
-      "label": "Pets Allow"
+      "label": "Pet-Friendly"
     },
     {
       "icon": "Blinds",
-      "label": "Window Cover"
+      "label": "Blackout Curtains"
     },
     {
       "icon": "Dumbbell",
-      "label": "Gym"
+      "label": "Fitness Center"
     },
     {
       "icon": "Flame",
-      "label": "Heating"
+      "label": "Heating System"
     },
     {
-      "icon": "Dumbbell",
-      "label": "Massage"
+      "icon": "Spa",
+      "label": "Spa Services"
     }
   ],
 
-  "description": "Real estate is typically bought and sold through real estate agents or , who act as intermediaries between buyers and sellers. The real estate industry also includes such as appraisers, inspectors, and attorneys who provide various services related.",
+  "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
   "images": [
     "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
@@ -92,48 +99,49 @@
   ],
 
   "map": {
-    "latitude": 24.480577,
-    "longitude": 54.355738
+    "latitude": 24.453884,
+    "longitude": 54.3773438
   },
-  "video": "https://www.youtube.com/watch?v=24aRYFD5BAQ",
+  "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 
   "reviews": [
     {
-      "name": "John Doe",
-      "role": "Guest",
+      "id": 1,
+      "name": "Ali Mansour",
+      "role": "Architect",
+      "rating": 5,
+      "date": "Nov 12, 2023",
+      "time": "10:45 am",
+      "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+      "likes": 200,
+      "avatar": "https://github.com/octocat.png"
+    },
+    {
+      "id": 2,
+      "name": "Fatima Ahmed",
+      "role": "Software Engineer",
       "rating": 4.5,
-      "date": "Mar 15, 2024",
-      "time": "09:30 am",
-      "content": "Amazing property with stunning views. The host was very accommodating and responsive. Would definitely stay here again!",
-      "replies": [
-        {
-          "name": "Jane Smith",
-          "role": "Host",
-          "date": "Mar 15, 2024",
-          "time": "10:00 am",
-          "content": "Thanks for your kind words! We're glad you enjoyed your stay."
-        }
-      ]
+      "date": "Nov 10, 2023",
+      "time": "14:00 pm",
+      "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+      "likes": 150,
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
     }
   ],
-  "check-in": "2022-01-01T00:00:00.000Z",
-  "check-out": "2022-01-01T00:00:00.000Z",
-  "guests": 2,
-  "children": 1,
-  "nights": 3,
+
   "host": {
-    "id": "1",
-    "name": "John Doe",
+    "id": "2",
+    "name": "khtab Tom",
     "avatar": "https://github.com/shadcn.png",
-    "phone": "123-456-7890",
-    "email": "xQKZP@example.com",
-    "location": "New York, USA",
-    "rating": 4.5,
-    "reviewsTotal": 12,
-    "property": 24,
-    "joined": "2022-01-01T00:00:00.000Z",
+    "phone": "+971-50-123-4567",
+    "email": "omar@example.com",
+    "location": "Abu Dhabi, UAE",
+    "rating": 4.8,
+    "reviewsTotal": 25,
+    "properties": 15,
+    "joined": "2021-03-25T00:00:00.000Z",
     "verified": true,
-    "responsiveRate": 100,
-    "communicationRate": 100
+    "responseRate": 98,
+    "communicationRate": 95
   }
 }

@@ -76,7 +76,7 @@ export function PropertyLocation({ map }: any) {
             ) : (
               <GoogleMap
                 mapContainerStyle={mapContainerStyle}
-                zoom={13}
+                zoom={12}
                 center={markerPosition}
                 options={{
                   disableDefaultUI: true,
