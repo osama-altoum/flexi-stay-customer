@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -7,22 +8,32 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar as CalendarIcon, Users } from "lucide-react";
-import { format } from "date-fns";
+import { format, differenceInDays } from "date-fns";
 
 type Property = {
   price: number;
   guests: number;
   children?: number;
-  nights: number;
-  totalPrice: number;
   serviceCharge: number;
-  checkIn?: string;
-  checkOut?: string;
 };
 
-export function PropertyBooking({ property }: { property: Property }) {
-  const { price, guests, children, nights, totalPrice, serviceCharge } =
-    property;
+export function PropertyBooking({ property }: any) {
+  const { price, guests, children, serviceCharge } = property;
+
+  const [checkIn, setCheckIn] = useState<string | null>(null);
+  const [checkOut, setCheckOut] = useState<string | null>(null);
+  const [nights, setNights] = useState<number>(0);
+
+  const calculateNights = (inDate: string | null, outDate: string | null) => {
+    if (inDate && outDate) {
+      const nightsCount = differenceInDays(new Date(outDate), new Date(inDate));
+      setNights(nightsCount > 0 ? nightsCount : 0);
+    } else {
+      setNights(0);
+    }
+  };
+
+  const totalPrice = nights * price;
 
   return (
     <form className="bg-card rounded-lg border p-6 space-y-6">
@@ -56,9 +67,7 @@ export function PropertyBooking({ property }: { property: Property }) {
                   className="w-full justify-start text-left font-normal"
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {property.checkIn
-                    ? format(new Date(property.checkIn), "PP")
-                    : "Check in"}
+                  {checkIn ? format(new Date(checkIn), "PP") : "Check in"}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
@@ -66,7 +75,10 @@ export function PropertyBooking({ property }: { property: Property }) {
                   type="date"
                   id="checkIn"
                   name="checkIn"
-                  defaultValue={property.checkIn}
+                  onChange={(e) => {
+                    setCheckIn(e.target.value);
+                    calculateNights(e.target.value, checkOut);
+                  }}
                   className="w-full border rounded-md p-2"
                 />
               </PopoverContent>
@@ -79,9 +91,7 @@ export function PropertyBooking({ property }: { property: Property }) {
                   className="w-full justify-start text-left font-normal"
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {property.checkOut
-                    ? format(new Date(property.checkOut), "PP")
-                    : "Check out"}
+                  {checkOut ? format(new Date(checkOut), "PP") : "Check out"}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
@@ -89,7 +99,10 @@ export function PropertyBooking({ property }: { property: Property }) {
                   type="date"
                   id="checkOut"
                   name="checkOut"
-                  defaultValue={property.checkOut}
+                  onChange={(e) => {
+                    setCheckOut(e.target.value);
+                    calculateNights(checkIn, e.target.value);
+                  }}
                   className="w-full border rounded-md p-2"
                 />
               </PopoverContent>

@@ -5,6 +5,8 @@ import { Heart, MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TopRatedProperty } from "@/data/top-rated";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface PropertyCardProps extends TopRatedProperty {
   index: number;
@@ -12,6 +14,7 @@ interface PropertyCardProps extends TopRatedProperty {
 }
 
 export function PropertyCard({
+  id,
   title,
   location,
   price,
@@ -21,6 +24,7 @@ export function PropertyCard({
   index,
   amenities,
 }: PropertyCardProps) {
+  const route = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -30,9 +34,10 @@ export function PropertyCard({
       className="group relative bg-background rounded-3xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={title}
+          fill
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
         />
         <button
@@ -52,7 +57,12 @@ export function PropertyCard({
         className="py-6 px-6 rounded-xl relative bg-white/90 dark:bg-black/90"
         style={{ marginTop: "-30px" }}
       >
-        <h3 className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors cursor-pointer">
+        <h3
+          className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors cursor-pointer"
+          onClick={() => {
+            route.push(`/property/${id}`);
+          }}
+        >
           {title}
         </h3>
         <div className="flex items-center gap-2 mb-4 text-gray-500">

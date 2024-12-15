@@ -35,8 +35,8 @@
     "title": "Abu Dhabi Desert Safari",
     "location": "Abu Dhabi, UAE",
     "price": 15.63,
-    "rating": 4.96,
-    "reviews": 672,
+    "rating": 4.94,
+    "reviews": 12,
     "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     "amenities": [
       {
@@ -96,10 +96,10 @@
     "id": "4",
     "title": "Jumeirah Beachfront Villas",
     "location": "Dubai, UAE",
-    "price": 17.32,
-    "rating": 4.96,
-    "reviews": 672,
-    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "price": 90.32,
+    "rating": 5,
+    "reviews": 2389,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
     "amenities": [
       {
         "icon": "Building2",
@@ -127,10 +127,10 @@
     "id": "5",
     "title": "Al Ain Oasis Resort",
     "location": "Al Ain, UAE",
-    "price": 17.32,
-    "rating": 4.96,
-    "reviews": 672,
-    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "price": 73.29,
+    "rating": 3.63,
+    "reviews": 213,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
     "amenities": [
       {
         "icon": "Building2",
@@ -158,10 +158,10 @@
     "id": "6",
     "title": "Fujairah Beachfront Resort",
     "location": "Fujairah, UAE",
-    "price": 15.63,
-    "rating": 4.96,
-    "reviews": 672,
-    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    "price": 42.6,
+    "rating": 3.33,
+    "reviews": 52,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
     "amenities": [
       {
         "icon": "Building2",
@@ -189,10 +189,10 @@
     "id": "7",
     "title": "Ras Al Khaimah Luxury Retreat",
     "location": "Ras Al Khaimah, UAE",
-    "price": 48.25,
-    "rating": 4.96,
-    "reviews": 672,
-    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+    "price": 78.25,
+    "rating": 3.96,
+    "reviews": 62,
+    "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
     "amenities": [
       {
         "icon": "Building2",
@@ -220,10 +220,10 @@
     "id": "8",
     "title": "Ajman Beachfront Villas",
     "location": "Ajman, UAE",
-    "price": 17.32,
-    "rating": 4.96,
-    "reviews": 672,
-    "image": "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+    "price": 27.32,
+    "rating": 3.62,
+    "reviews": 72,
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop",
     "amenities": [
       {
         "icon": "Building2",

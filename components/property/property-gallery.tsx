@@ -7,12 +7,12 @@ import { Grid, Image as ImageIcon } from "lucide-react";
 import { ImageLightbox } from "./image-lightbox";
 import Image from "next/image";
 
-export function PropertyGallery({ images }: { images: string[] }) {
+export function PropertyGallery({ images }: any) {
   const [mainImage, setMainImage] = useState(images[0]);
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const slides = images.map((image) => ({
+  const slides = images.map((image: string) => ({
     src: image,
     width: 3840,
     height: 2560,
@@ -46,7 +46,7 @@ export function PropertyGallery({ images }: { images: string[] }) {
 
         {/* Thumbnail Grid */}
         <div className="grid grid-cols-2 gap-4">
-          {images.slice(1, 5).map((image, index) => (
+          {images.slice(1, 5).map((image: string, index: number) => (
             <div
               key={index}
               className="relative aspect-square rounded-lg overflow-hidden cursor-pointer"

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
 
-export function PropertyVideo({ video }: { video: string }) {
+export function PropertyVideo({ video }: any) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {

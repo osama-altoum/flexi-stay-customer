@@ -9,21 +9,27 @@ import { PropertyReviews } from "@/components/property/property-reviews";
 import { PropertyBooking } from "@/components/property/property-booking";
 import { PropertyHost } from "@/components/property/property-host";
 import { PropertyGallery } from "@/components/property/property-gallery";
-import property from "@/data/detiles.json";
+import properteis from "@/data/detiles.json";
+// import properteis from "@/data/properteis.json";
+import { useParams } from "next/navigation";
 
 export default function PropertyDetailsPage() {
+  const { id } = useParams();
+
+  const property = properteis.find((property) => property.id === id);
+
   return (
     <div className="min-h-screen pt-16 bg-muted/50 dark:bg-muted/10 ">
-      <PropertyGallery images={property.images} />
+      <PropertyGallery images={property?.images} />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             <PropertyHeader property={property} />
 
-            <PropertyAmenities amenities={property.amenities} />
-            <PropertyLocation map={property.map} />
-            <PropertyVideo video={property.video} />
+            <PropertyAmenities amenities={property?.amenities} />
+            <PropertyLocation map={property?.map} />
+            <PropertyVideo video={property?.video} />
             <PropertyReviews property={property} />
           </div>
 
@@ -31,7 +37,7 @@ export default function PropertyDetailsPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-8">
               <PropertyBooking property={property} />
-              <PropertyHost host={property.host} />
+              <PropertyHost host={property?.host} />
             </div>
           </div>
         </div>
