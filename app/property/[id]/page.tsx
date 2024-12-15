@@ -12,14 +12,23 @@ import { PropertyGallery } from "@/components/property/property-gallery";
 import properteis from "@/data/detiles.json";
 // import properteis from "@/data/properteis.json";
 import { useParams } from "next/navigation";
+import { useTheme } from "next-themes";
 
 export default function PropertyDetailsPage() {
   const { id } = useParams();
 
   const property = properteis.find((property) => property.id === id);
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
 
   return (
-    <div className="min-h-screen pt-16 bg-muted/50 dark:bg-muted/10 ">
+    <div
+      className={`min-h-screen pt-16  ${
+        isDarkMode
+          ? "bg-[#121212] bg-[url('/assets/images/bg-skyward.png')]"
+          : "bg-[#fbf7f6] bg-[url('/assets/images/bg-skyward-1.png')]"
+      }`}
+    >
       <PropertyGallery images={property?.images} />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
