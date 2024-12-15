@@ -1,0 +1,1325 @@
+[
+  {
+    "id": "1",
+    "title": "Dubai Marina: Luxury Apartments",
+    "location": "Dubai, UAE",
+    "price": 17.32,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 4.96,
+    "reviewsTotal": 540,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "2",
+    "title": "Abu Dhabi Desert Safari",
+    "location": "Abu Dhabi, UAE",
+    "price": 15.63,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 4.92,
+    "reviewsTotal": 12,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "3",
+    "title": "Sharjah Cultural Heritage Tour",
+    "location": "Sharjah, UAE",
+    "price": 48.25,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 4.92,
+    "reviewsTotal": 540,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "4",
+    "title": "Jumeirah Beachfront Villas",
+    "location": "Dubai, UAE",
+    "price": 90.32,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 5,
+    "reviewsTotal": 2389,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "5",
+    "title": "Al Ain Oasis Resort",
+    "location": "Al Ain, UAE",
+    "price": 73.29,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 3.63,
+    "reviewsTotal": 213,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=xQfjmQEDfs0",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "6",
+    "title": "Fujairah Beachfront Resort",
+    "location": "Fujairah, UAE",
+    "price": 42.6,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 3.33,
+    "reviewsTotal": 52,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "6",
+    "title": "Fujairah Beachfront Resort",
+    "location": "Fujairah, UAE",
+    "price": 42.6,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 3.33,
+    "reviewsTotal": 52,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "7",
+    "title": "Ras Al Khaimah Luxury Retreat",
+    "location": "Ras Al Khaimah, UAE",
+    "price": 78.25,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 3.96,
+    "reviewsTotal": 62,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  },
+  {
+    "id": "8",
+    "title": "Ajman Beachfront Villas",
+    "location": "Ajman, UAE",
+    "price": 27.32,
+    "serviceCharge": 10,
+    "totalPrice": 73.67,
+    "propertyCheckIn": "2023-05-15T14:00:00.000Z",
+    "propertyCheckOut": "2023-05-20T12:00:00.000Z",
+    "rating": 3.62,
+    "reviewsTotal": 72,
+    "guests": 4,
+    "children": 2,
+    "nights": 5,
+    "published": true,
+    "publishedAt": "2023-05-15T00:00:00.000Z",
+
+    "features": [
+      {
+        "icon": "Building2",
+        "label": "Rooms",
+        "value": "5"
+      },
+      {
+        "icon": "Bed",
+        "label": "Beds",
+        "value": "6"
+      },
+      {
+        "icon": "Bath",
+        "label": "Baths",
+        "value": "4"
+      },
+      {
+        "icon": "Maximize",
+        "label": "sqft",
+        "value": "2500"
+      }
+    ],
+
+    "amenities": [
+      {
+        "icon": "Wind",
+        "label": "Central Air Conditioning"
+      },
+      {
+        "icon": "Wifi",
+        "label": "Free High-Speed WiFi"
+      },
+      {
+        "icon": "Globe",
+        "label": "Smart Home System"
+      },
+      {
+        "icon": "Clock",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "Shirt",
+        "label": "Laundry Service"
+      },
+      {
+        "icon": "Flame",
+        "label": "Fireplace"
+      },
+      {
+        "icon": "Car",
+        "label": "Covered Parking"
+      },
+      {
+        "icon": "Dog",
+        "label": "Pet-Friendly"
+      },
+      {
+        "icon": "Blinds",
+        "label": "Blackout Curtains"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Fitness Center"
+      },
+      {
+        "icon": "Flame",
+        "label": "Heating System"
+      },
+      {
+        "icon": "Spa",
+        "label": "Spa Services"
+      }
+    ],
+
+    "description": "This luxurious villa in Abu Dhabi offers modern amenities and a serene living experience. Located in a prime residential area, it is close to essential services and iconic landmarks.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1549877452-9c387954fbc2?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop"
+    ],
+
+    "map": {
+      "latitude": 24.453884,
+      "longitude": 54.3773438
+    },
+    "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ali Mansour",
+        "role": "Architect",
+        "rating": 5,
+        "date": "Nov 12, 2024",
+        "time": "10:45 am",
+        "content": "This villa offers a perfect blend of luxury and convenience. The location is fantastic, and the amenities are top-notch.",
+        "likes": 200,
+        "avatar": "https://github.com/octocat.png"
+      },
+      {
+        "id": 2,
+        "name": "Fatima Ahmed",
+        "role": "Software Engineer",
+        "rating": 4.5,
+        "date": "Nov 10, 2024",
+        "time": "14:00 pm",
+        "content": "A stunning property with all the comforts you could ask for. Highly recommended for families looking for a modern villa in Abu Dhabi.",
+        "likes": 150,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=faces&fit=crop&w=256&h=256"
+      }
+    ],
+
+    "host": {
+      "id": "2",
+      "name": "khtab Tom",
+      "avatar": "https://github.com/shadcn.png",
+      "phone": "+971-50-123-4567",
+      "email": "omar@example.com",
+      "location": "Abu Dhabi, UAE",
+      "rating": 4.8,
+      "reviewsTotal": 25,
+      "properties": 15,
+      "joined": "2021-03-25T00:00:00.000Z",
+      "verified": true,
+      "responseRate": 98,
+      "communicationRate": 95
+    }
+  }
+]

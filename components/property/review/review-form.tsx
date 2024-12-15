@@ -31,7 +31,7 @@ export function ReviewForm() {
                   star <= (hoveredRating || rating)
                     ? "fill-yellow-400 text-yellow-400"
                     : "text-gray-300 dark:text-gray-600"
-                } transition-colors`}
+                } transition-colors duration-1000 ease-in-out `}
               />
             </button>
           ))}
@@ -40,7 +40,7 @@ export function ReviewForm() {
 
       {/* Form Fields */}
       <div className="space-y-4">
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <label className="text-sm font-medium">Name *</label>
           <Input placeholder="Enter Name.." className="bg-background" />
         </div>
@@ -48,7 +48,7 @@ export function ReviewForm() {
         <div className="space-y-2">
           <label className="text-sm font-medium">Email *</label>
           <Input placeholder="Enter Email.." className="bg-background" />
-        </div>
+        </div> */}
 
         <div className="space-y-2">
           <label className="text-sm font-medium">Review *</label>

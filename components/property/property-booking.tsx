@@ -1,27 +1,47 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { format } from "date-fns";
 import { Calendar as CalendarIcon, Users } from "lucide-react";
-import { useState } from "react";
+import { format, differenceInDays } from "date-fns";
 
-export function PropertyBooking() {
-  const [checkIn, setCheckIn] = useState<Date>();
-  const [checkOut, setCheckOut] = useState<Date>();
+type Property = {
+  price: number;
+  guests: number;
+  children?: number;
+  serviceCharge: number;
+};
+
+export function PropertyBooking({ property }: any) {
+  const { price, guests, children, serviceCharge } = property;
+
+  const [checkIn, setCheckIn] = useState<string | null>(null);
+  const [checkOut, setCheckOut] = useState<string | null>(null);
+  const [nights, setNights] = useState<number>(0);
+
+  const calculateNights = (inDate: string | null, outDate: string | null) => {
+    if (inDate && outDate) {
+      const nightsCount = differenceInDays(new Date(outDate), new Date(inDate));
+      setNights(nightsCount > 0 ? nightsCount : 0);
+    } else {
+      setNights(0);
+    }
+  };
+
+  const totalPrice = nights * price;
 
   return (
-    <div className="bg-card rounded-lg border p-6 space-y-6">
+    <form className="bg-card rounded-lg border p-6 space-y-6">
       <div>
         <h2 className="text-2xl font-semibold mb-2">Price</h2>
         <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold">$399</span>
-          <span className="text-muted-foreground">From</span>
+          <span className="text-3xl font-bold">{price}</span>
+          <span className="text-sm">SAR</span>
         </div>
       </div>
 
@@ -36,7 +56,9 @@ export function PropertyBooking() {
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-medium">Check In - Check Out</label>
+          <label className="text-sm font-medium" htmlFor="checkIn">
+            Check In - Check Out
+          </label>
           <div className="flex gap-2">
             <Popover>
               <PopoverTrigger asChild>
@@ -45,18 +67,23 @@ export function PropertyBooking() {
                   className="w-full justify-start text-left font-normal"
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkIn ? format(checkIn, "PP") : "Check in"}
+                  {checkIn ? format(new Date(checkIn), "PP") : "Check in"}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={checkIn}
-                  onSelect={setCheckIn}
-                  initialFocus
+                <input
+                  type="date"
+                  id="checkIn"
+                  name="checkIn"
+                  onChange={(e) => {
+                    setCheckIn(e.target.value);
+                    calculateNights(e.target.value, checkOut);
+                  }}
+                  className="w-full border rounded-md p-2"
                 />
               </PopoverContent>
             </Popover>
+
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -64,15 +91,19 @@ export function PropertyBooking() {
                   className="w-full justify-start text-left font-normal"
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkOut ? format(checkOut, "PP") : "Check out"}
+                  {checkOut ? format(new Date(checkOut), "PP") : "Check out"}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={checkOut}
-                  onSelect={setCheckOut}
-                  initialFocus
+                <input
+                  type="date"
+                  id="checkOut"
+                  name="checkOut"
+                  onChange={(e) => {
+                    setCheckOut(e.target.value);
+                    calculateNights(checkIn, e.target.value);
+                  }}
+                  className="w-full border rounded-md p-2"
                 />
               </PopoverContent>
             </Popover>
@@ -83,22 +114,24 @@ export function PropertyBooking() {
           <label className="text-sm font-medium">Guests</label>
           <Button variant="outline" className="w-full justify-start">
             <Users className="mr-2 h-4 w-4" />
-            <span>1 Guests</span>
+            <span>{guests || 1} Guests</span>
           </Button>
         </div>
 
         <div className="space-y-4 pt-4 border-t">
           <div className="flex justify-between">
-            <span>$119 × 4 night</span>
-            <span>$1015</span>
+            <span>
+              ${price} × {nights} nights
+            </span>
+            <span>${totalPrice}</span>
           </div>
           <div className="flex justify-between">
             <span>Service charge</span>
-            <span>$10</span>
+            <span>${serviceCharge}</span>
           </div>
           <div className="flex justify-between font-semibold">
             <span>Total</span>
-            <span>$1025</span>
+            <span>${totalPrice + serviceCharge}</span>
           </div>
         </div>
 
@@ -110,12 +143,8 @@ export function PropertyBooking() {
           <Button variant="link" className="h-auto p-0 text-indigo-600">
             Save To Wish List
           </Button>
-          <span>•</span>
-          <Button variant="link" className="h-auto p-0 text-indigo-600">
-            Compare
-          </Button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
