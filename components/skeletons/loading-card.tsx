@@ -13,7 +13,7 @@ export default function LoadingCard({
   return (
     <Card
       key={index}
-      className="overflow-hidden group h-[400px] rounded-lg shadow-md"
+      className="overflow-hidden group h-[450px] w-[350px] rounded-lg shadow-md"
     >
       <CardContent className="p-0 relative">
         {/* Image Skeleton */}

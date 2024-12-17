@@ -26,8 +26,6 @@ export default function PropertiesPage() {
   const { propertyList, propertyLoading, revalidatePropertyList } =
     useGetplaces({ page: 1, pageSize: 9 });
 
-  console.log(propertyList);
-
   return (
     <div
       className={`min-h-screen ${
