@@ -9,6 +9,7 @@ import { ListingViewToggle } from "@/components/listing/listing-view-toggle";
 import { ListingPagination } from "@/components/listing/listing-pagination";
 import properties from "@/data/properteis.json";
 import { useTheme } from "next-themes";
+import { useGetplaces } from "@/api/property";
 
 export default function PropertiesPage() {
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -21,6 +22,9 @@ export default function PropertiesPage() {
   const currentProperties = properties.slice(startIndex, endIndex);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
+
+  const { propertyList, propertyLoading, revalidatePropertyList } =
+    useGetplaces({ page: 1, pageSize: 9 });
 
   return (
     <div
@@ -46,9 +50,15 @@ export default function PropertiesPage() {
             </div>
 
             {view === "grid" ? (
-              <ListingGrid properties={currentProperties} />
+              <ListingGrid
+                properties={propertyList}
+                isLoading={propertyLoading}
+              />
             ) : (
-              <ListingList properties={currentProperties} />
+              <ListingList
+                properties={currentProperties}
+                isLoading={propertyLoading}
+              />
             )}
 
             <ListingPagination

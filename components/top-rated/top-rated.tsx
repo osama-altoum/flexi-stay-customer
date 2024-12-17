@@ -17,11 +17,17 @@ import topRatedPropertys from "@/data/properteis.json";
 import { useTheme } from "next-themes";
 import { PropertyCard } from "./property-card";
 import { useRouter } from "next/navigation";
+import { useGetplaces } from "@/api/property";
+import LoadingCard from "../skeletons/loading-card";
 
 export function TopRated() {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   const router = useRouter();
+
+  const { propertyList, propertyLoading, revalidatePropertyList } =
+    useGetplaces({ page: 1, pageSize: 10 });
+
   return (
     <section
       className={`py-24 ${
@@ -62,6 +68,13 @@ export function TopRated() {
           </motion.div>
         </div>
 
+        <div className="  flex items-center justify-between w-full">
+          {propertyLoading &&
+            Array.from({ length: 4 }).map((_, index) => (
+              <LoadingCard key={index} index={index} />
+            ))}
+        </div>
+
         <Carousel
           opts={{
             align: "start",
@@ -75,14 +88,16 @@ export function TopRated() {
           className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {topRatedPropertys?.map((property, index: number) => (
-              <CarouselItem
-                key={property.id}
-                className="p-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-              >
-                <PropertyCard {...property} index={index} />
-              </CarouselItem>
-            ))}
+            {propertyList &&
+              !propertyLoading &&
+              propertyList?.map((property: any, index: number) => (
+                <CarouselItem
+                  key={property.id}
+                  className="p-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                >
+                  <PropertyCard {...property} index={index} />
+                </CarouselItem>
+              ))}
           </CarouselContent>
           {/* <CarouselPrevious />
           <CarouselNext /> */}
