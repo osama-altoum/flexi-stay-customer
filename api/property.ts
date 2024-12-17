@@ -11,17 +11,50 @@ import {
 
 interface useGetPlacesParams {
   page?: number;
-  limit?: number;
+  pageSize?: number;
+  searchTerm?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  placeTypes?: number[];
+  sortColumn?: string;
+  sortOrder?: "asc" | "desc";
 }
 
-export function useGetplaces({ limit, page }: useGetPlacesParams = {}) {
+export function useGetplaces({
+  page,
+  pageSize,
+  searchTerm,
+  minPrice,
+  maxPrice,
+  placeTypes,
+  sortColumn,
+  sortOrder,
+}: useGetPlacesParams = {}) {
   const queryParams = useMemo(() => {
     const params: Record<string, any> = {};
+
     if (page) params.page = page;
-    if (limit) params.limit = limit;
+    if (pageSize) params.pageSize = pageSize;
+    if (searchTerm) params.searchTerm = searchTerm;
+    if (minPrice !== undefined) params.minPrice = minPrice;
+    if (maxPrice !== undefined) params.maxPrice = maxPrice;
+    if (placeTypes && placeTypes.length > 0) {
+      params.placeTypes = placeTypes.join(","); // Ensure it's a comma-separated string
+    }
+    if (sortColumn) params.sortColumn = sortColumn;
+    if (sortOrder) params.sortOrder = sortOrder;
 
     return params;
-  }, [limit, page]);
+  }, [
+    page,
+    pageSize,
+    searchTerm,
+    minPrice,
+    maxPrice,
+    placeTypes,
+    sortColumn,
+    sortOrder,
+  ]);
 
   const fullUrl = useMemo(
     () => `${endpoints.property.getAll}?${new URLSearchParams(queryParams)}`,

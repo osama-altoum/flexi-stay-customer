@@ -73,7 +73,7 @@ export function PropertyCard({
         {/* Amenities */}
         <div className="grid grid-cols-4 gap-2 mb-6 py-4 border-y border-gray-200 dark:border-gray-800">
           {amenities.map((amenity) => {
-            console.log("amenity", amenity.icon);
+            // console.log("amenity", amenity.icon);
 
             return (
               <div
