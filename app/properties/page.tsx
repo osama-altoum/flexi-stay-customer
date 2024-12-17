@@ -24,7 +24,7 @@ export default function PropertiesPage() {
   const isDarkMode = theme === "dark";
 
   const { propertyList, propertyLoading, revalidatePropertyList } =
-    useGetplaces({ page: 1, pageSize: 10 });
+    useGetplaces({ page: 1, pageSize: 9 });
 
   console.log(propertyList);
 
@@ -53,7 +53,7 @@ export default function PropertiesPage() {
 
             {view === "grid" ? (
               <ListingGrid
-                properties={currentProperties}
+                properties={propertyList}
                 isLoading={propertyLoading}
               />
             ) : (

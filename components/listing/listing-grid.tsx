@@ -16,7 +16,7 @@ export function ListingGrid({ properties, isLoading }: ListingGridProps) {
         ))}
       {properties &&
         !isLoading &&
-        properties.map((property, index) => (
+        properties?.map((property, index) => (
           <PropertyCard key={property.id} {...property} index={index} />
         ))}
     </div>
