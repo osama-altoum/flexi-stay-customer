@@ -1,7 +1,6 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -10,36 +9,53 @@ import {
 
 interface ListingPaginationProps {
   currentPage: number;
-  totalPages: number;
+  total: number;
   onPageChange: (page: number) => void;
 }
 
 export function ListingPagination({
   currentPage,
-  totalPages,
+  total,
   onPageChange,
 }: ListingPaginationProps) {
+  if (total <= 1) return null;
+
+  const handlePageChange = (page: number) => {
+    if (page > 0 && page <= total) {
+      onPageChange(page);
+    }
+  };
+
   return (
     <Pagination className="mt-8">
       <PaginationContent>
-        <PaginationItem>
+        {/* Previous Button */}
+        <PaginationItem className="cursor-pointer">
           <PaginationPrevious
-            onClick={() => onPageChange(Math.max(1, currentPage - 1))}
+            onClick={() => handlePageChange(currentPage - 1)}
+            className={currentPage === 1 ? "disabled" : ""}
+            aria-disabled={currentPage === 1}
           />
         </PaginationItem>
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <PaginationItem key={page}>
+
+        {/* Page Numbers */}
+        {Array.from({ length: total }, (_, i) => i + 1).map((page) => (
+          <PaginationItem key={page} className="cursor-pointer ">
             <PaginationLink
-              onClick={() => onPageChange(page)}
+              onClick={() => handlePageChange(page)}
               isActive={page === currentPage}
             >
               {page}
             </PaginationLink>
           </PaginationItem>
         ))}
-        <PaginationItem>
+
+        {/* Next Button */}
+        <PaginationItem className="cursor-pointer">
           <PaginationNext
-            onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+            onClick={() => handlePageChange(currentPage + 1)}
+            className={currentPage === total ? "disabled" : ""}
+            aria-disabled={currentPage === total}
           />
         </PaginationItem>
       </PaginationContent>
