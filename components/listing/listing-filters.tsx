@@ -14,26 +14,14 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import {
-  Home,
-  Building2,
-  Hotel,
-  Building,
-  Dumbbell,
-  Car,
-  Wifi,
-  Wind,
-  DollarSign,
-  Star,
-  Bed,
-} from "lucide-react";
+import { Home, Building2, DollarSign } from "lucide-react";
 
 const propertyTypes = [
   { label: "House", icon: Home },
   { label: "Apartment", icon: Building2 },
 ];
 
-export function ListingFilters() {
+export function ListingFilters({ filters }: any) {
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
@@ -145,25 +133,6 @@ export function ListingFilters() {
 
         {/* Amenities */}
       </Accordion>
-
-      {/* Footer */}
-      <div className="p-6 border-t bg-muted/50">
-        <div className="flex gap-4">
-          <Button
-            variant="outline"
-            className="flex-1"
-            onClick={() => {
-              setSelectedTypes([]);
-              setSelectedAmenities([]);
-              setPriceRange([0, 1000]);
-              setSelectedRating(null);
-            }}
-          >
-            Reset All
-          </Button>
-          <Button className="flex-1">Apply Filters</Button>
-        </div>
-      </div>
     </motion.div>
   );
 }

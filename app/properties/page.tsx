@@ -14,16 +14,29 @@ export default function PropertiesPage() {
   const { theme } = useTheme();
   const [view, setView] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; // Correct page size
+  const itemsPerPage = 6;
 
   const isDarkMode = theme === "dark";
+
+  const [filters, setFilters] = useState({
+    searchTerm: "",
+    minPrice: 0,
+    maxPrice: 1000,
+    placeTypes: [] as string[],
+    sortColumn: "",
+    sortOrder: "",
+  });
 
   const {
     propertyList = [],
     propertyLoading,
     revalidatePropertyList,
     totalPages,
-  } = useGetplaces({ page: currentPage, pageSize: itemsPerPage });
+  } = useGetplaces({
+    page: currentPage,
+    pageSize: itemsPerPage,
+    ...filters,
+  });
 
   const totalItems = Math.ceil(totalPages / itemsPerPage);
 
@@ -39,7 +52,7 @@ export default function PropertiesPage() {
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-16 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-          <ListingFilters />
+          <ListingFilters filters={filters} onChange={setFilters} />
           <div className="flex-1 w-full">
             <div className="flex justify-between items-center mb-6">
               <p className="text-muted-foreground">
