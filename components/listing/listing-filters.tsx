@@ -20,7 +20,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { motion } from "framer-motion";
-import { Home, Building2, DollarSign, Search, SortAsc } from "lucide-react";
+import {
+  Home,
+  Building2,
+  DollarSign,
+  Search,
+  SortAsc,
+  RefreshCcw,
+} from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -103,15 +110,20 @@ export function ListingFilters({ filters, onChange }: any) {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <Badge
-                  variant={
-                    getTotalFilters() === 0 ? "secondary" : "destructive"
-                  }
-                  className="font-normal cursor-pointer"
-                  onClick={handleReset}
-                >
-                  {getTotalFilters()} Selected
-                </Badge>
+                <div className="flex items-center gap-1">
+                  <Badge
+                    variant={
+                      getTotalFilters() === 0 ? "secondary" : "destructive"
+                    }
+                    className="font-normal cursor-pointer"
+                  >
+                    {getTotalFilters()} Selected
+                  </Badge>
+                  <RefreshCcw
+                    className="w-6 h-6  cursor-pointer hover:bg-gray-300 p-1 rounded-full"
+                    onClick={handleReset}
+                  />
+                </div>
               </TooltipTrigger>
               <TooltipContent>Reset filters</TooltipContent>
             </Tooltip>
