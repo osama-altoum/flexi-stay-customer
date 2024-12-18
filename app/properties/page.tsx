@@ -20,8 +20,8 @@ export default function PropertiesPage() {
 
   const [filters, setFilters] = useState({
     searchTerm: "",
-    minPrice: 0,
-    maxPrice: 1000,
+    minPrice: "",
+    maxPrice: "",
     placeTypes: [] as string[],
     sortColumn: "",
     sortOrder: "",

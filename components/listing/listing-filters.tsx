@@ -88,13 +88,24 @@ export function ListingFilters({ filters, onChange }: any) {
   const getTotalFilters = () => {
     return (
       filters.placeTypes.length +
-      (filters.minPrice > 0 || filters.maxPrice < 1000 ? 1 : 0) +
+      ((filters.minPrice > 0 && filters.minPrice !== "") ||
+      (filters.maxPrice < 1000 && filters.maxPrice !== "")
+        ? 1
+        : 0) +
       (filters.searchTerm ? 1 : 0)
     );
   };
 
   const handleReset = () => {
-    onChange({ placeTypes: [], minPrice: 0, maxPrice: 1000, searchTerm: "" });
+    onChange({
+      placeTypes: [],
+      minPrice: "",
+      maxPrice: "",
+      searchTerm: "",
+      sortColumn: "",
+      sortOrder: "",
+      sortOptions: [],
+    });
   };
 
   return (
@@ -171,8 +182,8 @@ export function ListingFilters({ filters, onChange }: any) {
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="flex-1 space-y-1">
-                  <Label>Min Price</Label>
                   <Input
+                    placeholder="Min Price"
                     type="number"
                     value={filters.minPrice}
                     onChange={(e) =>
@@ -182,8 +193,8 @@ export function ListingFilters({ filters, onChange }: any) {
                   />
                 </div>
                 <div className="flex-1 space-y-1">
-                  <Label>Max Price</Label>
                   <Input
+                    placeholder="Max Price"
                     type="number"
                     value={filters.maxPrice}
                     onChange={(e) =>
