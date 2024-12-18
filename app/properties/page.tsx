@@ -11,18 +11,18 @@ import { useGetplaces } from "@/api/property";
 import { ListingFilters } from "@/components/listing/listing-filters";
 
 export default function PropertiesPage() {
+  const { theme } = useTheme();
   const [view, setView] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; // Correct page size
 
-  const { theme } = useTheme();
   const isDarkMode = theme === "dark";
 
   const {
     propertyList = [],
     propertyLoading,
     revalidatePropertyList,
-    totalPages, // Ensure the API provides total items
+    totalPages,
   } = useGetplaces({ page: currentPage, pageSize: itemsPerPage });
 
   const totalItems = Math.ceil(totalPages / itemsPerPage);
@@ -43,7 +43,8 @@ export default function PropertiesPage() {
           <div className="flex-1 w-full">
             <div className="flex justify-between items-center mb-6">
               <p className="text-muted-foreground">
-                Showing {itemsPerPage} of {totalPages} properties
+                Showing {currentPage} - {itemsPerPage} of {totalPages}{" "}
+                properties
               </p>
               <ListingViewToggle view={view} onViewChange={setView} />
             </div>

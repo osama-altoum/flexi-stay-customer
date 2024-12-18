@@ -31,6 +31,23 @@ import {
 const propertyTypes = [
   { label: "House", icon: Home },
   { label: "Apartment", icon: Building2 },
+  { label: "Villa", icon: Hotel },
+  { label: "Condo", icon: Building },
+];
+
+const amenities = [
+  { id: "pool", label: "Swimming Pool", icon: Bed },
+  { id: "gym", label: "Gym", icon: Dumbbell },
+  { id: "parking", label: "Parking", icon: Car },
+  { id: "wifi", label: "WiFi", icon: Wifi },
+  { id: "ac", label: "Air Conditioning", icon: Wind },
+];
+
+const ratings = [
+  { value: 5, label: "5 Stars" },
+  { value: 4, label: "4+ Stars" },
+  { value: 3, label: "3+ Stars" },
+  { value: 2, label: "2+ Stars" },
 ];
 
 export function ListingFilters() {
@@ -42,6 +59,14 @@ export function ListingFilters() {
   const handleTypeToggle = (type: string) => {
     setSelectedTypes((prev) =>
       prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    );
+  };
+
+  const handleAmenityToggle = (amenityId: string) => {
+    setSelectedAmenities((prev) =>
+      prev.includes(amenityId)
+        ? prev.filter((a) => a !== amenityId)
+        : [...prev, amenityId]
     );
   };
 
@@ -88,6 +113,13 @@ export function ListingFilters() {
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="space-y-4">
+              <Slider
+                value={priceRange}
+                onValueChange={setPriceRange}
+                max={1000}
+                step={10}
+                className="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
+              />
               <div className="flex items-center gap-4">
                 <div className="flex-1 space-y-1">
                   <Label>Min Price</Label>
@@ -112,6 +144,41 @@ export function ListingFilters() {
                   />
                 </div>
               </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Rating */}
+        <AccordionItem value="rating" className="border-none">
+          <AccordionTrigger className="hover:no-underline py-3 rounded-lg hover:bg-muted/50">
+            <div className="flex items-center gap-2">
+              <Star className="w-5 h-5 text-primary" />
+              <span>Rating</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="space-y-3">
+              {ratings.map(({ value, label }) => (
+                <Button
+                  key={value}
+                  variant={selectedRating === value ? "default" : "outline"}
+                  className="w-full justify-start gap-2"
+                  onClick={() =>
+                    setSelectedRating(selectedRating === value ? null : value)
+                  }
+                >
+                  <div className="flex items-center gap-1">
+                    <Star
+                      className={`w-4 h-4 ${
+                        selectedRating === value
+                          ? "fill-white text-white"
+                          : "fill-yellow-400 text-yellow-400"
+                      }`}
+                    />
+                    <span>{label}</span>
+                  </div>
+                </Button>
+              ))}
             </div>
           </AccordionContent>
         </AccordionItem>
@@ -144,6 +211,36 @@ export function ListingFilters() {
         </AccordionItem>
 
         {/* Amenities */}
+        <AccordionItem value="amenities" className="border-none">
+          <AccordionTrigger className="hover:no-underline py-3 rounded-lg hover:bg-muted/50">
+            <div className="flex items-center gap-2">
+              <Bed className="w-5 h-5 text-primary" />
+              <span>Amenities</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pt-4">
+            <div className="space-y-4">
+              {amenities.map(({ id, label, icon: Icon }) => (
+                <div key={id} className="flex items-start space-x-3">
+                  <Checkbox
+                    id={id}
+                    checked={selectedAmenities.includes(id)}
+                    onCheckedChange={() => handleAmenityToggle(id)}
+                  />
+                  <div className="grid gap-1.5 leading-none">
+                    <label
+                      htmlFor={id}
+                      className="flex items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                    >
+                      <Icon className="w-4 h-4 text-muted-foreground" />
+                      {label}
+                    </label>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
 
       {/* Footer */}
