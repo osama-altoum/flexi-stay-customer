@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Slider } from "@/components/ui/slider";
 import {
   Accordion,
   AccordionContent,
@@ -13,19 +12,33 @@ import {
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { motion } from "framer-motion";
-import { Home, Building2, DollarSign } from "lucide-react";
+import { Home, Building2, DollarSign, Search, SortAsc } from "lucide-react";
 
 const propertyTypes = [
   { label: "House", icon: Home },
   { label: "Apartment", icon: Building2 },
 ];
 
+const sortOptions = [
+  "Price (Low to High)",
+  "Price (High to Low)",
+  "Rating",
+  "Newest Listings",
+];
+
 export function ListingFilters({ filters }: any) {
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
-  const [selectedRating, setSelectedRating] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState<string | null>(null);
 
   const handleTypeToggle = (type: string) => {
     setSelectedTypes((prev) =>
@@ -36,9 +49,8 @@ export function ListingFilters({ filters }: any) {
   const getTotalFilters = () => {
     return (
       selectedTypes.length +
-      selectedAmenities.length +
-      (selectedRating ? 1 : 0) +
-      (priceRange[0] > 0 || priceRange[1] < 1000 ? 1 : 0)
+      (priceRange[0] > 0 || priceRange[1] < 1000 ? 1 : 0) +
+      (searchQuery ? 1 : 0)
     );
   };
 
@@ -61,9 +73,28 @@ export function ListingFilters({ filters }: any) {
         </p>
       </div>
 
+      {/* Search Input */}
+      <div className="px-6 py-4">
+        <Label htmlFor="search" className="text-sm font-medium">
+          Search
+        </Label>
+        <div className="flex items-center gap-2 mt-2 border border-input rounded-lg px-3 py-2">
+          <Input
+            id="search"
+            type="text"
+            placeholder="Search by keyword"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="h-9 flex-1 border-none focus:border-none focus-visible:border-none focus-visible:ring-0"
+          />
+          <Search className="w-5 h-5 text-muted-foreground" />
+        </div>
+      </div>
+
+      {/* Filter Categories */}
       <Accordion
         type="multiple"
-        defaultValue={["price", "type", "amenities", "rating"]}
+        defaultValue={["price", "type"]}
         className="px-6 py-4"
       >
         {/* Price Range */}
@@ -131,7 +162,25 @@ export function ListingFilters({ filters }: any) {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Amenities */}
+        {/* Sort Options */}
+        <div className="px-6 py-4">
+          <Label htmlFor="sort" className="text-sm font-medium">
+            Sort By
+          </Label>
+          <Select onValueChange={(value) => setSortOption(value)}>
+            <SelectTrigger id="sort" className="w-full mt-2">
+              <SortAsc className="w-5 h-5 text-muted-foreground mr-2" />
+              <SelectValue placeholder="Select option" />
+            </SelectTrigger>
+            <SelectContent>
+              {sortOptions.map((option) => (
+                <SelectItem key={option} value={option}>
+                  {option}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </Accordion>
     </motion.div>
   );
