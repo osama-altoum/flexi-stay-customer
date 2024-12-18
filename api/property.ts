@@ -29,7 +29,7 @@ export function useGetplaces({
   placeTypes,
   sortColumn,
   sortOrder,
-}: useGetPlacesParams = {}) {
+}: any = {}) {
   const queryParams = useMemo(() => {
     const params: Record<string, any> = {};
 

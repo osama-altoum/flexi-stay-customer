@@ -52,7 +52,12 @@ export default function PropertiesPage() {
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-16 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-          <ListingFilters filters={filters} onChange={setFilters} />
+          <ListingFilters
+            filters={filters}
+            onChange={(updatedFilters: any) =>
+              setFilters((prev) => ({ ...prev, ...updatedFilters }))
+            }
+          />
           <div className="flex-1 w-full">
             <div className="flex justify-between items-center mb-6">
               <p className="text-muted-foreground">

@@ -21,10 +21,22 @@ import {
 } from "@/components/ui/select";
 import { motion } from "framer-motion";
 import { Home, Building2, DollarSign, Search, SortAsc } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 
-const propertyTypes = [
-  { label: "House", icon: Home },
-  { label: "Apartment", icon: Building2 },
+type PropertyType = {
+  value: number;
+  label: string;
+  icon: React.ElementType;
+};
+
+const propertyTypes: PropertyType[] = [
+  { value: 1, label: "House", icon: Home },
+  { value: 2, label: "Apartment", icon: Building2 },
 ];
 
 const sortOptions = [
@@ -34,24 +46,48 @@ const sortOptions = [
   "Newest Listings",
 ];
 
-export function ListingFilters({ filters }: any) {
-  const [priceRange, setPriceRange] = useState([0, 1000]);
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortOption, setSortOption] = useState<string | null>(null);
+export function ListingFilters({ filters, onChange }: any) {
+  const handleTypeToggle = (type: number) => {
+    // If the type is already selected, deselect it; otherwise, select it as the only type
+    const updatedTypes = filters.placeTypes.includes(type)
+      ? [] // Deselect the type
+      : [type]; // Select the type as the only one
 
-  const handleTypeToggle = (type: string) => {
-    setSelectedTypes((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
-    );
+    // Call the onChange function with the updated placeTypes
+    onChange({ placeTypes: updatedTypes });
+  };
+
+  const handlePriceChange = (min: number, max: number) => {
+    onChange({ minPrice: min, maxPrice: max });
+  };
+
+  const handleSearchChange = (query: string) => {
+    onChange({ searchTerm: query });
+  };
+
+  const handleSortChange = (sortOption: string) => {
+    const [column, order] =
+      sortOption === "Price (Low to High)"
+        ? ["price", "asc"]
+        : sortOption === "Price (High to Low)"
+        ? ["price", "desc"]
+        : sortOption === "Rating"
+        ? ["rating", "desc"]
+        : ["createdAt", "desc"];
+
+    onChange({ sortColumn: column, sortOrder: order });
   };
 
   const getTotalFilters = () => {
     return (
-      selectedTypes.length +
-      (priceRange[0] > 0 || priceRange[1] < 1000 ? 1 : 0) +
-      (searchQuery ? 1 : 0)
+      filters.placeTypes.length +
+      (filters.minPrice > 0 || filters.maxPrice < 1000 ? 1 : 0) +
+      (filters.searchTerm ? 1 : 0)
     );
+  };
+
+  const handleReset = () => {
+    onChange({ placeTypes: [], minPrice: 0, maxPrice: 1000, searchTerm: "" });
   };
 
   return (
@@ -64,9 +100,22 @@ export function ListingFilters({ filters }: any) {
       <div className="p-6 border-b">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-xl font-semibold">Filters</h2>
-          <Badge variant="secondary" className="font-normal">
-            {getTotalFilters()} Selected
-          </Badge>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Badge
+                  variant={
+                    getTotalFilters() === 0 ? "secondary" : "destructive"
+                  }
+                  className="font-normal cursor-pointer"
+                  onClick={handleReset}
+                >
+                  {getTotalFilters()} Selected
+                </Badge>
+              </TooltipTrigger>
+              <TooltipContent>Reset filters</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
         <p className="text-sm text-muted-foreground">
           Refine your search results
@@ -75,16 +124,17 @@ export function ListingFilters({ filters }: any) {
 
       {/* Search Input */}
       <div className="px-6 py-4">
-        <Label htmlFor="search" className="text-sm font-medium">
-          Search
-        </Label>
+        <div className="flex items-center gap-2">
+          <Search className="w-5 h-5 text-primary" />
+          <span>Search</span>
+        </div>
         <div className="flex items-center gap-2 mt-2 border border-input rounded-lg px-3 py-2">
           <Input
             id="search"
             type="text"
             placeholder="Search by keyword"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={filters.searchTerm}
+            onChange={(e) => handleSearchChange(e.target.value)}
             className="h-9 flex-1 border-none focus:border-none focus-visible:border-none focus-visible:ring-0"
           />
           <Search className="w-5 h-5 text-muted-foreground" />
@@ -112,9 +162,9 @@ export function ListingFilters({ filters }: any) {
                   <Label>Min Price</Label>
                   <Input
                     type="number"
-                    value={priceRange[0]}
+                    value={filters.minPrice}
                     onChange={(e) =>
-                      setPriceRange([+e.target.value, priceRange[1]])
+                      handlePriceChange(+e.target.value, filters.maxPrice)
                     }
                     className="h-9"
                   />
@@ -123,9 +173,9 @@ export function ListingFilters({ filters }: any) {
                   <Label>Max Price</Label>
                   <Input
                     type="number"
-                    value={priceRange[1]}
+                    value={filters.maxPrice}
                     onChange={(e) =>
-                      setPriceRange([priceRange[0], +e.target.value])
+                      handlePriceChange(filters.minPrice, +e.target.value)
                     }
                     className="h-9"
                   />
@@ -145,14 +195,14 @@ export function ListingFilters({ filters }: any) {
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="grid grid-cols-2 gap-3">
-              {propertyTypes.map(({ label, icon: Icon }) => (
+              {propertyTypes.map(({ value, label, icon: Icon }) => (
                 <Button
-                  key={label}
+                  key={value}
                   variant={
-                    selectedTypes.includes(label) ? "default" : "outline"
+                    filters.placeTypes.includes(value) ? "default" : "outline"
                   }
                   className="justify-start gap-2 h-auto py-3"
-                  onClick={() => handleTypeToggle(label)}
+                  onClick={() => handleTypeToggle(value)}
                 >
                   <Icon className="w-4 h-4" />
                   <span className="text-sm">{label}</span>
@@ -161,27 +211,27 @@ export function ListingFilters({ filters }: any) {
             </div>
           </AccordionContent>
         </AccordionItem>
-
-        {/* Sort Options */}
-        <div className="px-6 py-4">
-          <Label htmlFor="sort" className="text-sm font-medium">
-            Sort By
-          </Label>
-          <Select onValueChange={(value) => setSortOption(value)}>
-            <SelectTrigger id="sort" className="w-full mt-2">
-              <SortAsc className="w-5 h-5 text-muted-foreground mr-2" />
-              <SelectValue placeholder="Select option" />
-            </SelectTrigger>
-            <SelectContent>
-              {sortOptions.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
       </Accordion>
+
+      {/* Sort Options */}
+      <div className="px-6 py-4">
+        <Label htmlFor="sort" className="text-sm font-medium">
+          Sort By
+        </Label>
+        <Select onValueChange={(value) => handleSortChange(value)}>
+          <SelectTrigger id="sort" className="w-full mt-2">
+            <SortAsc className="w-5 h-5 text-muted-foreground mr-2" />
+            <SelectValue placeholder="Select option" />
+          </SelectTrigger>
+          <SelectContent>
+            {sortOptions.map((option) => (
+              <SelectItem key={option} value={option}>
+                {option}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
     </motion.div>
   );
 }
