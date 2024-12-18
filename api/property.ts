@@ -29,7 +29,7 @@ export function useGetplaces({
   placeTypes,
   sortColumn,
   sortOrder,
-}: useGetPlacesParams = {}) {
+}: any = {}) {
   const queryParams = useMemo(() => {
     const params: Record<string, any> = {};
 
@@ -82,9 +82,9 @@ export function useGetplaces({
       propertyError: error,
       propertyValidating: isValidating,
       propertyEmpty: propertyData.length === 0,
-      totalPages: data?.total || 0,
+      totalPages: data?.count || 0,
     };
-  }, [data?.data, data?.total, error, isLoading, isValidating]);
+  }, [data?.data, data?.count, error, isLoading, isValidating]);
 
   return {
     ...memoizedValue,
