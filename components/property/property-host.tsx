@@ -16,7 +16,23 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { format } from "date-fns";
 
-export function PropertyHost({ host }: { host: any }) {
+const host = {
+  id: "2",
+  name: "Khtab Tom",
+  avatar: "https://github.com/shadcn.png",
+  phone: "+971-50-123-4567",
+  email: "omar@example.com",
+  location: "Abu Dhabi, UAE",
+  rating: 4.8,
+  reviewsTotal: 25,
+  properties: 15,
+  joined: "2021-03-25T00:00:00.000Z",
+  verified: true,
+  responseRate: 98,
+  communicationRate: 95,
+};
+
+export function PropertyHost() {
   return (
     <div className="p-8 bg-card rounded-xl border shadow-sm text-center">
       {/* Host Avatar */}

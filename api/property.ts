@@ -91,3 +91,39 @@ export function useGetplaces({
     revalidatePropertyList,
   };
 }
+
+export function useGetPlaceDetails({ placeId }: any = {}) {
+  const fullUrl = useMemo(
+    () => `${endpoints.property.getPlaceDetails}/${placeId}`,
+    [placeId]
+  );
+
+  const { data, error, isLoading, isValidating } = useSWR(
+    fullUrl,
+    flexiStayFetcher,
+    {
+      revalidateOnFocus: false,
+    }
+  );
+
+  const revalidatePropertyDetails = () => {
+    mutate(fullUrl);
+  };
+
+  // Memoize the return value for performance
+  const memoizedValue = useMemo(() => {
+    const propertyDetailsData = data?.data || [];
+    return {
+      propertyDetails: propertyDetailsData,
+      propertyDetailsLoading: isLoading,
+      propertyDetailsError: error,
+      propertyDetailsValidating: isValidating,
+      propertyDetailsEmpty: propertyDetailsData.length === 0,
+    };
+  }, [data?.data, error, isLoading, isValidating]);
+
+  return {
+    ...memoizedValue,
+    revalidatePropertyDetails,
+  };
+}

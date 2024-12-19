@@ -96,5 +96,6 @@ export const endpoints = {
 
   property: {
     getAll: "api/v1/places",
+    getPlaceDetails: "api/v1/places",
   },
 };

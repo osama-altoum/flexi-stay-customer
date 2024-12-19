@@ -4,6 +4,21 @@ import { Button } from "@/components/ui/button";
 import * as Icons from "lucide-react"; // Import all icons as an object
 import { format } from "date-fns";
 
+import { Building2, Bed, Bath, Maximize } from "lucide-react";
+
+const AmenityItem = ({ icon, value, label }: any) => (
+  <div className="flex   gap-1 items-center justify-center text-center">
+    {React.cloneElement(icon, {
+      className: "h-5 w-5 text-indigo-600",
+    })}
+
+    <div className="">
+      <span className="font-semibold">{value}</span>{" "}
+      <span className="text-muted-foreground">{label}</span>
+    </div>
+  </div>
+);
+
 export function PropertyHeader({ property }: any) {
   return (
     <>
@@ -27,45 +42,49 @@ export function PropertyHeader({ property }: any) {
         </div>
 
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">{property.title}</h1>
+          <h1 className="text-2xl font-bold">
+            {property.placeTypeId === 1 ? "House" : "Apartment"} :{" "}
+            {property.title}
+          </h1>
           <div className="flex items-center gap-2">
             <Icons.MapPin className="h-4 w-4" />
-            <span className="text-muted-foreground">{property.location}</span>
+            <span className="text-muted-foreground">
+              {property.city} , {property.country}
+            </span>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            <span className="text-indigo-600">ID: {property.id}</span>
+            <span className="text-indigo-600">
+              Apartment No: {property.apartmentNo}
+            </span>
           </div>
           <div className="flex items-center gap-1">
             <Icons.Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span>
-              {property.rating} ({property.reviewsTotal} reviews)
-            </span>
+            <span>4.8 (2341) reviews</span>
           </div>
           <div>
-            Published: {format(new Date(property.publishedAt), "MMM d, yyyy")}
+            Published:
+            {property?.createdAt
+              ? format(new Date(property.createdAt), "MMM d, yyyy")
+              : "Unknown date"}
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-8 pt-4 border-t">
-          {property.features.map(
-            (feature: {
-              icon: keyof typeof Icons;
-              label: string;
-              value: string;
-            }) => {
-              const Icon = Icons[feature.icon] as React.ElementType;
-              return (
-                <div key={feature.label} className="flex items-center gap-2">
-                  {Icon && <Icon className="h-5 w-5 text-indigo-600" />}
-                  <span className="font-semibold">{feature.value}</span>
-                  <span className="text-muted-foreground">{feature.label}</span>
-                </div>
-              );
-            }
-          )}
+          {[
+            { icon: <Building2 />, value: property.bedrooms, label: "Bedroom" },
+            { icon: <Bath />, value: property.bathrooms, label: "Bathroom" },
+            { icon: <Bed />, value: property.beds, label: "Bed" },
+          ].map((amenity, index) => (
+            <AmenityItem
+              key={index}
+              icon={amenity.icon}
+              value={amenity.value}
+              label={amenity.label}
+            />
+          ))}
         </div>
       </div>
       <div className="bg-card rounded-lg border p-6 space-y-4">
