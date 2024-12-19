@@ -47,7 +47,7 @@ export default function PropertyDetailsPage() {
       )}
       {propertyDetails && !propertyDetailsLoading && (
         <>
-          <PropertyGallery images={property?.images} />
+          <PropertyGallery images={propertyDetails?.images} />
           <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Content */}
@@ -60,14 +60,14 @@ export default function PropertyDetailsPage() {
                   longitude={propertyDetails?.longitude}
                 />
                 <PropertyVideo video={property?.video} />
-                <PropertyReviews property={property} />
+                <PropertyReviews />
               </div>
 
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-8">
                   <PropertyBooking property={propertyDetails} />
-                  <PropertyHost host={property?.host} />
+                  <PropertyHost />
                 </div>
               </div>
             </div>

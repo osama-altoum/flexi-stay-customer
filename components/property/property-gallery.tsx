@@ -8,12 +8,12 @@ import { ImageLightbox } from "./image-lightbox";
 import Image from "next/image";
 
 export function PropertyGallery({ images }: any) {
-  const [mainImage, setMainImage] = useState(images[0]);
+  const [mainImage, setMainImage] = useState(images[0].path);
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const slides = images.map((image: string) => ({
-    src: image,
+  const slides = images.map((image: any) => ({
+    src: image.path,
     width: 3840,
     height: 2560,
     alt: "Property Image",
@@ -46,14 +46,14 @@ export function PropertyGallery({ images }: any) {
 
         {/* Thumbnail Grid */}
         <div className="grid grid-cols-2 gap-4">
-          {images.slice(1, 5).map((image: string, index: number) => (
+          {images.slice(1, 5).map((image: any, index: number) => (
             <div
               key={index}
               className="relative aspect-square rounded-lg overflow-hidden cursor-pointer"
               onClick={() => setMainImage(image)}
             >
               <Image
-                src={image}
+                src={image.path}
                 alt={`Property ${index + 2}`}
                 fill
                 className="w-full h-full object-cover hover:opacity-90 transition-opacity"
