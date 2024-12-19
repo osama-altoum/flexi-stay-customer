@@ -42,7 +42,10 @@ export function PropertyHeader({ property }: any) {
         </div>
 
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">{property.title}</h1>
+          <h1 className="text-2xl font-bold">
+            {property.placeTypeId === 1 ? "House" : "Apartment"} :{" "}
+            {property.title}
+          </h1>
           <div className="flex items-center gap-2">
             <Icons.MapPin className="h-4 w-4" />
             <span className="text-muted-foreground">
@@ -53,7 +56,9 @@ export function PropertyHeader({ property }: any) {
 
         <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            <span className="text-indigo-600">ID: {property.id}</span>
+            <span className="text-indigo-600">
+              Apartment No: {property.apartmentNo}
+            </span>
           </div>
           <div className="flex items-center gap-1">
             <Icons.Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />

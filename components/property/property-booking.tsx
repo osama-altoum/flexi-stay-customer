@@ -33,14 +33,14 @@ export function PropertyBooking({ property }: any) {
     }
   };
 
-  const totalPrice = nights * price;
+  const totalPrice = nights * property?.priceBeforeTax;
 
   return (
     <form className="bg-card rounded-lg border p-6 space-y-6">
       <div>
         <h2 className="text-2xl font-semibold mb-2">Price</h2>
         <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold">{price}</span>
+          <span className="text-3xl font-bold">{property?.priceBeforeTax}</span>
           <span className="text-sm">SAR</span>
         </div>
       </div>
@@ -114,24 +114,39 @@ export function PropertyBooking({ property }: any) {
           <label className="text-sm font-medium">Guests</label>
           <Button variant="outline" className="w-full justify-start">
             <Users className="mr-2 h-4 w-4" />
-            <span>{guests || 1} Guests</span>
+            <span>{property.guests} Guests</span>
           </Button>
         </div>
 
         <div className="space-y-4 pt-4 border-t">
           <div className="flex justify-between">
             <span>
-              ${price} × {nights} nights
+              {property?.priceBeforeTax} × {nights} SAR nights
             </span>
-            <span>${totalPrice}</span>
+            <span>{totalPrice} SAR</span>
           </div>
           <div className="flex justify-between">
-            <span>Service charge</span>
-            <span>${serviceCharge}</span>
+            <span>new Reservation Discount</span>
+            <span>{property?.newReservationDiscount} SAR</span>
           </div>
+          <div className="flex justify-between">
+            <span>week Reservation Discount</span>
+            <span>{property?.weekReservationDiscount} SAR</span>
+          </div>
+          <div className="flex justify-between">
+            <span>month Reservation Discount</span>
+            <span>{property?.monthReservationDiscount} SAR</span>
+          </div>
+
           <div className="flex justify-between font-semibold">
             <span>Total</span>
-            <span>${totalPrice + serviceCharge}</span>
+            <span>
+              {totalPrice +
+                property?.newReservationDiscount +
+                property?.weekReservationDiscount +
+                property?.monthReservationDiscount}{" "}
+              SAR
+            </span>
           </div>
         </div>
 

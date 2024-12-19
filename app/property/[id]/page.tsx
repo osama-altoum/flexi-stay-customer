@@ -66,7 +66,7 @@ export default function PropertyDetailsPage() {
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-8">
-                  <PropertyBooking property={property} />
+                  <PropertyBooking property={propertyDetails} />
                   <PropertyHost host={property?.host} />
                 </div>
               </div>
