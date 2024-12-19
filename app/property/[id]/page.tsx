@@ -45,7 +45,7 @@ export default function PropertyDetailsPage() {
           <LoadingPage />
         </div>
       )}
-      {propertyDetails && (
+      {propertyDetails && !propertyDetailsLoading && (
         <>
           <PropertyGallery images={property?.images} />
           <div className="container mx-auto px-4 py-8">
@@ -54,7 +54,7 @@ export default function PropertyDetailsPage() {
               <div className="lg:col-span-2 space-y-8">
                 <PropertyHeader property={propertyDetails} />
 
-                <PropertyAmenities amenities={property?.amenities} />
+                <PropertyAmenities amenities={propertyDetails?.amenities} />
                 <PropertyLocation map={property?.map} />
                 <PropertyVideo video={property?.video} />
                 <PropertyReviews property={property} />
