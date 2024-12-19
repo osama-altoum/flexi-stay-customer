@@ -55,7 +55,10 @@ export default function PropertyDetailsPage() {
                 <PropertyHeader property={propertyDetails} />
 
                 <PropertyAmenities amenities={propertyDetails?.amenities} />
-                <PropertyLocation map={property?.map} />
+                <PropertyLocation
+                  latitude={propertyDetails?.latitude}
+                  longitude={propertyDetails?.longitude}
+                />
                 <PropertyVideo video={property?.video} />
                 <PropertyReviews property={property} />
               </div>
