@@ -5,26 +5,12 @@ import { motion } from "framer-motion";
 import LoadingCardHorizontal from "../skeletons/loading-card-horizontal";
 import Image from "next/image";
 import React from "react";
+import { AmenityItem } from "../amenity/amenity-item";
 
 interface ListingListProps {
   properties: any[];
   isLoading: boolean;
 }
-
-const AmenityItem = ({ icon, value, label }: any) => (
-  <div className="flex  flex-col gap-1 items-center justify-center text-center">
-    {React.cloneElement(icon, {
-      className: "w-5 h-5 mb-1 text-gray-600 dark:text-gray-400",
-    })}
-
-    <div className="text-sm">
-      <span className="font-semibold text-gray-900 dark:text-gray-100">
-        {value}
-      </span>{" "}
-      <span className="text-gray-500">{label}</span>
-    </div>
-  </div>
-);
 
 export function ListingList({ properties, isLoading }: ListingListProps) {
   return (

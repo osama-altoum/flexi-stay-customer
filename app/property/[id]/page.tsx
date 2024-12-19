@@ -52,7 +52,7 @@ export default function PropertyDetailsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Content */}
               <div className="lg:col-span-2 space-y-8">
-                <PropertyHeader property={property} />
+                <PropertyHeader property={propertyDetails} />
 
                 <PropertyAmenities amenities={property?.amenities} />
                 <PropertyLocation map={property?.map} />
