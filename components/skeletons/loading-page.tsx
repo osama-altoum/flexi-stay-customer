@@ -3,10 +3,34 @@ import { Skeleton } from "../ui/skeleton";
 
 export default function LoadingPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-      <div className="flex justify-between items-center mb-6">
-        <Skeleton className="h-8 w-3/5" />
-        <Skeleton className="h-10 w-28" />
+    <div className=" w-screen px-3 md:px-10 xl:px-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        {/* Main Image Skeleton */}
+        <Card className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
+          <CardContent className="p-3">
+            {/* Skeleton loader for the main image */}
+            <Skeleton className="h-96 w-full" />
+            {/* Skeleton loader for "View all photos" button */}
+            <div className="absolute bottom-4 right-4">
+              <Skeleton className="w-32 h-8" />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Thumbnail Grid Skeletons */}
+        <div className="grid grid-cols-2 gap-4">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <Card
+              key={index}
+              className="relative aspect-square rounded-lg overflow-hidden shadow-sm"
+            >
+              <CardContent className="p-3">
+                {/* Skeleton loader for each thumbnail */}
+                <Skeleton className="w-full h-72" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
