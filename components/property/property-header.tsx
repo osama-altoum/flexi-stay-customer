@@ -54,12 +54,21 @@ export function PropertyHeader({ property }: any) {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <span className="text-indigo-600">
-              Apartment No: {property.apartmentNo}
+              Apartment No: {property.apartmentNo} |
+            </span>
+            <span className="text-indigo-600">Floor No: {property.floor}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Icons.BookUserIcon className="h-4 w-4" />
+            <span className="text-muted-foreground">
+              {property.street} , {property.shortAddress}
             </span>
           </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-4 justify-between text-sm text-muted-foreground pt-4 border-t">
           <div className="flex items-center gap-1">
             <Icons.Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
             <span>4.8 (2341) reviews</span>
