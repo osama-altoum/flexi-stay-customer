@@ -11,7 +11,7 @@ export function AuthButton() {
     <>
       <Button
         variant="outline"
-        className="gap-2 rounded-full bg-[#f9f9ff] shadow-inner border border-gray-200 text-gray-700 hover:shadow-md hover:shadow-gray-300 active:shadow-none active:bg-gray-100 transition-all duration-200"
+        className="glow-on-hover after:bg-white/90 dark:after:bg-black/90"
         onClick={() => setShowAuthDialog(true)}
       >
         Sign In

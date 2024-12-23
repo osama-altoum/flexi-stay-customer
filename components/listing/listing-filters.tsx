@@ -112,7 +112,7 @@ export function ListingFilters({ filters, onChange }: any) {
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="w-full md:w-80 bg-background rounded-xl border shadow-sm overflow-hidden"
+      className="w-full md:w-1/5 bg-background rounded-xl border shadow-sm overflow-hidden mt-14"
     >
       {/* Header */}
       <div className="p-6 border-b">
