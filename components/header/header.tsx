@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { AuthButton } from "./auth-button";
 import { getToken } from "@/api/storage";
+import { PalmtreeLogo } from "../auth/palmtree-logo";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,7 +53,7 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <Facebook className="h-8 w-8 text-primary" />
+              <PalmtreeLogo className="" />
               <div className="relative">
                 {/* Main Text */}
                 <span className="text-2xl md:text-3xl font-extrabold hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
