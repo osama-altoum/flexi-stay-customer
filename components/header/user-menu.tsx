@@ -12,8 +12,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Heart, LogIn, LogOut, Settings, User } from "lucide-react";
 import { AuthButton } from "./auth-button";
+import { deleteToken } from "@/api/storage";
+import { useRouter } from "next/navigation";
 
 export function UserMenu() {
+  const router = useRouter();
+  const handleLogout = () => {
+    deleteToken();
+    // window.location.reload();
+    router.refresh();
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -57,7 +65,7 @@ export function UserMenu() {
           <LogIn className="mr-2 h-4 w-4" />
           <AuthButton />
         </DropdownMenuItem> */}
-        <DropdownMenuItem className="text-red-600">
+        <DropdownMenuItem className="text-red-600" onClick={handleLogout}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>

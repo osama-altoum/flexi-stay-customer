@@ -85,7 +85,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
         const actionMessage = isLogin ? "Login" : "Registration";
         toast.success(`${actionMessage} successful!`);
         setToken(response.token);
-        router.push("/");
+        router.refresh();
         onClose();
       } else {
         // Handle errors from API response
@@ -244,7 +244,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                     name="rememberMe"
                     render={({ field }) => (
                       <div className="flex items-center space-x-2">
-                        <Checkbox {...field} />
+                        <Checkbox />
                         <label className="text-sm">Remember me</label>
                       </div>
                     )}

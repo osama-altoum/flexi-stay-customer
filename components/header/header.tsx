@@ -13,11 +13,20 @@ import { FavoritesButton } from "./favorites-button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { AuthButton } from "./auth-button";
+import { getToken } from "@/api/storage";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const token = getToken();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [token]);
 
   useEffect(() => {
     const handleScroll = () => {
