@@ -53,7 +53,7 @@ export function PropertyGallery({ images }: any) {
               onClick={() => setMainImage(image)}
             >
               <Image
-                src={image.path}
+                src={image}
                 alt={`Property ${index + 2}`}
                 fill
                 className="w-full h-full object-cover hover:opacity-90 transition-opacity"
