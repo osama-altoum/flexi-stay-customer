@@ -13,6 +13,7 @@ import {
   isBefore,
   isAfter,
   isWithinInterval,
+  startOfDay,
 } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 
@@ -29,13 +30,9 @@ export function PropertyBooking({ property, reservations }: any) {
     }))
     .sort((a: any, b: any) => a.checkIn - b.checkIn);
 
-  // Function to check if a date is disabled
-  const isDateDisabled = useCallback(
+  // Function to check if a date falls within any reservation
+  const isDateReserved = useCallback(
     (date: any) => {
-      // Prevent selecting dates in the past
-      if (isBefore(date, new Date())) return true;
-
-      // Check if the date falls within any reservation period
       return bookings.some((booking: any) =>
         isWithinInterval(date, {
           start: booking.checkIn,
@@ -46,6 +43,21 @@ export function PropertyBooking({ property, reservations }: any) {
     [bookings]
   );
 
+  // Function to check if a date is disabled for check-in
+  const isDateDisabled = useCallback(
+    (date: any) => {
+      // Compare with start of today to ignore time component
+      const today = startOfDay(new Date());
+
+      // Only disable if the date is before today (not including today)
+      if (isBefore(date, today)) return true;
+
+      // Check if the date is reserved
+      return isDateReserved(date);
+    },
+    [isDateReserved]
+  );
+
   // Function to check if a checkout date is valid
   const isCheckoutDateDisabled = useCallback(
     (date: any) => {
@@ -54,17 +66,20 @@ export function PropertyBooking({ property, reservations }: any) {
       // Prevent selecting checkout before checkin
       if (isBefore(date, checkIn)) return true;
 
-      // Find the next booking after selected checkin
-      const nextBooking = bookings.find((booking: any) =>
+      // Find the next reservation after the selected check-in date
+      const nextReservation = bookings.find((booking: any) =>
         isAfter(booking.checkIn, checkIn)
       );
 
-      // If there's a next booking, prevent selecting dates after it starts
-      if (nextBooking && isAfter(date, nextBooking.checkIn)) return true;
+      if (nextReservation) {
+        // Allow selecting dates up until the start of the next reservation
+        return isAfter(date, nextReservation.checkIn) || isDateReserved(date);
+      }
 
-      return isDateDisabled(date);
+      // If no future reservations, only check if the date itself is reserved
+      return isDateReserved(date);
     },
-    [checkIn, bookings, isDateDisabled]
+    [checkIn, bookings, isDateReserved]
   );
 
   const calculateNights = useCallback((inDate: any, outDate: any) => {
