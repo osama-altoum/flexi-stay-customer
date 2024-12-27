@@ -17,8 +17,19 @@ type Property = {
   serviceCharge: number;
 };
 
-export function PropertyBooking({ property }: any) {
+export function PropertyBooking({ property, reservations }: any) {
   const { price, guests, children, serviceCharge } = property;
+  const checkInDate = reservations?.map(
+    (reservation: any) => reservation.checkIn
+  );
+  const checkInTime = reservations?.map(
+    (reservation: any) => reservation.checkInTime
+  );
+  const checkOutDate = reservations?.map(
+    (reservation: any) => reservation.checkOut
+  );
+
+  console.log("checkInDate", checkInDate);
 
   const [checkIn, setCheckIn] = useState<string | null>(null);
   const [checkOut, setCheckOut] = useState<string | null>(null);
