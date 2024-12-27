@@ -84,7 +84,7 @@ export function PropertyBooking({ property, reservations }: any) {
 
   const calculateNights = useCallback((inDate: any, outDate: any) => {
     if (inDate && outDate) {
-      const nightsCount = differenceInDays(outDate, inDate);
+      const nightsCount = differenceInDays(outDate, inDate) + 1;
       setNights(nightsCount > 0 ? nightsCount : 0);
     } else {
       setNights(0);
