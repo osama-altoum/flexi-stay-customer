@@ -34,8 +34,6 @@ export default function PropertyDetailsPage() {
 
   console.log("reservations", reservations);
 
-  // console.log("propertyDetails", propertyDetails);
-
   const property = properteis.find((property) => property.id === id);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";

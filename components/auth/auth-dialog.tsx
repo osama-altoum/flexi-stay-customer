@@ -21,7 +21,7 @@ import { login, register } from "@/api/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import * as z from "zod";
-import { setToken } from "@/api/storage";
+import { setToken, setUserData } from "@/api/storage";
 
 interface AuthDialogProps {
   isOpen: boolean;
@@ -85,6 +85,8 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
         const actionMessage = isLogin ? "Login" : "Registration";
         toast.success(`${actionMessage} successful!`);
         setToken(response.token);
+        setUserData(JSON.stringify(response.data));
+
         router.refresh();
         onClose();
       } else {
