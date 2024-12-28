@@ -19,9 +19,18 @@ import { useEffect, useState } from "react";
 export function UserMenu() {
   const router = useRouter();
 
-  const userProfile: any = getUserData();
+  const [userProfile, setUserProfile] = useState<any>(null);
 
-  console.log("userProfile", userProfile);
+  useEffect(() => {
+    const storedUserData = getUserData();
+    if (storedUserData) {
+      setUserProfile(JSON.parse(storedUserData));
+    }
+  }, []);
+
+  if (!userProfile) {
+    return <p>Loading...</p>;
+  }
 
   const handleLogout = () => {
     deleteToken();
@@ -42,8 +51,8 @@ export function UserMenu() {
               alt="@username"
             /> */}
             <AvatarFallback>
-              {userProfile?.firstName?.charAt(0)}
-              {userProfile?.lastName?.charAt(0)}
+              {userProfile?.firstName?.charAt(0).toUpperCase()}
+              {userProfile?.lastName?.charAt(0).toUpperCase()}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -52,12 +61,16 @@ export function UserMenu() {
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">
-              {" "}
-              {userProfile?.firstName}
-              {userProfile?.lastName}
+              {`${
+                userProfile?.firstName.charAt(0).toUpperCase() +
+                userProfile?.firstName.slice(1)
+              } ${" "} ${
+                userProfile?.lastName.charAt(0).toUpperCase() +
+                userProfile?.lastName.slice(1)
+              }`}
             </p>
             <p className="text-xs leading-none text-muted-foreground">
-              khtab@example.com
+              {userProfile?.email}
             </p>
           </div>
         </DropdownMenuLabel>

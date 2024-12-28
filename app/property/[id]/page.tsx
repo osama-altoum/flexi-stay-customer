@@ -32,8 +32,6 @@ export default function PropertyDetailsPage() {
     reservationsValidating,
   } = useGetPlaceReservation({ placeId: id });
 
-  console.log("reservations", reservations);
-
   const property = properteis.find((property) => property.id === id);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
