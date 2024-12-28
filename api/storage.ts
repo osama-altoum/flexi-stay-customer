@@ -30,17 +30,28 @@ export const setUserData = (userData: string) => {
 };
 
 export const getUserData = () => {
-  if (typeof window !== "undefined") {
-    try {
-      const data = window.localStorage.getItem("userData");
-      console.log("Retrieved userData:", data);
-      return data;
-    } catch (error) {
-      console.error("Error retrieving user data:", error);
+  // Check if we are in a browser environment
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    // Retrieve and parse user data from localStorage
+    const data = window.localStorage.getItem("userData");
+
+    // Return null if data is not found
+    if (!data) {
+      console.warn("No user data found in localStorage.");
       return null;
     }
+
+    // Parse and return the data
+    const parsedData = JSON.parse(data);
+    return parsedData;
+  } catch (error) {
+    console.error("Error retrieving or parsing user data:", error);
+    return null;
   }
-  return null;
 };
 
 export const deleteUserData = () => {

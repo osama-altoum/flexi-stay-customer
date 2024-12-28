@@ -24,7 +24,7 @@ export function UserMenu() {
   useEffect(() => {
     const storedUserData = getUserData();
     if (storedUserData) {
-      setUserProfile(JSON.parse(storedUserData));
+      setUserProfile(storedUserData);
     }
   }, []);
 
