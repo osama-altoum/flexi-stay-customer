@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTheme } from "next-themes";
+import { useGetplaces } from "@/api/property";
 import { ListingHero } from "@/components/listing/listing-hero";
 import { ListingGrid } from "@/components/listing/listing-grid";
 import { ListingList } from "@/components/listing/listing-list";
+import { ListingFilters } from "@/components/listing/listing-filters";
 import { ListingViewToggle } from "@/components/listing/listing-view-toggle";
 import { ListingPagination } from "@/components/listing/listing-pagination";
-import { useTheme } from "next-themes";
-import { useGetplaces } from "@/api/property";
-import { ListingFilters } from "@/components/listing/listing-filters";
 
 export default function PropertiesPage() {
   const { theme } = useTheme();
@@ -50,7 +50,7 @@ export default function PropertiesPage() {
     >
       <ListingHero />
 
-      <div className=" mx-10 md:mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 py-8">
+      <div className="mx-10 md:mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-6">
           <ListingFilters
             filters={filters}
