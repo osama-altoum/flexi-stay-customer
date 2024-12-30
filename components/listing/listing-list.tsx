@@ -6,6 +6,7 @@ import LoadingCardHorizontal from "../skeletons/loading-card-horizontal";
 import Image from "next/image";
 import React from "react";
 import { AmenityItem } from "../amenity/amenity-item";
+import { useRouter } from "next/navigation";
 
 interface ListingListProps {
   properties: any[];
@@ -13,6 +14,7 @@ interface ListingListProps {
 }
 
 export function ListingList({ properties, isLoading }: ListingListProps) {
+  const router = useRouter();
   return (
     <div className="space-y-6">
       {isLoading &&
@@ -92,7 +94,13 @@ export function ListingList({ properties, isLoading }: ListingListProps) {
                   </span>
                   <span className="text-muted-foreground"> / SAR</span>
                 </div>
-                <Button>Book Now</Button>
+                <Button
+                  onClick={() => {
+                    router.push(`/property/${property.id}`);
+                  }}
+                >
+                  Book Now
+                </Button>
               </div>
             </div>
           </motion.div>

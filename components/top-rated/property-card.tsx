@@ -12,21 +12,22 @@ import { AmenityItem } from "../amenity/amenity-item";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export function PropertyCard({
-  id,
-  placeTitle,
-  location,
-  bathrooms,
-  bedrooms,
-  beds,
-  city,
-  country,
-  placePrice,
+export function PropertyCard({ property }: any) {
+  const {
+    id,
+    placeTitle,
+    location,
+    bathrooms,
+    bedrooms,
+    beds,
+    city,
+    country,
+    placePrice,
 
-  placeImage,
-  index,
-}: any) {
-  const route = useRouter();
+    placeImage,
+    index,
+  } = property;
+  const router = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -62,7 +63,6 @@ export function PropertyCard({
         <h3
           className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors cursor-pointer"
           onClick={() => {
-            console.log("Navigating to:", `/property/${id}`);
             window.location.href = `/property/${id}`;
           }}
         >
