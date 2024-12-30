@@ -55,7 +55,7 @@ export function CategoryCard({
             variant="ghost"
             className=""
             onClick={() => {
-              const filterParams = {
+              const filterParams: any = {
                 searchTerm: id,
               };
               const queryString = new URLSearchParams(filterParams).toString();
