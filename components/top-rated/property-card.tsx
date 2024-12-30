@@ -12,7 +12,13 @@ import { AmenityItem } from "../amenity/amenity-item";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export function PropertyCard({ property }: any) {
+export function PropertyCard({
+  property,
+  index,
+}: {
+  property: any;
+  index: number;
+}) {
   const {
     id,
     placeTitle,
@@ -25,7 +31,6 @@ export function PropertyCard({ property }: any) {
     placePrice,
 
     placeImage,
-    index,
   } = property;
   const router = useRouter();
   return (
@@ -63,7 +68,8 @@ export function PropertyCard({ property }: any) {
         <h3
           className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors cursor-pointer"
           onClick={() => {
-            window.location.href = `/property/${id}`;
+            console.log("Navigating to:", `/property/${property.id}`);
+            window.location.href = `/property/${property.id}`;
           }}
         >
           {placeTitle}
