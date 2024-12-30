@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 
 const categories = [
   {
+    id: 2,
     title: "Apartments",
     description: "An apartment is a self-contained housing unit that",
     icon: (
@@ -25,46 +26,47 @@ const categories = [
     ),
   },
   {
+    id: 1,
     title: "House",
     description: "A house is a standalone building that is designed for",
     icon: <Home className="h-12 w-12 text-[#23814b] group-hover:!text-white" />,
   },
-  {
-    title: "Family",
-    description: "A family house is a type of residential building that is",
-    icon: (
-      <Users className="h-12 w-12 text-[#9c742c] group-hover:!text-white " />
-    ),
-  },
-  {
-    title: "Residential",
-    description: "Residential refers to buildings or areas that are designed",
-    icon: (
-      <Building className="h-12 w-12 text-[#171717] group-hover:!text-white" />
-    ),
-  },
-  {
-    title: "Industrial",
-    description: 'There is no such thing as an "industrial home". Industrial',
-    icon: (
-      <Factory className="h-12 w-12 text-[#363aed] group-hover:!text-white" />
-    ),
-  },
-  {
-    title: "Commercial",
-    description: "Commercial refers to activities, buildings, or areas",
-    icon: (
-      <Store className="h-12 w-12 text-[#23814b] group-hover:!text-white" />
-    ),
-  },
-  {
-    title: "Villas",
-    description:
-      "A villa is a type of large, luxurious house that is typically",
-    icon: (
-      <Landmark className="h-12 w-12  text-[#9c742c]  group-hover:!text-white" />
-    ),
-  },
+  // {
+  //   title: "Family",
+  //   description: "A family house is a type of residential building that is",
+  //   icon: (
+  //     <Users className="h-12 w-12 text-[#9c742c] group-hover:!text-white " />
+  //   ),
+  // },
+  // {
+  //   title: "Residential",
+  //   description: "Residential refers to buildings or areas that are designed",
+  //   icon: (
+  //     <Building className="h-12 w-12 text-[#171717] group-hover:!text-white" />
+  //   ),
+  // },
+  // {
+  //   title: "Industrial",
+  //   description: 'There is no such thing as an "industrial home". Industrial',
+  //   icon: (
+  //     <Factory className="h-12 w-12 text-[#363aed] group-hover:!text-white" />
+  //   ),
+  // },
+  // {
+  //   title: "Commercial",
+  //   description: "Commercial refers to activities, buildings, or areas",
+  //   icon: (
+  //     <Store className="h-12 w-12 text-[#23814b] group-hover:!text-white" />
+  //   ),
+  // },
+  // {
+  //   title: "Villas",
+  //   description:
+  //     "A villa is a type of large, luxurious house that is typically",
+  //   icon: (
+  //     <Landmark className="h-12 w-12  text-[#9c742c]  group-hover:!text-white" />
+  //   ),
+  // },
 ];
 
 export function OurCategory() {

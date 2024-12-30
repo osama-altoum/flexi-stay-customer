@@ -35,7 +35,7 @@ export function PropertyCard({
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
-          src={""}
+          src={placeImage}
           alt={placeTitle}
           fill
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"

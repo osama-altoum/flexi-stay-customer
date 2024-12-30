@@ -13,7 +13,7 @@ import properteis from "@/data/detiles.json";
 // import properteis from "@/data/properteis.json";
 import { useParams } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useGetPlaceDetails } from "@/api/property";
+import { useGetPlaceDetails, useGetPlaceReservation } from "@/api/property";
 import LoadingPage from "@/components/skeletons/loading-page";
 
 export default function PropertyDetailsPage() {
@@ -25,8 +25,12 @@ export default function PropertyDetailsPage() {
     propertyDetailsError,
     propertyDetailsValidating,
   } = useGetPlaceDetails({ placeId: id });
-
-  console.log("propertyDetails", propertyDetails);
+  const {
+    reservations,
+    reservationsLoading,
+    reservationsError,
+    reservationsValidating,
+  } = useGetPlaceReservation({ placeId: id });
 
   const property = properteis.find((property) => property.id === id);
   const { theme } = useTheme();
@@ -66,7 +70,10 @@ export default function PropertyDetailsPage() {
               {/* Sidebar */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-8">
-                  <PropertyBooking property={propertyDetails} />
+                  <PropertyBooking
+                    property={propertyDetails}
+                    reservations={reservations}
+                  />
                   <PropertyHost />
                 </div>
               </div>

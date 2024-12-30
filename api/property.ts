@@ -127,3 +127,39 @@ export function useGetPlaceDetails({ placeId }: any = {}) {
     revalidatePropertyDetails,
   };
 }
+
+export function useGetPlaceReservation({ placeId }: any = {}) {
+  const fullUrl = useMemo(
+    () => `${endpoints.property.getPlaceReservations}/${placeId}/reservations`,
+    [placeId]
+  );
+
+  const { data, error, isLoading, isValidating } = useSWR(
+    fullUrl,
+    flexiStayFetcher,
+    {
+      revalidateOnFocus: false,
+    }
+  );
+
+  const revalidateReservations = () => {
+    mutate(fullUrl);
+  };
+
+  // Memoize the return value for performance
+  const memoizedValue = useMemo(() => {
+    const reservationsData = data?.data || [];
+    return {
+      reservations: reservationsData,
+      reservationsLoading: isLoading,
+      reservationsError: error,
+      reservationsValidating: isValidating,
+      reservationsEmpty: reservationsData.length === 0,
+    };
+  }, [data?.data, error, isLoading, isValidating]);
+
+  return {
+    ...memoizedValue,
+    revalidateReservations,
+  };
+}
