@@ -109,7 +109,7 @@ export function FavoritesList() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <PropertyCard
-              {...property}
+              property={property}
               index={index}
               // onRemove={() => removeFromFavorites(property.id)}
             />

@@ -95,7 +95,7 @@ export function TopRated() {
                   key={property.id}
                   className="p-4 basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 >
-                  <PropertyCard {...property} index={index} />
+                  <PropertyCard property={property} index={index} />
                 </CarouselItem>
               ))}
           </CarouselContent>
