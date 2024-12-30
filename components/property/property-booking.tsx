@@ -17,6 +17,9 @@ import {
 } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { useRouter } from "next/navigation";
+import { getToken } from "@/api/storage";
+import { AuthButton } from "../header/auth-button";
+import { AuthDialog } from "../auth/auth-dialog";
 
 export function PropertyBooking({ property, reservations }: any) {
   const router = useRouter();
@@ -112,130 +115,146 @@ export function PropertyBooking({ property, reservations }: any) {
     (property?.weekReservationDiscount || 0) +
     (property?.monthReservationDiscount || 0);
 
+  const token = getToken();
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
+
   const handleBooking = (e: any) => {
-    e.preventDefault();
-    router.push(
-      `/property/${property?.id}/booking?checkIn=${checkIn}&checkOut=${checkOut}`
-    );
+    if (!token) {
+      e.preventDefault();
+      setShowAuthDialog(true);
+    } else {
+      e.preventDefault();
+      router.push(
+        `/property/${property?.id}/booking?checkIn=${checkIn}&checkOut=${checkOut}`
+      );
+    }
   };
 
   return (
-    <form className="bg-card rounded-lg border p-6 space-y-6">
-      <div>
-        <h2 className="text-2xl font-semibold mb-2">Price</h2>
-        <div className="flex items-center gap-2">
-          <span className="text-3xl font-bold">{property?.priceBeforeTax}</span>
-          <span className="text-sm">SAR</span>
-        </div>
-      </div>
-
-      <div className="flex gap-4">
-        <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700">
-          Booking Form
-        </Button>
-        <Button variant="outline" className="flex-1">
-          Enquiry Form
-        </Button>
-      </div>
-
-      <div className="space-y-4">
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Check In - Check Out</label>
-          <div className="flex gap-2">
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal"
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkIn ? format(checkIn, "PP") : "Check in"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={checkIn}
-                  onSelect={handleCheckInSelect}
-                  disabled={isDateDisabled}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start text-left font-normal"
-                  disabled={!checkIn}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkOut ? format(checkOut, "PP") : "Check out"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={checkOut}
-                  onSelect={handleCheckOutSelect}
-                  disabled={isCheckoutDateDisabled}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Guests</label>
-          <Button variant="outline" className="w-full justify-start">
-            <Users className="mr-2 h-4 w-4" />
-            <span>{property?.guests} Guests</span>
-          </Button>
-        </div>
-
-        <div className="space-y-4 pt-4 border-t">
-          <div className="flex justify-between">
-            <span>
-              {property?.priceBeforeTax} × {nights} nights
+    <>
+      <form className="bg-card rounded-lg border p-6 space-y-6">
+        <div>
+          <h2 className="text-2xl font-semibold mb-2">Price</h2>
+          <div className="flex items-center gap-2">
+            <span className="text-3xl font-bold">
+              {property?.priceBeforeTax}
             </span>
-            <span>{totalPrice} SAR</span>
-          </div>
-          <div className="flex justify-between">
-            <span>New Reservation Discount</span>
-            <span>{property?.newReservationDiscount} SAR</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Week Reservation Discount</span>
-            <span>{property?.weekReservationDiscount} SAR</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Month Reservation Discount</span>
-            <span>{property?.monthReservationDiscount} SAR</span>
-          </div>
-
-          <div className="flex justify-between font-semibold">
-            <span>Total</span>
-            <span>{finalPrice} SAR</span>
+            <span className="text-sm">SAR</span>
           </div>
         </div>
 
-        <Button
-          className="w-full bg-indigo-600 hover:bg-indigo-700"
-          disabled={!checkIn || !checkOut}
-          onClick={handleBooking}
-        >
-          Proceed Booking
-        </Button>
-
-        <div className="flex items-center justify-center gap-4 text-sm">
-          <Button variant="link" className="h-auto p-0 text-indigo-600">
-            Save To Wish List
+        <div className="flex gap-4">
+          <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700">
+            Booking Form
+          </Button>
+          <Button variant="outline" className="flex-1">
+            Enquiry Form
           </Button>
         </div>
-      </div>
-    </form>
+
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Check In - Check Out</label>
+            <div className="flex gap-2">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start text-left font-normal"
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {checkIn ? format(checkIn, "PP") : "Check in"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={checkIn}
+                    onSelect={handleCheckInSelect}
+                    disabled={isDateDisabled}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start text-left font-normal"
+                    disabled={!checkIn}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {checkOut ? format(checkOut, "PP") : "Check out"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={checkOut}
+                    onSelect={handleCheckOutSelect}
+                    disabled={isCheckoutDateDisabled}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Guests</label>
+            <Button variant="outline" className="w-full justify-start">
+              <Users className="mr-2 h-4 w-4" />
+              <span>{property?.guests} Guests</span>
+            </Button>
+          </div>
+
+          <div className="space-y-4 pt-4 border-t">
+            <div className="flex justify-between">
+              <span>
+                {property?.priceBeforeTax} × {nights} nights
+              </span>
+              <span>{totalPrice} SAR</span>
+            </div>
+            <div className="flex justify-between">
+              <span>New Reservation Discount</span>
+              <span>{property?.newReservationDiscount} SAR</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Week Reservation Discount</span>
+              <span>{property?.weekReservationDiscount} SAR</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Month Reservation Discount</span>
+              <span>{property?.monthReservationDiscount} SAR</span>
+            </div>
+
+            <div className="flex justify-between font-semibold">
+              <span>Total</span>
+              <span>{finalPrice} SAR</span>
+            </div>
+          </div>
+
+          <Button
+            className="w-full bg-indigo-600 hover:bg-indigo-700"
+            disabled={!checkIn || !checkOut}
+            onClick={handleBooking}
+          >
+            Proceed Booking
+          </Button>
+
+          <div className="flex items-center justify-center gap-4 text-sm">
+            <Button variant="link" className="h-auto p-0 text-indigo-600">
+              Save To Wish List
+            </Button>
+          </div>
+        </div>
+      </form>
+      <AuthDialog
+        isOpen={showAuthDialog}
+        onClose={() => setShowAuthDialog(false)}
+      />
+    </>
   );
 }
 
