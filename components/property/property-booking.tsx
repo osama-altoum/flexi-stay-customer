@@ -16,8 +16,11 @@ import {
   startOfDay,
 } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
+import { useRouter } from "next/navigation";
 
 export function PropertyBooking({ property, reservations }: any) {
+  const router = useRouter();
+
   const [checkIn, setCheckIn] = useState<any>(null);
   const [checkOut, setCheckOut] = useState<any>(null);
   const [nights, setNights] = useState(0);
@@ -108,6 +111,13 @@ export function PropertyBooking({ property, reservations }: any) {
     (property?.newReservationDiscount || 0) +
     (property?.weekReservationDiscount || 0) +
     (property?.monthReservationDiscount || 0);
+
+  const handleBooking = (e: any) => {
+    e.preventDefault();
+    router.push(
+      `/property/${property?.id}/booking?checkIn=${checkIn}&checkOut=${checkOut}`
+    );
+  };
 
   return (
     <form className="bg-card rounded-lg border p-6 space-y-6">
@@ -214,6 +224,7 @@ export function PropertyBooking({ property, reservations }: any) {
         <Button
           className="w-full bg-indigo-600 hover:bg-indigo-700"
           disabled={!checkIn || !checkOut}
+          onClick={handleBooking}
         >
           Proceed Booking
         </Button>

@@ -19,7 +19,7 @@ import {
   PenSquare,
 } from "lucide-react";
 
-export function CheckoutForm() {
+export function BookingForm() {
   return (
     <div className="space-y-8">
       {/* Booking Info */}
