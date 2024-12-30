@@ -15,6 +15,7 @@ import { StatsCard } from "./stats-card";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const categories = [
   {
@@ -72,6 +73,7 @@ const categories = [
 export function OurCategory() {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
+  const router = useRouter();
   return (
     <section
       className={`py-24 ${
@@ -100,7 +102,13 @@ export function OurCategory() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Button variant="outline" className="gap-2">
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={() => {
+                router.push("/properties");
+              }}
+            >
               View More <ArrowRight className="w-4 h-4" />
             </Button>
           </motion.div>

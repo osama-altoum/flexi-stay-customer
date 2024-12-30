@@ -1,17 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -19,7 +21,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { motion } from "framer-motion";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 import {
   Home,
   Building2,
@@ -28,12 +35,6 @@ import {
   SortAsc,
   RefreshCcw,
 } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../ui/tooltip";
 
 type PropertyType = {
   value: number;
@@ -54,13 +55,35 @@ const sortOptions = [
 ];
 
 export function ListingFilters({ filters, onChange }: any) {
-  const handleTypeToggle = (type: number) => {
-    // If the type is already selected, deselect it; otherwise, select it as the only type
-    const updatedTypes = filters.placeTypes.includes(type)
-      ? [] // Deselect the type
-      : [type]; // Select the type as the only one
+  const searchParams = useSearchParams();
 
-    // Call the onChange function with the updated placeTypes
+  useEffect(() => {
+    const queryFilters: any = {};
+
+    const placeType = searchParams.get("placeType");
+    if (placeType) queryFilters.placeTypes = [Number(placeType)];
+
+    // const minPrice = searchParams.get("minPrice");
+    // if (minPrice) queryFilters.minPrice = Number(minPrice);
+
+    // const maxPrice = searchParams.get("maxPrice");
+    // if (maxPrice) queryFilters.maxPrice = Number(maxPrice);
+
+    // const searchTerm = searchParams.get("searchTerm");
+    // if (searchTerm) queryFilters.searchTerm = searchTerm;
+
+    // const sort = searchParams.get("sort");
+    // if (sort) {
+    //   const [sortColumn, sortOrder] = sort.split(",");
+    //   queryFilters.sortColumn = sortColumn;
+    //   queryFilters.sortOrder = sortOrder;
+    // }
+
+    onChange(queryFilters);
+  }, [searchParams, onChange]);
+
+  const handleTypeToggle = (type: number) => {
+    const updatedTypes = filters.placeTypes.includes(type) ? [] : [type];
     onChange({ placeTypes: updatedTypes });
   };
 
@@ -104,7 +127,6 @@ export function ListingFilters({ filters, onChange }: any) {
       searchTerm: "",
       sortColumn: "",
       sortOrder: "",
-      sortOptions: [],
     });
   };
 
@@ -114,7 +136,6 @@ export function ListingFilters({ filters, onChange }: any) {
       animate={{ opacity: 1, x: 0 }}
       className="w-full md:w-1/5 bg-background rounded-xl border shadow-sm overflow-hidden mt-14"
     >
-      {/* Header */}
       <div className="p-6 border-b">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-xl font-semibold">Filters</h2>
@@ -131,7 +152,7 @@ export function ListingFilters({ filters, onChange }: any) {
                     {getTotalFilters()} Selected
                   </Badge>
                   <RefreshCcw
-                    className="w-6 h-6  cursor-pointer hover:bg-gray-300 p-1 rounded-full"
+                    className="w-6 h-6 cursor-pointer hover:bg-gray-300 p-1 rounded-full"
                     onClick={handleReset}
                   />
                 </div>
@@ -145,7 +166,6 @@ export function ListingFilters({ filters, onChange }: any) {
         </p>
       </div>
 
-      {/* Search Input */}
       <div className="px-6 py-4">
         <div className="flex items-center gap-2">
           <Search className="w-5 h-5 text-primary" />
@@ -158,19 +178,17 @@ export function ListingFilters({ filters, onChange }: any) {
             placeholder="Search by keyword"
             value={filters.searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="h-9 flex-1 border-none focus:border-none focus-visible:border-none focus-visible:ring-0"
+            className="h-9 flex-1 border-none focus-visible:ring-0"
           />
           <Search className="w-5 h-5 text-muted-foreground" />
         </div>
       </div>
 
-      {/* Filter Categories */}
       <Accordion
         type="multiple"
         defaultValue={["price", "type"]}
         className="px-6 py-4"
       >
-        {/* Price Range */}
         <AccordionItem value="price" className="border-none">
           <AccordionTrigger className="hover:no-underline py-3 rounded-lg hover:bg-muted/50">
             <div className="flex items-center gap-2">
@@ -181,34 +199,29 @@ export function ListingFilters({ filters, onChange }: any) {
           <AccordionContent className="pt-4">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="flex-1 space-y-1">
-                  <Input
-                    placeholder="Min Price"
-                    type="number"
-                    value={filters.minPrice}
-                    onChange={(e) =>
-                      handlePriceChange(+e.target.value, filters.maxPrice)
-                    }
-                    className="h-9"
-                  />
-                </div>
-                <div className="flex-1 space-y-1">
-                  <Input
-                    placeholder="Max Price"
-                    type="number"
-                    value={filters.maxPrice}
-                    onChange={(e) =>
-                      handlePriceChange(filters.minPrice, +e.target.value)
-                    }
-                    className="h-9"
-                  />
-                </div>
+                <Input
+                  placeholder="Min Price"
+                  type="number"
+                  value={filters.minPrice}
+                  onChange={(e) =>
+                    handlePriceChange(+e.target.value, filters.maxPrice)
+                  }
+                  className="h-9"
+                />
+                <Input
+                  placeholder="Max Price"
+                  type="number"
+                  value={filters.maxPrice}
+                  onChange={(e) =>
+                    handlePriceChange(filters.minPrice, +e.target.value)
+                  }
+                  className="h-9"
+                />
               </div>
             </div>
           </AccordionContent>
         </AccordionItem>
 
-        {/* Property Type */}
         <AccordionItem value="type" className="border-none">
           <AccordionTrigger className="hover:no-underline py-3 rounded-lg hover:bg-muted/50">
             <div className="flex items-center gap-2">
@@ -236,12 +249,11 @@ export function ListingFilters({ filters, onChange }: any) {
         </AccordionItem>
       </Accordion>
 
-      {/* Sort Options */}
       <div className="px-6 py-4">
         <Label htmlFor="sort" className="text-sm font-medium">
           Sort By
         </Label>
-        <Select onValueChange={(value) => handleSortChange(value)}>
+        <Select onValueChange={handleSortChange}>
           <SelectTrigger id="sort" className="w-full mt-2">
             <SortAsc className="w-5 h-5 text-muted-foreground mr-2" />
             <SelectValue placeholder="Select option" />

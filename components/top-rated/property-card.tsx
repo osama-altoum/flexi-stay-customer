@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { TopRatedProperty } from "@/data/top-rated";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+
 import React from "react";
 import { AmenityItem } from "../amenity/amenity-item";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function PropertyCard({
   id,
@@ -60,7 +62,8 @@ export function PropertyCard({
         <h3
           className="text-xl font-bold mb-3 text-black dark:text-white line-clamp-1 group-hover:text-[#363aed] transition-colors cursor-pointer"
           onClick={() => {
-            route.push(`/property/${id}`);
+            console.log("Navigating to:", `/property/${id}`);
+            window.location.href = `/property/${id}`;
           }}
         >
           {placeTitle}
@@ -92,12 +95,14 @@ export function PropertyCard({
             <span className="text-2xl font-bold">{placePrice}</span>
             <span className="text-gray-500"> / SAR</span>
           </div>
-          <Button
-            className="rounded-full px-6 bg-gray-100 hover:bg-[#363aed] hover:text-white text-gray-900 dark:bg-gray-800 dark:text-white dark:hover:bg-[#363aed]"
-            variant="ghost"
-          >
-            Book Now
-          </Button>
+          <Link href={`/property/${id}`}>
+            <Button
+              className="rounded-full px-6 bg-gray-100 hover:bg-[#363aed] hover:text-white text-gray-900 dark:bg-gray-800 dark:text-white dark:hover:bg-[#363aed]"
+              variant="ghost"
+            >
+              Book Now
+            </Button>
+          </Link>
         </div>
       </div>
     </motion.div>

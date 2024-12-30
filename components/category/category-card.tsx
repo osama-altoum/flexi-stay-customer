@@ -56,7 +56,7 @@ export function CategoryCard({
             className=""
             onClick={() => {
               const filterParams: any = {
-                searchTerm: id,
+                placeType: id,
               };
               const queryString = new URLSearchParams(filterParams).toString();
               router.push(`/properties?${queryString}`);
