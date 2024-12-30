@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface CategoryCardProps {
+  id: number;
   title: string;
   description: string;
   icon: React.ReactNode;
@@ -14,12 +16,15 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({
+  id,
+
   title,
   description,
   icon,
   index,
   className,
 }: CategoryCardProps) {
+  const router = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -46,8 +51,18 @@ export function CategoryCard({
           </p>
         </div>
         <div className="group bg-[#f9f9ff] dark:bg-[#212121] group-hover:bg-transparent  w-full p-5 group-hover:text-white hover:text-white transition-colors">
-          <Button variant="ghost" className="">
-            Read More
+          <Button
+            variant="ghost"
+            className=""
+            onClick={() => {
+              const filterParams = {
+                searchTerm: id,
+              };
+              const queryString = new URLSearchParams(filterParams).toString();
+              router.push(`/properties?${queryString}`);
+            }}
+          >
+            View All
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
