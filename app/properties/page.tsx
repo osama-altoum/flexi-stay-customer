@@ -9,6 +9,8 @@ import { ListingList } from "@/components/listing/listing-list";
 import { ListingFilters } from "@/components/listing/listing-filters";
 import { ListingViewToggle } from "@/components/listing/listing-view-toggle";
 import { ListingPagination } from "@/components/listing/listing-pagination";
+import { Loader2 } from "lucide-react";
+import Image from "next/image";
 
 export default function PropertiesPage() {
   const { theme } = useTheme();
@@ -58,12 +60,17 @@ export default function PropertiesPage() {
               setFilters((prev) => ({ ...prev, ...updatedFilters }))
             }
           />
-          <div className="flex-1 w-full">
+          <div className="flex-1 w-full ">
             <div className="flex justify-between items-center mb-6">
-              <p className="text-muted-foreground">
-                Showing {currentPage} - {itemsPerPage} of {totalPages}{" "}
-                properties
-              </p>
+              {propertyLoading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <p className="text-muted-foreground">
+                  {propertyList.length
+                    ? `Showing ${currentPage} - ${propertyList.length} of ${totalPages} properties`
+                    : "No properties found"}
+                </p>
+              )}
               <ListingViewToggle view={view} onViewChange={setView} />
             </div>
 
@@ -79,11 +86,13 @@ export default function PropertiesPage() {
               />
             )}
 
-            <ListingPagination
-              currentPage={currentPage}
-              total={totalItems}
-              onPageChange={setCurrentPage}
-            />
+            {propertyList.length >= itemsPerPage - 1 && (
+              <ListingPagination
+                currentPage={currentPage}
+                total={totalItems}
+                onPageChange={setCurrentPage}
+              />
+            )}
           </div>
         </div>
       </div>
