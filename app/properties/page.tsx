@@ -40,7 +40,7 @@ export default function PropertiesPage() {
     ...filters,
   });
 
-  const totalItems = Math.ceil(totalPages / itemsPerPage - 1);
+  const totalItems = Math.ceil(totalPages / itemsPerPage);
 
   return (
     <div
@@ -86,7 +86,7 @@ export default function PropertiesPage() {
               />
             )}
 
-            {propertyList.length >= itemsPerPage - 1 && (
+            {propertyList.length >= itemsPerPage && (
               <ListingPagination
                 currentPage={currentPage}
                 total={totalItems}
