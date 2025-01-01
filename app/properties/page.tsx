@@ -38,7 +38,7 @@ export default function PropertiesPage() {
     ...filters,
   });
 
-  const totalItems = Math.ceil(totalPages / itemsPerPage);
+  const totalItems = Math.ceil(totalPages / itemsPerPage - 1);
 
   return (
     <div
