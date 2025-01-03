@@ -203,7 +203,11 @@ export function PropertyBooking({ property, reservations }: any) {
 
           <div className="space-y-2">
             <label className="text-sm font-medium">Guests</label>
-            <Button variant="outline" className="w-full justify-start">
+            <Button
+              variant="outline"
+              className="w-full justify-start"
+              type="reset"
+            >
               <Users className="mr-2 h-4 w-4" />
               <span>{property?.guests} Guests</span>
             </Button>
