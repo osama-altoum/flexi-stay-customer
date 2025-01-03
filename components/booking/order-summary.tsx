@@ -3,7 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function OrderSummary() {
+export function OrderSummary({
+  property,
+  nights,
+  totalPrice,
+  finalPrice,
+}: any) {
   return (
     <div className="space-y-8">
       {/* Promo Code */}
@@ -24,28 +29,41 @@ export function OrderSummary() {
         <div className="space-y-4">
           <div className="flex justify-between">
             <span className="text-muted-foreground">Subtotal</span>
-            <span className="font-medium">$1015</span>
+            <span className="font-medium">{totalPrice} SAR</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Service charge</span>
-            <span className="font-medium">10%</span>
+            <span className="text-muted-foreground">
+              New Reservation Discount
+            </span>
+            <span className="font-medium">
+              {property?.newReservationDiscount} SAR
+            </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Tax</span>
-            <span className="font-medium">5%</span>
+            <span className="text-muted-foreground">
+              Week Reservation Discount
+            </span>
+            <span className="font-medium">
+              {property?.weekReservationDiscount} SAR
+            </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Promo Code</span>
-            <span className="font-medium text-indigo-600">20% off</span>
+            <span className="text-muted-foreground">
+              Month Reservation Discount
+            </span>
+            <span className="font-medium text-indigo-600">
+              {property?.monthReservationDiscount} SAR
+            </span>
           </div>
           <div className="pt-4 border-t">
             <div className="flex justify-between">
               <span className="font-medium">Payable Now</span>
-              <span className="font-bold">1115</span>
+              <span className="font-bold">{finalPrice} SAR</span>
             </div>
           </div>
           <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
-            Payment
+            {/* Payment */}
+            BOOK
           </Button>
         </div>
       </div>

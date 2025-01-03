@@ -125,7 +125,7 @@ export function PropertyBooking({ property, reservations }: any) {
     } else {
       e.preventDefault();
       router.push(
-        `/property/${property?.id}/book?checkIn=${checkIn}&checkOut=${checkOut}`
+        `/property/${property?.id}/book?checkIn=${checkIn}&checkOut=${checkOut}&nights=${nights}&totalPrice=${totalPrice}&finalPrice=${finalPrice}`
       );
     }
   };

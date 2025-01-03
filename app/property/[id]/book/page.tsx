@@ -13,6 +13,9 @@ export default function BookingPage() {
   // Extract checkIn and checkOut from query params
   const checkIn = searchParams.get("checkIn");
   const checkOut = searchParams.get("checkOut");
+  const nights = searchParams.get("nights");
+  const totalPrice = searchParams.get("totalPrice");
+  const finalPrice = searchParams.get("finalPrice");
 
   const {
     propertyDetails,
@@ -42,7 +45,12 @@ export default function BookingPage() {
             />
           </div>
           <div className="lg:col-span-1">
-            <OrderSummary />
+            <OrderSummary
+              property={propertyDetails}
+              nights={nights}
+              totalPrice={totalPrice}
+              finalPrice={finalPrice}
+            />
           </div>
         </div>
       )}
