@@ -1,12 +1,15 @@
 "use client";
 
 import { useGetPlaceDetails } from "@/api/property";
+import { getToken } from "@/api/storage";
 import { BookingForm } from "@/components/booking/booking-form";
 import { OrderSummary } from "@/components/booking/order-summary";
 import LoadingBookingPage from "@/components/skeletons/loading-booking-page";
 import { useParams, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 export default function BookingPage() {
+  const token = getToken();
   const { id } = useParams();
   const searchParams = useSearchParams();
 
@@ -24,8 +27,10 @@ export default function BookingPage() {
     propertyDetailsValidating,
   } = useGetPlaceDetails({ placeId: id });
 
-  console.log("checkIn", checkIn);
-  console.log("checkOut", checkOut);
+  useEffect(() => {
+    if (!checkIn || !checkOut || !totalPrice || !finalPrice || !token)
+      window.location.href = `/property/${id}`;
+  }, [checkIn, checkOut, nights, totalPrice, finalPrice, id, token]);
 
   return (
     <div className="container mx-auto px-4 py-16">
