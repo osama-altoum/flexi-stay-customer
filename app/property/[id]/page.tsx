@@ -63,8 +63,8 @@ export default function PropertyDetailsPage() {
                   latitude={propertyDetails?.latitude}
                   longitude={propertyDetails?.longitude}
                 />
-                <PropertyVideo video={property?.video} />
-                <PropertyReviews />
+                {/* <PropertyVideo video={property?.video} /> */}
+                {/* <PropertyReviews /> */}
               </div>
 
               {/* Sidebar */}
@@ -74,7 +74,7 @@ export default function PropertyDetailsPage() {
                     property={propertyDetails}
                     reservations={reservations}
                   />
-                  <PropertyHost />
+                  {/* <PropertyHost /> */}
                 </div>
               </div>
             </div>
