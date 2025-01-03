@@ -29,14 +29,18 @@ export function OrderSummary({
         <div className="space-y-4">
           <div className="flex justify-between">
             <span className="text-muted-foreground">Subtotal</span>
-            <span className="font-medium">{totalPrice} SAR</span>
+            <span className="font-medium">
+              {totalPrice}{" "}
+              <span className="text-xs text-muted-foreground">SAR</span>
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">
               New Reservation Discount
             </span>
             <span className="font-medium">
-              {property?.newReservationDiscount} SAR
+              {property?.newReservationDiscount}{" "}
+              <span className="text-xs text-muted-foreground">SAR</span>
             </span>
           </div>
           <div className="flex justify-between">
@@ -44,7 +48,8 @@ export function OrderSummary({
               Week Reservation Discount
             </span>
             <span className="font-medium">
-              {property?.weekReservationDiscount} SAR
+              {property?.weekReservationDiscount}{" "}
+              <span className="text-xs text-muted-foreground">SAR</span>
             </span>
           </div>
           <div className="flex justify-between">
@@ -52,13 +57,17 @@ export function OrderSummary({
               Month Reservation Discount
             </span>
             <span className="font-medium text-indigo-600">
-              {property?.monthReservationDiscount} SAR
+              {property?.monthReservationDiscount}{" "}
+              <span className="text-xs text-muted-foreground">SAR</span>
             </span>
           </div>
           <div className="pt-4 border-t">
             <div className="flex justify-between">
               <span className="font-medium">Payable Now</span>
-              <span className="font-bold">{finalPrice} SAR</span>
+              <span className="font-bold">
+                {finalPrice}{" "}
+                <span className="text-xs text-muted-foreground">SAR</span>
+              </span>
             </div>
           </div>
           <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
