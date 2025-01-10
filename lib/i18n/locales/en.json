@@ -1,0 +1,26 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "reservations": "Reservations",
+    "listings": "Listings",
+    "profile": "Profile",
+    "messages": "Messages",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "currency": {
+    "symbol": "AED",
+    "code": "AED"
+  },
+  "dashboard": {
+    "totalRevenue": "Total Revenue",
+    "bookings": "Bookings",
+    "activeListings": "Active Listings",
+    "occupancyRate": "Occupancy Rate",
+    "overview": "Overview",
+    "recentBookings": "Recent Bookings"
+  },
+  "steps": {
+    "step1": "Let's get started with creating your property listing. We'll guide you through each step to ensure you provide all the necessary information for potential guests."
+  }
+}

@@ -9,35 +9,41 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Globe } from "lucide-react";
-
-const languages = [
-  { code: "en", name: "English", flag: "🇺🇸" },
-  { code: "ar", name: "العربية", flag: "🇸🇦" },
-];
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/use-language";
 
 export function LanguageSwitcher() {
-  const [currentLang, setCurrentLang] = useState(languages[0]);
+  const { language, setLanguage } = useLanguage();
+  const { i18n } = useTranslation();
+
+  const handleLanguageChange = (lang: string) => {
+    setLanguage(lang);
+    i18n.changeLanguage(lang);
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = lang;
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-2">
+        <Button variant="ghost" size="icon">
           <Globe className="h-4 w-4" />
-          {/* <span>{currentLang.flag}</span> */}
-          <span className="hidden md:inline">{currentLang.name}</span>
+          <span className="sr-only">Toggle language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map((lang) => (
-          <DropdownMenuItem
-            key={lang.code}
-            onClick={() => setCurrentLang(lang)}
-            className="gap-2"
-          >
-            <span>{lang.flag}</span>
-            <span>{lang.name}</span>
-          </DropdownMenuItem>
-        ))}
+        <DropdownMenuItem
+          onClick={() => handleLanguageChange("en")}
+          className={language === "en" ? "bg-accent" : ""}
+        >
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => handleLanguageChange("ar")}
+          className={language === "ar" ? "bg-accent" : ""}
+        >
+          العربية
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

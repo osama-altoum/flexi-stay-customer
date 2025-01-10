@@ -1,0 +1,23 @@
+{
+  "common": {
+    "dashboard": "لوحة التحكم",
+    "reservations": "الحجوزات",
+    "listings": "القوائم",
+    "profile": "الملف الشخصي",
+    "messages": "الرسائل",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "currency": {
+    "symbol": "ر.س",
+    "code": "SAR"
+  },
+  "steps": {
+    "step1": "لنبدأ بإنشاء قائمة عقارك. سنرشدك في كل خطوة للتأكد من أنك تقدم جميع المعلومات الضرورية للضيوف المحتملين."
+  },
+
+  "Browse by Category": "أبحث عن قوائم بالتصنيف",
+  "Find your perfect property from our wide range of categories": " ابحث عن العقار المناسب لك من مجموعة كبيرة من التصنيفات",
+  "": "",
+  "": ""
+}
