@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header/header";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import i18n from "@/lib/i18n/config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const initialLanguage = i18n.language || "en";
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang={initialLanguage}
+      dir={initialLanguage === "ar" ? "rtl" : "ltr"}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
