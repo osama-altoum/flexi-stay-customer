@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { t } from "i18next";
 
 const categories = [
   {
@@ -91,9 +92,13 @@ export function OurCategory() {
             viewport={{ once: true }}
             className="text-left mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4">Browse by Category</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              {t("Browse by Category")}
+            </h2>
             <p className="text-muted-foreground">
-              Find your perfect property from our wide range of categories
+              {t(
+                "Find your perfect property from our wide range of categories"
+              )}
             </p>
           </motion.div>
           <motion.div
