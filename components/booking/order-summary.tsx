@@ -20,11 +20,15 @@ export function OrderSummary({
   const userData = getUserData();
 
   const handleSubmit = async () => {
+    // Format checkIn and checkOut to ISO 8601
+    const formattedCheckIn = new Date(checkIn).toISOString();
+    const formattedCheckOut = new Date(checkOut).toISOString();
+
     const body = {
       placeId: property?.id,
       userId: userData?.id,
-      checkIn,
-      checkOut,
+      checkIn: formattedCheckIn,
+      checkOut: formattedCheckOut,
       totalAmount: finalPrice,
     };
 
