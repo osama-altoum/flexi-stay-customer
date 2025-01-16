@@ -4,6 +4,7 @@ import { CreateReservation } from "@/api/reservation";
 import { getUserData } from "@/api/storage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -16,6 +17,7 @@ export function OrderSummary({
   checkOut,
 }: any) {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const userData = getUserData();
 
@@ -39,6 +41,7 @@ export function OrderSummary({
       if (response) {
         setIsLoading(false);
         toast.success("Reservation created successfully!");
+        router.push("/success");
       }
     } catch (error) {
       setIsLoading(false);
