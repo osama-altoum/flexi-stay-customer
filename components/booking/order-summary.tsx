@@ -1,14 +1,54 @@
 "use client";
 
+import { CreateReservation } from "@/api/reservation";
+import { getUserData } from "@/api/storage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export function OrderSummary({
   property,
   nights,
   totalPrice,
   finalPrice,
+  checkIn,
+  checkOut,
 }: any) {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const userData = getUserData();
+
+  const handleSubmit = async () => {
+    // Format checkIn and checkOut to ISO 8601
+    const formattedCheckIn = new Date(checkIn).toISOString();
+    const formattedCheckOut = new Date(checkOut).toISOString();
+
+    const body = {
+      placeId: property?.id,
+      userId: userData?.id,
+      checkIn: formattedCheckIn,
+      checkOut: formattedCheckOut,
+      totalAmount: finalPrice,
+    };
+
+    setIsLoading(true);
+
+    try {
+      const response = await CreateReservation(body);
+      if (response) {
+        setIsLoading(false);
+        toast.success("Reservation created successfully!");
+        router.push("/success");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      toast.error("Error creating reservation.");
+    }
+  };
+
   return (
     <div className="space-y-8">
       {/* Promo Code */}
@@ -70,9 +110,13 @@ export function OrderSummary({
               </span>
             </div>
           </div>
-          <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
+          <Button
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+            onClick={handleSubmit}
+            disabled={isLoading}
+          >
             {/* Payment */}
-            BOOK
+            {isLoading ? "Loading..." : "BOOK"}
           </Button>
         </div>
       </div>

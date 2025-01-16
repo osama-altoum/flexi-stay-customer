@@ -99,4 +99,7 @@ export const endpoints = {
     getPlaceDetails: "api/v1/places",
     getPlaceReservations: "api/v1/places/",
   },
+  reservations: {
+    setReservation: "api/v1/reservations",
+  },
 };
