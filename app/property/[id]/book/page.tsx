@@ -51,6 +51,8 @@ export default function BookingPage() {
           </div>
           <div className="lg:col-span-1">
             <OrderSummary
+              checkIn={checkIn}
+              checkOut={checkOut}
               property={propertyDetails}
               nights={nights}
               totalPrice={totalPrice}
