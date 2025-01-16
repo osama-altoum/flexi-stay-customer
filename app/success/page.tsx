@@ -3,7 +3,7 @@
 // import properteis from "@/data/properteis.json";
 import { useParams, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import { generateFireworks } from "./Firework";
+import { generateFireworks } from "../../components/firework/Firework";
 import { useEffect } from "react";
 
 export default function ReservationSuccessPage() {
