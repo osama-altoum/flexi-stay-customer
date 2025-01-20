@@ -19,7 +19,7 @@ const ReservationSuccessPage = () => {
 
     const redirectTimeout = setTimeout(() => {
       router.push("/");
-    }, 1000);
+    }, 2000);
 
     return () => {
       clearTimeout(fireworkTimeout);

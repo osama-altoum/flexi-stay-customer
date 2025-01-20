@@ -43,7 +43,7 @@ export function PropertyHeader({ property }: any) {
 
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold">
-            {property.placeTypeId === 1 ? "House" : "Apartment"} :{" "}
+            {property.placeTypeId === 2 ? "House" : "Apartment"} :{" "}
             {property.title}
           </h1>
           <div className="flex items-center gap-2">

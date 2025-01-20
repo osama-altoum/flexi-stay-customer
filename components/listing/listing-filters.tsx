@@ -43,8 +43,8 @@ type PropertyType = {
 };
 
 const propertyTypes: PropertyType[] = [
-  { value: 1, label: "House", icon: Home },
-  { value: 2, label: "Apartment", icon: Building2 },
+  { value: 1, label: "Apartment", icon: Building2 },
+  { value: 2, label: "House", icon: Home },
 ];
 
 const sortOptions = [
