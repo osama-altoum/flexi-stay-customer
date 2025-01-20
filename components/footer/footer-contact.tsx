@@ -18,10 +18,10 @@ export function FooterContact() {
         <div className="flex items-center space-x-3">
           <Mail className="h-10 w-10" />
           <a
-            href="mailto:support@flexistay.com"
+            href="mailto:support@stayway.com"
             className="hover:text-black dark:hover:text-white transition-colors"
           >
-            support@flexistay.com
+            support@stayway.com
           </a>
         </div>
       </div>

@@ -10,9 +10,9 @@ import i18n from "@/lib/i18n/config";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Flexi Stay: Your Flexible Property Rental Solution",
+  title: "Stay Way: Your Flexible Property Rental Solution",
   description:
-    "Find and rent properties that fit your needs with Flexi Stay, offering flexible rental options for every lifestyle.",
+    "Find and rent properties that fit your needs with Stay Way, offering flexible rental options for every lifestyle.",
 };
 
 export default function RootLayout({

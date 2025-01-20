@@ -33,7 +33,7 @@ export function ListingHero() {
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            Journey with Flexi Stay - Begin Your Story!
+            Journey with Stay Way - Begin Your Story!
           </h1>
           <p className="text-xl text-white/90">
             Easily search for top accommodations offered by our professional

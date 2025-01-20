@@ -32,7 +32,7 @@ export default axiosInstance;
 
 // ----------------------------------------------------------------------
 
-export const flexiStaySmasher = async (
+export const stayWaySmasher = async (
   args: string | [string, AxiosRequestConfig]
 ) => {
   const [url, config] = Array.isArray(args) ? args : [args];
@@ -54,7 +54,7 @@ export const fetcher = async (args: string | [string, AxiosRequestConfig]) => {
 
 // ----------------------------------------------------------------------
 
-export const flexiStayCreator = async (
+export const stayWayCreator = async (
   args: string | [string, AxiosRequestConfig]
 ) => {
   const [url, config] = Array.isArray(args) ? args : [args];
@@ -65,7 +65,7 @@ export const flexiStayCreator = async (
 
 // ----------------------------------------------------------------------
 
-export const flexiStayCreatorPut = async (
+export const stayWayCreatorPut = async (
   args: string | [string, AxiosRequestConfig]
 ) => {
   const [url, config] = Array.isArray(args) ? args : [args];
@@ -76,7 +76,7 @@ export const flexiStayCreatorPut = async (
 
 // ----------------------------------------------------------------------
 
-export const flexiStayFetcher = async (
+export const stayWayFetcher = async (
   args: string | [string, AxiosRequestConfig]
 ) => {
   const [url, config] = Array.isArray(args) ? args : [args];

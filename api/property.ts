@@ -1,9 +1,9 @@
 import useSWR, { mutate } from "swr";
 import { useMemo } from "react";
 import {
-  flexiStayCreator,
-  flexiStayFetcher,
-  flexiStaySmasher,
+  stayWayCreator,
+  stayWayFetcher,
+  stayWaySmasher,
   endpoints,
 } from "./axios";
 
@@ -63,7 +63,7 @@ export function useGetplaces({
 
   const { data, error, isLoading, isValidating } = useSWR(
     fullUrl,
-    flexiStayFetcher,
+    stayWayFetcher,
     {
       revalidateOnFocus: false,
     }
@@ -100,7 +100,7 @@ export function useGetPlaceDetails({ placeId }: any = {}) {
 
   const { data, error, isLoading, isValidating } = useSWR(
     fullUrl,
-    flexiStayFetcher,
+    stayWayFetcher,
     {
       revalidateOnFocus: false,
     }
@@ -136,7 +136,7 @@ export function useGetPlaceReservation({ placeId }: any = {}) {
 
   const { data, error, isLoading, isValidating } = useSWR(
     fullUrl,
-    flexiStayFetcher,
+    stayWayFetcher,
     {
       revalidateOnFocus: false,
     }

@@ -109,11 +109,23 @@ export function PropertyBooking({ property, reservations }: any) {
   };
 
   const totalPrice = nights * property?.priceBeforeTax;
+  const calculateDiscount = (totalPrice: number, discountRate: number) =>
+    discountRate > 0 ? (totalPrice * discountRate) / 100 : 0;
+
   const finalPrice =
-    totalPrice +
-    (property?.newReservationDiscount || 0) +
-    (property?.weekReservationDiscount || 0) +
-    (property?.monthReservationDiscount || 0);
+    totalPrice -
+    calculateDiscount(
+      totalPrice,
+      property?.newReservationDiscount > 0 ? 20 : 0
+    ) -
+    calculateDiscount(
+      totalPrice,
+      property?.weekReservationDiscount > 0 ? 10 : 0
+    ) -
+    calculateDiscount(
+      totalPrice,
+      property?.monthReservationDiscount > 0 ? 15 : 0
+    );
 
   const token = getToken();
   const [showAuthDialog, setShowAuthDialog] = useState(false);
@@ -144,10 +156,10 @@ export function PropertyBooking({ property, reservations }: any) {
         </div>
 
         <div className="flex gap-4">
-          <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700">
+          <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700" disabled>
             Booking Form
           </Button>
-          <Button variant="outline" className="flex-1">
+          <Button variant="outline" className="flex-1" disabled>
             Enquiry Form
           </Button>
         </div>
@@ -222,15 +234,15 @@ export function PropertyBooking({ property, reservations }: any) {
             </div>
             <div className="flex justify-between">
               <span>New Reservation Discount</span>
-              <span>{property?.newReservationDiscount} SAR</span>
+              <span>{property?.newReservationDiscount} %</span>
             </div>
             <div className="flex justify-between">
               <span>Week Reservation Discount</span>
-              <span>{property?.weekReservationDiscount} SAR</span>
+              <span>{property?.weekReservationDiscount} %</span>
             </div>
             <div className="flex justify-between">
               <span>Month Reservation Discount</span>
-              <span>{property?.monthReservationDiscount} SAR</span>
+              <span>{property?.monthReservationDiscount} %</span>
             </div>
 
             <div className="flex justify-between font-semibold">

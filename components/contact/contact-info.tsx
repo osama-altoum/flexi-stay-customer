@@ -27,7 +27,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["support@flexistay.com", "info@flexistay.com"],
+    details: ["support@stayway.com", "info@stayway.com"],
   },
   {
     icon: Clock,
