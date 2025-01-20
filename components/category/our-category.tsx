@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const categories = [
   {
@@ -72,6 +72,7 @@ const categories = [
 ];
 
 export function OurCategory() {
+  const { t } = useTranslation();
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   const router = useRouter();
