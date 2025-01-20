@@ -1,7 +1,7 @@
-import { endpoints, flexiStayCreator } from "./axios";
+import { endpoints, stayWayCreator } from "./axios";
 
 export function CreateReservation(body: any) {
   const URL = endpoints.reservations.setReservation;
-  const response = flexiStayCreator([URL, body]);
+  const response = stayWayCreator([URL, body]);
   return response;
 }
