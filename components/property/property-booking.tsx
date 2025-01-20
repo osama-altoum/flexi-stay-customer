@@ -156,10 +156,10 @@ export function PropertyBooking({ property, reservations }: any) {
         </div>
 
         <div className="flex gap-4">
-          <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700">
+          <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700" disabled>
             Booking Form
           </Button>
-          <Button variant="outline" className="flex-1">
+          <Button variant="outline" className="flex-1" disabled>
             Enquiry Form
           </Button>
         </div>
