@@ -20,7 +20,7 @@ import { t } from "i18next";
 
 const categories = [
   {
-    id: 2,
+    id: 1,
     title: "Apartments",
     description: "An apartment is a self-contained housing unit that",
     icon: (
@@ -28,7 +28,7 @@ const categories = [
     ),
   },
   {
-    id: 1,
+    id: 2,
     title: "House",
     description: "A house is a standalone building that is designed for",
     icon: <Home className="h-12 w-12 text-[#23814b] group-hover:!text-white" />,
