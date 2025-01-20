@@ -80,7 +80,7 @@ export function OrderSummary({
             </span>
             <span className="font-medium">
               {property?.newReservationDiscount}{" "}
-              <span className="text-xs text-muted-foreground">SAR</span>
+              <span className="text-xs text-muted-foreground">%</span>
             </span>
           </div>
           <div className="flex justify-between">
@@ -89,7 +89,7 @@ export function OrderSummary({
             </span>
             <span className="font-medium">
               {property?.weekReservationDiscount}{" "}
-              <span className="text-xs text-muted-foreground">SAR</span>
+              <span className="text-xs text-muted-foreground">%</span>
             </span>
           </div>
           <div className="flex justify-between">
@@ -98,7 +98,7 @@ export function OrderSummary({
             </span>
             <span className="font-medium text-indigo-600">
               {property?.monthReservationDiscount}{" "}
-              <span className="text-xs text-muted-foreground">SAR</span>
+              <span className="text-xs text-muted-foreground">%</span>
             </span>
           </div>
           <div className="pt-4 border-t">
