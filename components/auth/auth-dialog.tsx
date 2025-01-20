@@ -85,7 +85,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
         const actionMessage = isLogin ? "Login" : "Registration";
         toast.success(`${actionMessage} successful!`);
         setToken(response.token);
-        setUserData(JSON.stringify(response.data));
+        setUserData(JSON.stringify(response?.data));
 
         router.refresh();
         onClose();
