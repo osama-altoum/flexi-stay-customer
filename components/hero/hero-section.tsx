@@ -9,10 +9,12 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import slides from "@/data/hero.json";
+import { useTranslation } from "react-i18next";
 
 const categories = ["Apartments", "Houses", "Villas", "Studios", "Townhouses"];
 
 export function HeroSection() {
+  const { t } = useTranslation();
   const { theme } = useTheme();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 5000 }),
@@ -81,7 +83,7 @@ export function HeroSection() {
                     transition={{ duration: 0.5 }}
                     className="inline-block bg-yellow-300 text-black px-4 py-1 rounded-full text-sm font-medium mb-4 w-fit"
                   >
-                    {slide.tag}
+                    {t(slide.tag)}
                   </motion.span>
                   <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -89,9 +91,9 @@ export function HeroSection() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4"
                   >
-                    {slide.title}
+                    {t(slide.title)}
                     <br />
-                    {slide.subtitle}
+                    {t(slide.subtitle)}
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -99,7 +101,7 @@ export function HeroSection() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-base md:text-xl text-white/90 mb-8 max-w-3xl"
                   >
-                    {slide.description}
+                    {t(slide.description)}
                   </motion.p>
 
                   {/* Categories */}
@@ -119,7 +121,7 @@ export function HeroSection() {
                             : "bg-white/10 text-white hover:bg-white/20 border-white/20"
                         }`}
                       >
-                        {category}
+                        {t(category)}
                       </Button>
                     ))}
                   </motion.div>
