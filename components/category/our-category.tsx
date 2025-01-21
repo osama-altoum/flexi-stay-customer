@@ -27,7 +27,7 @@ const categories = [
     description:
       "An apartment is a self-contained housing unit that provides a private living space within a larger building, often including amenities like kitchens, bathrooms, and living areas.",
     icon: (
-      <Building2 className="h-10 w-8 text-[#363aed] group-hover:!text-white" />
+      <Building2 className="h-12 w-12 mb-2 text-[#363aed] group-hover:!text-white" />
     ),
   },
   {
@@ -35,7 +35,9 @@ const categories = [
     title: "House",
     description:
       "A house is a standalone building that is designed for independent living, offering full privacy and often including multiple rooms and outdoor spaces like gardens or yards.",
-    icon: <Home className="h-12 w-12 text-[#23814b] group-hover:!text-white" />,
+    icon: (
+      <Home className="h-12 w-12 mb-2 text-[#23814b] group-hover:!text-white" />
+    ),
   },
   // {
   //   title: "Family",
