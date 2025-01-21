@@ -45,13 +45,13 @@ export function CategoryCard({
     >
       <div className="flex flex-col h-full">
         <div className="p-6">
-          <div className="mb-4 text-primary group-hover:!text-white  transition-colors">
+          <div className="h-12 w-12 text-primary group-hover:!text-white  transition-colors">
             {icon}
           </div>
           <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">
             {t(title)}
           </h3>
-          <p className="text-muted-foreground mb-2 flex-grow group-hover:text-white/90 transition-colors">
+          <p className="text-muted-foreground mb-2 flex-grow group-hover:text-white/90 transition-colors line-clamp-3">
             {t(description)}
           </p>
         </div>
