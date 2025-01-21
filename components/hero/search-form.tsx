@@ -10,8 +10,10 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { MapPin, Calendar as CalendarIcon, Users, Search } from "lucide-react";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 export function SearchForm() {
+  const { t } = useTranslation();
   const [location, setLocation] = useState("Dubai, UAE");
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
@@ -23,7 +25,7 @@ export function SearchForm() {
         {/* Location */}
         <div className="md:col-span-1">
           <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
-            Location
+            {t("Location")}
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -66,7 +68,7 @@ export function SearchForm() {
         {/* Check In */}
         <div className="md:col-span-1">
           <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
-            Check In
+            {t("Check In")}
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -92,7 +94,7 @@ export function SearchForm() {
         {/* Check Out */}
         <div className="md:col-span-1">
           <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
-            Check Out
+            {t("Check Out")}
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -118,7 +120,7 @@ export function SearchForm() {
         {/* Guests */}
         <div className="md:col-span-1">
           <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500">
-            Guests
+            {t("Guests")}
           </label>
           <Popover>
             <PopoverTrigger asChild>
@@ -137,21 +139,21 @@ export function SearchForm() {
                   className="w-full justify-start"
                   onClick={() => setGuests("2 adults, 2 children")}
                 >
-                  2 adults, 2 children
+                  {t("2 adults, 2 children")}
                 </Button>
                 <Button
                   variant="ghost"
                   className="w-full justify-start"
                   onClick={() => setGuests("2 adults")}
                 >
-                  2 adults
+                  {t("2 adults")}
                 </Button>
                 <Button
                   variant="ghost"
                   className="w-full justify-start"
                   onClick={() => setGuests("1 adult")}
                 >
-                  1 adult
+                  {t("1 adult")}
                 </Button>
               </div>
             </PopoverContent>
@@ -161,11 +163,11 @@ export function SearchForm() {
         {/* Search Button */}
         <div className="md:col-span-1">
           <label className="block text-xs text-gray-700 mb-1 dark:text-gray-500 invisible">
-            Search
+            {t("Search")}
           </label>
           <Button className="w-full bg-[#363aed] text-white hover:bg-[#363aed55] rounded-lg">
             <Search className="mr-2 h-4 w-4" />
-            Search
+            {t("Search")}
           </Button>
         </div>
       </div>

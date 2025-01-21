@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { use } from "react";
+import { useTranslation } from "react-i18next";
 
 interface CategoryCardProps {
   id: number;
@@ -25,6 +27,7 @@ export function CategoryCard({
   className,
 }: CategoryCardProps) {
   const router = useRouter();
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,7 +47,7 @@ export function CategoryCard({
             {icon}
           </div>
           <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">
-            {title}
+            {t(title)}
           </h3>
           <p className="text-muted-foreground mb-2 flex-grow group-hover:text-white/90 transition-colors">
             {description}

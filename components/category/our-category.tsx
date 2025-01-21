@@ -115,7 +115,7 @@ export function OurCategory() {
                 router.push("/properties");
               }}
             >
-              View More <ArrowRight className="w-4 h-4" />
+              {t("View More")} <ArrowRight className="w-4 h-4" />
             </Button>
           </motion.div>
         </div>
