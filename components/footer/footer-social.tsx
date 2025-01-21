@@ -1,4 +1,6 @@
+"use client";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const socialLinks = [
   { name: "Instagram", icon: Instagram, href: "#" },
@@ -8,10 +10,11 @@ const socialLinks = [
 ];
 
 export function FooterSocial() {
+  const { t } = useTranslation();
   return (
     <div className="mt-8">
       <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
-        Follow us
+        {t("Follow us")}
       </h3>
       <div className="flex space-x-4">
         {socialLinks.map((social) => (

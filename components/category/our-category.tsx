@@ -9,6 +9,7 @@ import {
   Store,
   Landmark,
   ArrowRight,
+  ArrowLeft,
 } from "lucide-react";
 import { CategoryCard } from "./category-card";
 import { StatsCard } from "./stats-card";
@@ -17,12 +18,14 @@ import { useTheme } from "next-themes";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/use-language";
 
 const categories = [
   {
     id: 1,
     title: "Apartments",
-    description: "An apartment is a self-contained housing unit that",
+    description:
+      "An apartment is a self-contained housing unit that provides a private living space within a larger building, often including amenities like kitchens, bathrooms, and living areas.",
     icon: (
       <Building2 className="h-10 w-8 text-[#363aed] group-hover:!text-white" />
     ),
@@ -30,7 +33,8 @@ const categories = [
   {
     id: 2,
     title: "House",
-    description: "A house is a standalone building that is designed for",
+    description:
+      "A house is a standalone building that is designed for independent living, offering full privacy and often including multiple rooms and outdoor spaces like gardens or yards.",
     icon: <Home className="h-12 w-12 text-[#23814b] group-hover:!text-white" />,
   },
   // {
@@ -73,6 +77,7 @@ const categories = [
 
 export function OurCategory() {
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   const router = useRouter();
@@ -115,7 +120,12 @@ export function OurCategory() {
                 router.push("/properties");
               }}
             >
-              {t("View More")} <ArrowRight className="w-4 h-4" />
+              {t("View More")}{" "}
+              {language === "en" ? (
+                <ArrowRight className="w-4 h-4" />
+              ) : (
+                <ArrowLeft className="w-4 h-4" />
+              )}
             </Button>
           </motion.div>
         </div>
