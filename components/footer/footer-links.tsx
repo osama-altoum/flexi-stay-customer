@@ -1,3 +1,6 @@
+"use client";
+import { useTranslation } from "react-i18next";
+
 interface FooterSection {
   title: string;
   links: {
@@ -54,12 +57,13 @@ const footerSections: FooterSection[] = [
 ];
 
 export function FooterLinks() {
+  const { t } = useTranslation();
   return (
     <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
       {footerSections.map((section) => (
         <div key={section.title}>
           <h3 className="text-lg font-semibold text-black dark:text-white mb-4">
-            {section.title}
+            {t(section.title)}
           </h3>
           <ul className="space-y-2">
             {section.links.map((link) => (
@@ -68,7 +72,7 @@ export function FooterLinks() {
                   href={link.href}
                   className="dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-black transition-colors"
                 >
-                  {link.name}
+                  {t(link.name)}
                 </a>
               </li>
             ))}

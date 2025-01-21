@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { use } from "react";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/use-language";
 
 interface CategoryCardProps {
   id: number;
@@ -25,6 +28,8 @@ export function CategoryCard({
   className,
 }: CategoryCardProps) {
   const router = useRouter();
+  const { t } = useTranslation();
+  const { language } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,13 +49,17 @@ export function CategoryCard({
             {icon}
           </div>
           <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">
-            {title}
+            {t(title)}
           </h3>
           <p className="text-muted-foreground mb-2 flex-grow group-hover:text-white/90 transition-colors">
-            {description}
+            {t(description)}
           </p>
         </div>
-        <div className="group bg-[#f9f9ff] dark:bg-[#212121] group-hover:bg-transparent  w-full p-5 group-hover:text-white hover:text-white transition-colors">
+        <div
+          className={`group bg-[#f9f9ff] dark:bg-[#212121] group-hover:bg-transparent w-full p-5 group-hover:text-white hover:text-white transition-colors ${
+            language === "ar" ? "text-end" : ""
+          }`}
+        >
           <Button
             variant="ghost"
             className=""
@@ -62,8 +71,12 @@ export function CategoryCard({
               router.push(`/properties?${queryString}`);
             }}
           >
-            View All
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            {t("View All")}
+            {language === "en" ? (
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            ) : (
+              <ArrowLeft className="ml-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            )}
           </Button>
         </div>
       </div>

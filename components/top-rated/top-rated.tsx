@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Link } from "lucide-react";
+import { ArrowLeft, ArrowRight, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -20,12 +20,15 @@ import { useRouter } from "next/navigation";
 import { useGetplaces } from "@/api/property";
 import LoadingCard from "../skeletons/loading-card";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/use-language";
+import { Arrow } from "@radix-ui/react-dropdown-menu";
 
 export function TopRated() {
   const { t } = useTranslation();
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   const router = useRouter();
+  const { language } = useLanguage();
 
   const { propertyList, propertyLoading, revalidatePropertyList } =
     useGetplaces({ page: 1, pageSize: 10 });
@@ -67,7 +70,12 @@ export function TopRated() {
                 router.push("/properties");
               }}
             >
-              View More <ArrowRight className="w-4 h-4" />
+              {t("View More")}{" "}
+              {language === "en" ? (
+                <ArrowRight className="w-4 h-4" />
+              ) : (
+                <ArrowLeft className="w-4 h-4" />
+              )}
             </Button>
           </motion.div>
         </div>
@@ -83,6 +91,7 @@ export function TopRated() {
           opts={{
             align: "start",
             loop: true,
+            direction: language === "ar" ? "rtl" : "ltr",
           }}
           plugins={[
             Autoplay({

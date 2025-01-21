@@ -10,15 +10,18 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import slides from "@/data/hero.json";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/use-language";
 
 const categories = ["Apartments", "Houses", "Villas", "Studios", "Townhouses"];
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const { theme } = useTheme();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000 }),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, direction: language === "ar" ? "rtl" : "ltr" },
+    [Autoplay({ delay: 5000 })]
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollTo = useCallback(
