@@ -83,8 +83,20 @@ const BookingCard = ({ propertyData, reservation }: any) => {
                 In :{format(reservation.checkIn, "dd/MM/yyyy")} - Out :{" "}
                 {format(reservation.checkOut, "dd/MM/yyyy")}
               </div>
-              <div className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-green-100 text-green-800">
-                {propertyData.status}
+              <div
+                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                  reservation.status === "PENDING"
+                    ? "bg-yellow-100 text-yellow-800"
+                    : reservation.status === "CONFIRMED"
+                    ? "bg-green-100 text-green-800"
+                    : reservation.status === "CANCELLED"
+                    ? "bg-red-100 text-red-800"
+                    : reservation.status === "DECLINED"
+                    ? "bg-gray-100 text-gray-800"
+                    : "bg-gray-50 text-gray-500"
+                }`}
+              >
+                {reservation.status}
               </div>
             </div>
             <div className="flex gap-3">
