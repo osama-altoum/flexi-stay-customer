@@ -59,7 +59,7 @@ export function PropertyLocation({ latitude, longitude }: Location) {
       <div>
         <h2 className="text-2xl font-bold">{t("Property location")}</h2>
         <p className="text-muted-foreground">
-          Location for this property that the guest will see
+          {t("Location for this property")}
         </p>
       </div>
 

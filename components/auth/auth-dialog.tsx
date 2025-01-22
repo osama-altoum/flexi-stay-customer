@@ -22,6 +22,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import * as z from "zod";
 import { setToken, setUserData } from "@/api/storage";
+import { useTranslation } from "react-i18next";
 
 interface AuthDialogProps {
   isOpen: boolean;
@@ -50,6 +51,7 @@ const RegisterFormSchema = z.object({
 });
 
 export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
+  const { t } = useTranslation();
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -132,7 +134,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
             <div className="flex items-center gap-2 mb-8">
               <PalmtreeLogo />
               <h2 className="text-2xl font-bold">
-                {isLogin ? "Welcome Back!" : "Create an Account"}
+                {isLogin ? t("Welcome Back!") : t("Create an Account")}
               </h2>
             </div>
 
@@ -144,10 +146,10 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>First Name</FormLabel>
+                        <FormLabel>{t("First Name")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Enter your first name"
+                            placeholder={t("Enter your first name")}
                             {...field}
                           />
                         </FormControl>
@@ -160,10 +162,10 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Last Name</FormLabel>
+                        <FormLabel>{t("Last Name")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Enter your last name"
+                            placeholder={t("Enter your last name")}
                             {...field}
                           />
                         </FormControl>
@@ -179,9 +181,9 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email Address</FormLabel>
+                    <FormLabel>{t("Email Address")}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your email" {...field} />
+                      <Input placeholder={t("Enter your email")} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -193,7 +195,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>{t("Password")}</FormLabel>
                     <FormControl>
                       <div className="relative w-full">
                         <Input
@@ -225,7 +227,7 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
+                      <FormLabel>{t("Phone Number")}</FormLabel>
                       <FormControl>
                         <Input
                           type="phoneNumber"
@@ -247,19 +249,19 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                     render={({ field }) => (
                       <div className="flex items-center space-x-2">
                         <Checkbox />
-                        <label className="text-sm">Remember me</label>
+                        <label className="text-sm">{t("Remember me")}</label>
                       </div>
                     )}
                   />
                   <Button variant="link" className="text-sm text-[#363aed]">
-                    Forgot password?
+                    {t("Forgot password?")}
                   </Button>
                 </div>
               ) : (
                 <div className="flex items-center space-x-2">
                   <Checkbox />
                   <label className="text-sm">
-                    I agree to the terms and conditions
+                    {t("I agree to the terms and conditions")}
                   </label>
                 </div>
               )}
@@ -269,21 +271,23 @@ export function AuthDialog({ isOpen, onClose }: AuthDialogProps) {
                 className="w-full bg-[#363aed] text-white hover:bg-[#363aed]/70"
               >
                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isLogin ? "Login" : "Register"}
+                {isLogin ? t("Login") : t("Register")}
               </Button>
             </div>
           </form>
         </Form>
 
         <div className="mt-3 text-center text-sm text-gray-600">
-          {isLogin ? "Don't have an account? " : "Already have an account? "}
+          {isLogin
+            ? t("Don't have an account?")
+            : t("Already have an account?")}
           <Button
             variant="link"
             className="text-[#363aed] hover:text-[#363aed]/70"
             onClick={() => setIsLogin(!isLogin)}
             disabled={isLoading}
           >
-            {isLogin ? "Register Here!" : "Login Here!"}
+            {isLogin ? t("Register Here!") : t("Login Here!")}
           </Button>
         </div>
 

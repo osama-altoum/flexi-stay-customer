@@ -35,11 +35,12 @@ export function ListingHero() {
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            Journey with Stay Way - Begin Your Story!
+            {t("Journey with Stay Way - Begin Your Story!")}
           </h1>
           <p className="text-xl text-white/90">
-            Easily search for top accommodations offered by our professional
-            network
+            {t(
+              "Easily search for top accommodations offered by our professional network"
+            )}
           </p>
         </div>
 
@@ -49,7 +50,7 @@ export function ListingHero() {
             {/* Location */}
             <div className="md:col-span-1">
               <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Location
+                {t("Location")}
               </label>
               <Popover>
                 <PopoverTrigger asChild>
@@ -68,14 +69,14 @@ export function ListingHero() {
                       className="w-full justify-start"
                       onClick={() => setLocation("Dubai, UAE")}
                     >
-                      Dubai, UAE
+                      {t("Dubai, UAE")}
                     </Button>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
                       onClick={() => setLocation("Abu Dhabi, UAE")}
                     >
-                      Abu Dhabi, UAE
+                      {t("Abu Dhabi, UAE")}
                     </Button>
                   </div>
                 </PopoverContent>
@@ -85,7 +86,7 @@ export function ListingHero() {
             {/* Check In */}
             <div className="md:col-span-1">
               <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Check In
+                {t("Check In")}
               </label>
               <Popover>
                 <PopoverTrigger asChild>
@@ -111,7 +112,7 @@ export function ListingHero() {
             {/* Check Out */}
             <div className="md:col-span-1">
               <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Check Out
+                {t("Check Out")}
               </label>
               <Popover>
                 <PopoverTrigger asChild>
@@ -137,7 +138,7 @@ export function ListingHero() {
             {/* Guests */}
             <div className="md:col-span-1">
               <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Guest
+                {t("Guest")}
               </label>
               <Popover>
                 <PopoverTrigger asChild>
@@ -156,14 +157,14 @@ export function ListingHero() {
                       className="w-full justify-start"
                       onClick={() => setGuests("2 adults, 2 children")}
                     >
-                      2 adults, 2 children
+                      {t("2 adults, 2 children")}
                     </Button>
                     <Button
                       variant="ghost"
                       className="w-full justify-start"
                       onClick={() => setGuests("2 adults")}
                     >
-                      2 adults
+                      {t("2 adults")}
                     </Button>
                   </div>
                 </PopoverContent>
@@ -173,11 +174,11 @@ export function ListingHero() {
             {/* Search Button */}
             <div className="md:col-span-1">
               <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1 invisible">
-                Search
+                {t("Search")}
               </label>
               <Button className="w-full bg-black hover:bg-black/90">
                 <Search className="mr-2 h-4 w-4" />
-                Search
+                {t("Search")}
               </Button>
             </div>
           </div>

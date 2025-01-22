@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import { toast } from "sonner";
 
 export function OrderSummary({
@@ -18,6 +20,8 @@ export function OrderSummary({
 }: any) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
+  const { t } = useTranslation();
 
   const userData = getUserData();
 
@@ -53,30 +57,32 @@ export function OrderSummary({
     <div className="space-y-8">
       {/* Promo Code */}
       <div>
-        <h2 className="text-2xl font-bold mb-6">Enter Promo Code</h2>
+        <h2 className="text-2xl font-bold mb-6">{t("Enter Coupon Code")}</h2>
         <div className="flex gap-4">
           <Input placeholder="Promo Code" className="bg-muted" />
           <Button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8">
-            Apply
+            {t("Apply")}
           </Button>
         </div>
-        <p className="text-sm text-muted-foreground mt-2">20% Off Discount</p>
+        <p className="text-sm text-muted-foreground mt-2">
+          {t("20% Off Discount")}
+        </p>
       </div>
 
       {/* Order Summary */}
       <div>
-        <h2 className="text-2xl font-bold mb-6">Order Summary</h2>
+        <h2 className="text-2xl font-bold mb-6">{t("Order Summary")}</h2>
         <div className="space-y-4">
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Subtotal</span>
+            <span className="text-muted-foreground">{t("Subtotal")}</span>
             <span className="font-medium">
               {totalPrice}{" "}
-              <span className="text-xs text-muted-foreground">SAR</span>
+              <span className="text-xs text-muted-foreground">{t("SAR")}</span>
             </span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">
-              New Reservation Discount
+              {t("New Reservation Discount")}
             </span>
             <span className="font-medium">
               {property?.newReservationDiscount}{" "}
@@ -85,7 +91,7 @@ export function OrderSummary({
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">
-              Week Reservation Discount
+              {t("Week Reservation Discount")}
             </span>
             <span className="font-medium">
               {property?.weekReservationDiscount}{" "}
@@ -94,7 +100,7 @@ export function OrderSummary({
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground">
-              Month Reservation Discount
+              {t("Month Reservation Discount")}
             </span>
             <span className="font-medium text-indigo-600">
               {property?.monthReservationDiscount}{" "}
@@ -103,10 +109,12 @@ export function OrderSummary({
           </div>
           <div className="pt-4 border-t">
             <div className="flex justify-between">
-              <span className="font-medium">Payable Now</span>
+              <span className="font-medium">{t("Payable Now")}</span>
               <span className="font-bold">
                 {finalPrice}{" "}
-                <span className="text-xs text-muted-foreground">SAR</span>
+                <span className="text-xs text-muted-foreground">
+                  {t("SAR")}
+                </span>
               </span>
             </div>
           </div>
@@ -116,7 +124,7 @@ export function OrderSummary({
             disabled={isLoading}
           >
             {/* Payment */}
-            {isLoading ? "Loading..." : "BOOK"}
+            {isLoading ? t("Loading...") : t("BOOK")}
           </Button>
         </div>
       </div>
