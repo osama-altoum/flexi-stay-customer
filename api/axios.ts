@@ -101,5 +101,7 @@ export const endpoints = {
   },
   reservations: {
     setReservation: "api/v1/reservations",
+    getReservation: "api/v1/reservations",
+    getStatus: "api/v1/reservations",
   },
 };

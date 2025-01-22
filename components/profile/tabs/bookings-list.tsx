@@ -4,105 +4,149 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, MapPin, Building2, Bed, Bath, Maximize } from "lucide-react";
 import Link from "next/link";
+import { useGetPlaceDetails } from "@/api/property";
+import LoadingBooking from "@/components/skeletons/looading-booking";
+import { useRouter } from "next/navigation";
+import { format } from "date-fns";
 
-const bookings = [
-  {
-    id: 1,
-    title: "Luxury Apartment in Downtown",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-    location: "Manhattan, NY",
-    rating: 4.8,
-    reviews: 24,
-    price: 299,
-    checkIn: "Mar 15, 2024",
-    checkOut: "Mar 20, 2024",
-    status: "upcoming",
-    amenities: {
-      rooms: 3,
-      beds: 2,
-      baths: 2,
-      area: 1200,
-    },
-  },
-  // Add more bookings...
-];
+// Single Booking Card Component
+const BookingCard = ({ propertyData, reservation }: any) => {
+  if (!propertyData) return null;
 
-export function BookingsList() {
+  console.log(reservation);
+
   return (
-    <div className="space-y-6">
-      {bookings.map((booking) => (
-        <Card key={booking.id} className="p-6">
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="w-full md:w-1/3">
-              <img
-                src={booking.image}
-                alt={booking.title}
-                className="w-full h-48 object-cover rounded-lg"
-              />
+    <Card className="p-6">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="w-full md:w-1/3">
+          <img
+            src={propertyData.images[0].path}
+            alt={propertyData.title}
+            className="w-full h-48 object-cover rounded-lg"
+          />
+        </div>
+        <div className="flex-1">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">
+                {propertyData.placeTypeEName} : {propertyData.title}
+              </h3>
+              <div className="flex items-center gap-4 text-muted-foreground mb-4">
+                <div className="flex items-center gap-1">
+                  <MapPin className="h-4 w-4" />
+                  <span>
+                    {propertyData.city} , {propertyData.country}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  <span>4.5 </span> -
+                  <span className="text-muted-foreground text-sm">
+                    (382 reviews)
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex-1">
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">
-                    {booking.title}
-                  </h3>
-                  <div className="flex items-center gap-4 text-muted-foreground mb-4">
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-4 w-4" />
-                      <span>{booking.location}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span>
-                        {booking.rating} ({booking.reviews} reviews)
-                      </span>
-                    </div>
-                  </div>
+            {reservation?.amount && (
+              <div className="text-right">
+                <div className="text-2xl font-bold">
+                  {reservation?.amount}{" "}
+                  <span className="text-muted-foreground text-sm">SAR</span>{" "}
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold">${booking.price}</div>
-                  <div className="text-sm text-muted-foreground">per night</div>
-                </div>
+                <div className="text-sm text-muted-foreground">per night</div>
               </div>
+            )}
+          </div>
 
-              <div className="grid grid-cols-4 gap-4 mb-4">
-                <div className="flex items-center gap-2">
-                  <Building2 className="h-4 w-4 text-muted-foreground" />
-                  <span>{booking.amenities.rooms} Rooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Bed className="h-4 w-4 text-muted-foreground" />
-                  <span>{booking.amenities.beds} Beds</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Bath className="h-4 w-4 text-muted-foreground" />
-                  <span>{booking.amenities.baths} Baths</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Maximize className="h-4 w-4 text-muted-foreground" />
-                  <span>{booking.amenities.area} sqft</span>
-                </div>
-              </div>
+          <div className="grid grid-cols-4 gap-4 mb-4">
+            <div className="flex items-center gap-2">
+              <Building2 className="h-4 w-4 text-muted-foreground" />
+              <span>{propertyData.bedrooms} Rooms</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Bed className="h-4 w-4 text-muted-foreground" />
+              <span>{propertyData.beds} Beds</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Bath className="h-4 w-4 text-muted-foreground" />
+              <span>{propertyData.bathrooms} Baths</span>
+            </div>
+            {/* <div className="flex items-center gap-2">
+              <Maximize className="h-4 w-4 text-muted-foreground" />
+              <span>{propertyData.amenities.area} sqft</span>
+            </div> */}
+          </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t">
-                <div className="space-y-1">
-                  <div className="text-sm text-muted-foreground">
-                    {booking.checkIn} - {booking.checkOut}
-                  </div>
-                  <div className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-green-100 text-green-800">
-                    {booking.status}
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <Button variant="outline">View Details</Button>
-                  <Link href="/messages">
-                    <Button>Contact Host</Button>
-                  </Link>
-                </div>
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t">
+            <div className="space-y-1">
+              <div className="text-sm text-muted-foreground">
+                In :{format(reservation.checkIn, "dd/MM/yyyy")} - Out :{" "}
+                {format(reservation.checkOut, "dd/MM/yyyy")}
               </div>
+              <div
+                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                  reservation.status === "PENDING"
+                    ? "bg-yellow-100 text-yellow-800"
+                    : reservation.status === "CONFIRMED"
+                    ? "bg-green-100 text-green-800"
+                    : reservation.status === "CANCELLED"
+                    ? "bg-red-100 text-red-800"
+                    : reservation.status === "DECLINED"
+                    ? "bg-gray-100 text-gray-800"
+                    : "bg-gray-50 text-gray-500"
+                }`}
+              >
+                {reservation.status}
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Link href={`/property/${propertyData.id}`}>
+                <Button variant="outline">View Details</Button>
+              </Link>
+
+              <Button>Contact Host</Button>
             </div>
           </div>
-        </Card>
+        </div>
+      </div>
+    </Card>
+  );
+};
+
+// Individual Property Container
+const PropertyContainer = ({ reservation }: any) => {
+  const { propertyDetails, propertyDetailsLoading, propertyDetailsError } =
+    useGetPlaceDetails({
+      placeId: reservation?.placeId,
+    });
+
+  if (propertyDetailsLoading) {
+    return (
+      <div className="p-6">
+        <LoadingBooking />
+      </div>
+    );
+  }
+
+  if (propertyDetailsError) {
+    return (
+      <div className="p-6 text-red-500">
+        Error loading property: {propertyDetailsError.message}
+      </div>
+    );
+  }
+
+  return (
+    <BookingCard propertyData={propertyDetails} reservation={reservation} />
+  );
+};
+
+// Main BookingsList Component
+export function BookingsList({ reservationsList = [] }) {
+  return (
+    <div className="space-y-6">
+      {reservationsList.map((reservation: any) => (
+        <PropertyContainer key={reservation.id} reservation={reservation} />
       ))}
     </div>
   );

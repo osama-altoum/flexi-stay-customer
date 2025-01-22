@@ -15,6 +15,7 @@ import { AuthButton } from "./auth-button";
 import { deleteToken, deleteUserData, getUserData } from "@/api/storage";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function UserMenu() {
   const router = useRouter();
@@ -75,10 +76,12 @@ export function UserMenu() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <User className="mr-2 h-4 w-4" />
-          <span>Profile</span>
-        </DropdownMenuItem>
+        <Link href="/profile">
+          <DropdownMenuItem>
+            <User className="mr-2 h-4 w-4" />
+            <span>Profile</span>
+          </DropdownMenuItem>
+        </Link>
         <DropdownMenuItem>
           <Heart className="mr-2 h-4 w-4" />
           <span>Favorites</span>

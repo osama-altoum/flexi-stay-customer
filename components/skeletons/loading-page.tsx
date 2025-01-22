@@ -3,7 +3,7 @@ import { Skeleton } from "../ui/skeleton";
 
 export default function LoadingPage() {
   return (
-    <div className=" w-screen px-3 md:px-10 xl:px-20">
+    <div className="px-3 md:px-10 xl:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {/* Main Image Skeleton */}
         <Card className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
