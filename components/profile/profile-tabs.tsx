@@ -6,11 +6,11 @@ import { ReviewsList } from "./tabs/reviews-list";
 import { Settings } from "./tabs/settings";
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 export function ProfileTabs({ reservationsList }: any) {
-  const propertyIds = reservationsList?.map(
-    (reservation: any) => reservation.placeId
-  );
+  const router = useRouter();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -29,7 +29,22 @@ export function ProfileTabs({ reservationsList }: any) {
           transition={{ duration: 0.5 }}
         >
           <TabsContent value="bookings" className="space-y-6">
-            <BookingsList propertyIds={propertyIds} />
+            {reservationsList.length > 0 && (
+              <BookingsList reservationsList={reservationsList} />
+            )}
+            {reservationsList.length === 0 && (
+              <div className="mx-auto mt-10 text-center">
+                <h2>No Bookings Found</h2>
+                <Button
+                  className="mt-4"
+                  onClick={() => {
+                    router.push("/properties");
+                  }}
+                >
+                  Book Now
+                </Button>
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent value="reviews" className="space-y-6">
