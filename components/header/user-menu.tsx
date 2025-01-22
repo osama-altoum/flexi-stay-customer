@@ -16,9 +16,12 @@ import { deleteToken, deleteUserData, getUserData } from "@/api/storage";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export function UserMenu() {
   const router = useRouter();
+
+  const { t } = useTranslation();
 
   const [userProfile, setUserProfile] = useState<any>(null);
 
@@ -58,7 +61,7 @@ export function UserMenu() {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-56  " align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">
@@ -79,16 +82,16 @@ export function UserMenu() {
         <Link href="/profile">
           <DropdownMenuItem>
             <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
+            <span>{t("Profile")}</span>
           </DropdownMenuItem>
         </Link>
         <DropdownMenuItem>
           <Heart className="mr-2 h-4 w-4" />
-          <span>Favorites</span>
+          <span>{t("Favorites")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Settings className="mr-2 h-4 w-4" />
-          <span>Settings</span>
+          <span>{t("Settings")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         {/* <DropdownMenuItem className="text-green-600">
@@ -97,7 +100,7 @@ export function UserMenu() {
         </DropdownMenuItem> */}
         <DropdownMenuItem className="text-red-600" onClick={handleLogout}>
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
+          <span>{t("Log out")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -10,12 +10,14 @@ import {
 } from "@/components/ui/popover";
 import { MapPin, Calendar as CalendarIcon, Users, Search } from "lucide-react";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 export function ListingHero() {
+  const { t } = useTranslation();
   const [location, setLocation] = useState("Dubai, UAE");
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
-  const [guests, setGuests] = useState("2 adults, 2 children");
+  const [guests, setGuests] = useState(t("2 adults, 2 children"));
 
   return (
     <div className="relative h-[60vh] flex items-center justify-center">
