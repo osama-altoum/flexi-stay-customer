@@ -5,6 +5,7 @@ import * as Icons from "lucide-react"; // Import all icons as an object
 import { format } from "date-fns";
 
 import { Building2, Bed, Bath, Maximize } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const AmenityItem = ({ icon, value, label }: any) => (
   <div className="flex   gap-1 items-center justify-center text-center">
@@ -20,11 +21,14 @@ const AmenityItem = ({ icon, value, label }: any) => (
 );
 
 export function PropertyHeader({ property }: any) {
+  const { t } = useTranslation();
   return (
     <>
       <div className="bg-card rounded-lg border p-6 space-y-4">
         <div className="flex items-center justify-between">
-          <Badge className="bg-indigo-600 hover:bg-indigo-700">For Rent</Badge>
+          <Badge className="bg-indigo-600 hover:bg-indigo-700">
+            {t("For Rent")}
+          </Badge>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="icon" className="rounded-full">
               <Icons.Facebook className="h-4 w-4" />
@@ -57,9 +61,11 @@ export function PropertyHeader({ property }: any) {
         <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <span className="text-indigo-600">
-              Apartment No: {property.apartmentNo} |
+              {t("Apartment No")}: {property.apartmentNo} |
             </span>
-            <span className="text-indigo-600">Floor No: {property.floor}</span>
+            <span className="text-indigo-600">
+              {t("Floor No")}: {property.floor}
+            </span>
           </div>
           <div className="flex items-center gap-1">
             <Icons.BookUserIcon className="h-4 w-4" />
@@ -71,10 +77,10 @@ export function PropertyHeader({ property }: any) {
         <div className="flex flex-wrap items-center gap-4 justify-between text-sm text-muted-foreground pt-4 border-t">
           <div className="flex items-center gap-1">
             <Icons.Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span>4.8 (2341) reviews</span>
+            <span>4.8 (2341) {t("reviews")}</span>
           </div>
           <div>
-            Published:
+            {t("Published")}:
             {property?.createdAt
               ? format(new Date(property.createdAt), "MMM d, yyyy")
               : "Unknown date"}
@@ -83,9 +89,13 @@ export function PropertyHeader({ property }: any) {
 
         <div className="flex flex-wrap items-center gap-8 pt-4 border-t">
           {[
-            { icon: <Building2 />, value: property.bedrooms, label: "Bedroom" },
-            { icon: <Bath />, value: property.bathrooms, label: "Bathroom" },
-            { icon: <Bed />, value: property.beds, label: "Bed" },
+            {
+              icon: <Building2 />,
+              value: property.bedrooms,
+              label: t("Bedroom"),
+            },
+            { icon: <Bath />, value: property.bathrooms, label: t("Bathroom") },
+            { icon: <Bed />, value: property.beds, label: t("Bed") },
           ].map((amenity, index) => (
             <AmenityItem
               key={index}
@@ -97,10 +107,10 @@ export function PropertyHeader({ property }: any) {
         </div>
       </div>
       <div className="bg-card rounded-lg border p-6 space-y-4">
-        <h2 className="text-2xl font-semibold">Description</h2>
+        <h2 className="text-2xl font-semibold">{t("Description")}</h2>
         <p className="text-muted-foreground">{property.description}</p>
         <Button variant="link" className="p-0 h-auto text-indigo-600">
-          Read More <Icons.ArrowRight className="ml-2 h-4 w-4" />
+          {t("Read More")} <Icons.ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </div>
     </>

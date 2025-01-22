@@ -7,6 +7,7 @@ import Image from "next/image";
 import React from "react";
 import { AmenityItem } from "../amenity/amenity-item";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 interface ListingListProps {
   properties: any[];
@@ -15,6 +16,7 @@ interface ListingListProps {
 
 export function ListingList({ properties, isLoading }: ListingListProps) {
   const router = useRouter();
+  const { t } = useTranslation();
   return (
     <div className="space-y-6">
       {isLoading &&
@@ -50,7 +52,9 @@ export function ListingList({ properties, isLoading }: ListingListProps) {
               <div className="flex items-center gap-2 mb-2">
                 <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 <span className="font-medium">4.8</span>
-                <span className="text-muted-foreground">(324 reviews)</span>
+                <span className="text-muted-foreground">
+                  (324 {t("reviews")})
+                </span>
               </div>
 
               <h3 className="text-xl font-semibold mb-2">
@@ -69,14 +73,14 @@ export function ListingList({ properties, isLoading }: ListingListProps) {
                   {
                     icon: <Building2 />,
                     value: property.bedrooms,
-                    label: "Bedroom",
+                    label: t("Bedroom"),
                   },
                   {
                     icon: <Bath />,
                     value: property.bathrooms,
-                    label: "Bathroom",
+                    label: t("Bathroom"),
                   },
-                  { icon: <Bed />, value: property.beds, label: "Bed" },
+                  { icon: <Bed />, value: property.beds, label: t("Bed") },
                 ].map((amenity, index) => (
                   <AmenityItem
                     key={index}
@@ -92,14 +96,14 @@ export function ListingList({ properties, isLoading }: ListingListProps) {
                   <span className="text-2xl font-bold">
                     {property.placePrice}
                   </span>
-                  <span className="text-muted-foreground"> / SAR</span>
+                  <span className="text-muted-foreground"> / {t("SAR")}</span>
                 </div>
                 <Button
                   onClick={() => {
                     router.push(`/property/${property.id}`);
                   }}
                 >
-                  Book Now
+                  {t("Book Now")}
                 </Button>
               </div>
             </div>

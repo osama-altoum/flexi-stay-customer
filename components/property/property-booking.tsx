@@ -20,9 +20,11 @@ import { useRouter } from "next/navigation";
 import { getToken } from "@/api/storage";
 import { AuthButton } from "../header/auth-button";
 import { AuthDialog } from "../auth/auth-dialog";
+import { useTranslation } from "react-i18next";
 
 export function PropertyBooking({ property, reservations }: any) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const [checkIn, setCheckIn] = useState<any>(null);
   const [checkOut, setCheckOut] = useState<any>(null);
@@ -146,27 +148,29 @@ export function PropertyBooking({ property, reservations }: any) {
     <>
       <form className="bg-card rounded-lg border p-6 space-y-6">
         <div>
-          <h2 className="text-2xl font-semibold mb-2">Price</h2>
+          <h2 className="text-2xl font-semibold mb-2">{t("Price")}</h2>
           <div className="flex items-center gap-2">
             <span className="text-3xl font-bold">
               {property?.priceBeforeTax}
             </span>
-            <span className="text-sm">SAR</span>
+            <span className="text-sm">{t("SAR")}</span>
           </div>
         </div>
 
         <div className="flex gap-4">
           <Button className="flex-1 bg-indigo-600 hover:bg-indigo-700" disabled>
-            Booking Form
+            {t("Booking Form")}
           </Button>
           <Button variant="outline" className="flex-1" disabled>
-            Enquiry Form
+            {t("Enquiry Form")}
           </Button>
         </div>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Check In - Check Out</label>
+            <label className="text-sm font-medium">
+              {t("Check In")} - {t("Check Out")}
+            </label>
             <div className="flex gap-2">
               <Popover>
                 <PopoverTrigger asChild>
@@ -175,7 +179,7 @@ export function PropertyBooking({ property, reservations }: any) {
                     className="w-full justify-start text-left font-normal"
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {checkIn ? format(checkIn, "PP") : "Check in"}
+                    {checkIn ? format(checkIn, "PP") : t("Check in")}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
@@ -197,7 +201,7 @@ export function PropertyBooking({ property, reservations }: any) {
                     disabled={!checkIn}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {checkOut ? format(checkOut, "PP") : "Check out"}
+                    {checkOut ? format(checkOut, "PP") : t("Check out")}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
@@ -214,40 +218,46 @@ export function PropertyBooking({ property, reservations }: any) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Guests</label>
+            <label className="text-sm font-medium">{t("Guests")}</label>
             <Button
               variant="outline"
               className="w-full justify-start"
               type="reset"
             >
               <Users className="mr-2 h-4 w-4" />
-              <span>{property?.guests} Guests</span>
+              <span>
+                {property?.guests} {t("Guests")}
+              </span>
             </Button>
           </div>
 
           <div className="space-y-4 pt-4 border-t">
             <div className="flex justify-between">
               <span>
-                {property?.priceBeforeTax} × {nights} nights
+                {property?.priceBeforeTax} × {nights} {t("nights")}
               </span>
-              <span>{totalPrice} SAR</span>
+              <span>
+                {totalPrice} {t("SAR")}
+              </span>
             </div>
             <div className="flex justify-between">
-              <span>New Reservation Discount</span>
+              <span>{t("New Reservation Discount")}</span>
               <span>{property?.newReservationDiscount} %</span>
             </div>
             <div className="flex justify-between">
-              <span>Week Reservation Discount</span>
+              <span>{t("Week Reservation Discount")}</span>
               <span>{property?.weekReservationDiscount} %</span>
             </div>
             <div className="flex justify-between">
-              <span>Month Reservation Discount</span>
+              <span>{t("Month Reservation Discount")}</span>
               <span>{property?.monthReservationDiscount} %</span>
             </div>
 
             <div className="flex justify-between font-semibold">
-              <span>Total</span>
-              <span>{finalPrice} SAR</span>
+              <span>{t("Total")}</span>
+              <span>
+                {finalPrice} {t("SAR")}
+              </span>
             </div>
           </div>
 
@@ -256,12 +266,12 @@ export function PropertyBooking({ property, reservations }: any) {
             disabled={!checkIn || !checkOut}
             onClick={handleBooking}
           >
-            Proceed Booking
+            {t("Proceed Booking")}
           </Button>
 
           <div className="flex items-center justify-center gap-4 text-sm">
             <Button variant="link" className="h-auto p-0 text-indigo-600">
-              Save To Wish List
+              {t("Save To Wish List")}
             </Button>
           </div>
         </div>

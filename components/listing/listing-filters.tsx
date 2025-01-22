@@ -35,6 +35,7 @@ import {
   SortAsc,
   RefreshCcw,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type PropertyType = {
   value: number;
@@ -56,6 +57,8 @@ const sortOptions = [
 
 export function ListingFilters({ filters, onChange }: any) {
   const searchParams = useSearchParams();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const queryFilters: any = {};
@@ -138,7 +141,7 @@ export function ListingFilters({ filters, onChange }: any) {
     >
       <div className="p-6 border-b">
         <div className="flex items-center justify-between mb-2">
-          <h2 className="text-xl font-semibold">Filters</h2>
+          <h2 className="text-xl font-semibold">{t("Filters")}</h2>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
@@ -149,7 +152,7 @@ export function ListingFilters({ filters, onChange }: any) {
                     }
                     className="font-normal cursor-pointer"
                   >
-                    {getTotalFilters()} Selected
+                    {getTotalFilters()} {t("Selected")}
                   </Badge>
                   <RefreshCcw
                     className="w-6 h-6 cursor-pointer hover:bg-gray-300 p-1 rounded-full"
@@ -157,25 +160,25 @@ export function ListingFilters({ filters, onChange }: any) {
                   />
                 </div>
               </TooltipTrigger>
-              <TooltipContent>Reset filters</TooltipContent>
+              <TooltipContent>{t("Reset filters")}</TooltipContent>
             </Tooltip>
           </TooltipProvider>
         </div>
         <p className="text-sm text-muted-foreground">
-          Refine your search results
+          {t("Refine your search results")}
         </p>
       </div>
 
       <div className="px-6 py-4">
         <div className="flex items-center gap-2">
           <Search className="w-5 h-5 text-primary" />
-          <span>Search</span>
+          <span>{t("Search")}</span>
         </div>
         <div className="flex items-center gap-2 mt-2 border border-input rounded-lg px-3 py-2">
           <Input
             id="search"
             type="text"
-            placeholder="Search by keyword"
+            placeholder={t("Search by keyword")}
             value={filters.searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
             className="h-9 flex-1 border-none focus-visible:ring-0"
@@ -193,14 +196,14 @@ export function ListingFilters({ filters, onChange }: any) {
           <AccordionTrigger className="hover:no-underline py-3 rounded-lg hover:bg-muted/50">
             <div className="flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-primary" />
-              <span>Price Range</span>
+              <span>{t("Price Range")}</span>
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-4">
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <Input
-                  placeholder="Min Price"
+                  placeholder={t("Min Price")}
                   type="number"
                   value={filters.minPrice}
                   onChange={(e) =>
@@ -209,7 +212,7 @@ export function ListingFilters({ filters, onChange }: any) {
                   className="h-9"
                 />
                 <Input
-                  placeholder="Max Price"
+                  placeholder={t("Max Price")}
                   type="number"
                   value={filters.maxPrice}
                   onChange={(e) =>
@@ -226,7 +229,7 @@ export function ListingFilters({ filters, onChange }: any) {
           <AccordionTrigger className="hover:no-underline py-3 rounded-lg hover:bg-muted/50">
             <div className="flex items-center gap-2">
               <Building2 className="w-5 h-5 text-primary" />
-              <span>Property Type</span>
+              <span>{t("Property Type")}</span>
             </div>
           </AccordionTrigger>
           <AccordionContent className="pt-4">
@@ -241,7 +244,7 @@ export function ListingFilters({ filters, onChange }: any) {
                   onClick={() => handleTypeToggle(value)}
                 >
                   <Icon className="w-4 h-4" />
-                  <span className="text-sm">{label}</span>
+                  <span className="text-sm">{t(label)}</span>
                 </Button>
               ))}
             </div>
@@ -251,17 +254,17 @@ export function ListingFilters({ filters, onChange }: any) {
 
       <div className="px-6 py-4">
         <Label htmlFor="sort" className="text-sm font-medium">
-          Sort By
+          {t("Sort By")}
         </Label>
         <Select onValueChange={handleSortChange}>
           <SelectTrigger id="sort" className="w-full mt-2">
             <SortAsc className="w-5 h-5 text-muted-foreground mr-2" />
-            <SelectValue placeholder="Select option" />
+            <SelectValue placeholder={t("Select option")} />
           </SelectTrigger>
           <SelectContent>
             {sortOptions.map((option) => (
               <SelectItem key={option} value={option}>
-                {option}
+                {t(option)}
               </SelectItem>
             ))}
           </SelectContent>

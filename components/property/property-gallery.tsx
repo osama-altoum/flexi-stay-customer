@@ -6,8 +6,10 @@ import { Grid, Image as ImageIcon } from "lucide-react";
 
 import { ImageLightbox } from "./image-lightbox";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export function PropertyGallery({ images }: any) {
+  const { t } = useTranslation();
   const [mainImage, setMainImage] = useState(images[0].path);
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,7 +42,7 @@ export function PropertyGallery({ images }: any) {
             }}
           >
             <ImageIcon className="h-4 w-4" />
-            <span>View all photos</span>
+            <span>{t("View all photos")}</span>
           </Button>
         </div>
 

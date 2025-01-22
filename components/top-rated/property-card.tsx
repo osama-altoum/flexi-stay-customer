@@ -11,6 +11,7 @@ import React from "react";
 import { AmenityItem } from "../amenity/amenity-item";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { t } from "i18next";
 
 export function PropertyCard({
   property,
@@ -57,7 +58,7 @@ export function PropertyCard({
         <div className="absolute z-10 shadow-md bottom-4 left-4 bg-white dark:bg-black rounded-full px-3 py-1.5 text-sm flex items-center gap-1.5 ">
           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
           <span className="font-medium">4.8</span>
-          <span className="text-gray-500">(324 reviews)</span>
+          <span className="text-gray-500">(324 {t("reviews")})</span>
         </div>
       </div>
 
@@ -83,9 +84,9 @@ export function PropertyCard({
         {/* Amenities */}
         <div className="grid grid-cols-3 gap-2 mb-6 py-4 border-y border-gray-200 dark:border-gray-800">
           {[
-            { icon: <Building2 />, value: bedrooms, label: "Bedroom" },
-            { icon: <Bath />, value: bathrooms, label: "Bathroom" },
-            { icon: <Bed />, value: beds, label: "Bed" },
+            { icon: <Building2 />, value: bedrooms, label: t("Bedroom") },
+            { icon: <Bath />, value: bathrooms, label: t("Bathroom") },
+            { icon: <Bed />, value: beds, label: t("Bed") },
           ].map((amenity, index) => (
             <AmenityItem
               key={index}
@@ -99,14 +100,14 @@ export function PropertyCard({
         <div className="flex items-center justify-between">
           <div>
             <span className="text-2xl font-bold">{placePrice}</span>
-            <span className="text-gray-500"> / SAR</span>
+            <span className="text-gray-500"> / {t("SAR")}</span>
           </div>
           <Link href={`/property/${id}`}>
             <Button
               className="rounded-full px-6 bg-gray-100 hover:bg-[#363aed] hover:text-white text-gray-900 dark:bg-gray-800 dark:text-white dark:hover:bg-[#363aed]"
               variant="ghost"
             >
-              Book Now
+              {t("Book Now")}
             </Button>
           </Link>
         </div>

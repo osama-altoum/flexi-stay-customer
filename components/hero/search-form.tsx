@@ -14,10 +14,10 @@ import { useTranslation } from "react-i18next";
 
 export function SearchForm() {
   const { t } = useTranslation();
-  const [location, setLocation] = useState("Dubai, UAE");
+  const [location, setLocation] = useState(t("Dubai, UAE"));
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
-  const [guests, setGuests] = useState("2 adults, 2 children");
+  const [guests, setGuests] = useState(t("2 adults, 2 children"));
 
   return (
     <div className="flex flex-col gap-4 p-4 bg-white dark:bg-black dark:text-white rounded-lg shadow-lg">

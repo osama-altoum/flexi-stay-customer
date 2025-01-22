@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface BookingFormProps {
   property: any;
@@ -34,6 +35,7 @@ const AmenityItem = ({ icon, value, label }: any) => (
 );
 
 export function BookingForm({ property, checkIn, checkOut }: BookingFormProps) {
+  const { t } = useTranslation();
   // Format dates
   const checkInDate = checkIn
     ? new Date(checkIn).toLocaleDateString("en-US", {
@@ -54,13 +56,13 @@ export function BookingForm({ property, checkIn, checkOut }: BookingFormProps) {
     <div className="space-y-8">
       {/* Booking Info */}
       <div>
-        <h2 className="text-2xl font-bold mb-6">Your Booking Info</h2>
+        <h2 className="text-2xl font-bold mb-6">{t("Your Booking Info")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
             <div className="p-4 bg-muted rounded-lg">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm text-muted-foreground">
-                  Booking date
+                  {t("Booking date")}
                 </span>
                 <PenSquare className="h-4 w-4 text-muted-foreground" />
               </div>
@@ -72,7 +74,9 @@ export function BookingForm({ property, checkIn, checkOut }: BookingFormProps) {
           <div className="relative">
             <div className="p-4 bg-muted rounded-lg">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-muted-foreground">Guests</span>
+                <span className="text-sm text-muted-foreground">
+                  {t("Guests")}
+                </span>
                 <PenSquare className="h-4 w-4 text-muted-foreground" />
               </div>
               <p className="font-medium">{property?.guests}</p>
@@ -122,14 +126,14 @@ export function BookingForm({ property, checkIn, checkOut }: BookingFormProps) {
                 {
                   icon: <Building2 />,
                   value: property.bedrooms,
-                  label: "Bedroom",
+                  label: t("Bedroom"),
                 },
                 {
                   icon: <Bath />,
                   value: property.bathrooms,
-                  label: "Bathroom",
+                  label: t("Bathroom"),
                 },
-                { icon: <Bed />, value: property.beds, label: "Bed" },
+                { icon: <Bed />, value: property.beds, label: t("Bed") },
               ].map((amenity, index) => (
                 <AmenityItem
                   key={index}
