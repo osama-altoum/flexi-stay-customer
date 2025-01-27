@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Calendar as CalendarIcon, Users } from "lucide-react";
+import { ArrowBigRight, Calendar as CalendarIcon, Users } from "lucide-react";
 import {
   format,
   differenceInDays,
@@ -188,7 +188,7 @@ export function PropertyBooking({ property, reservations }: any) {
                     {/* Close Button */}
                     <PopoverClose
                       asChild
-                      className="absolute -top-3 -right-3 rounded-full  hover:bg-gray-100"
+                      className="absolute -top-3 -left-3 rounded-full  hover:bg-gray-100"
                     >
                       <Button
                         variant="outline"
@@ -197,6 +197,14 @@ export function PropertyBooking({ property, reservations }: any) {
                         className="text-red-600"
                       >
                         ✕
+                      </Button>
+                    </PopoverClose>
+                    <PopoverClose
+                      asChild
+                      className="absolute -top-3 -right-3 rounded-full  hover:bg-gray-100"
+                    >
+                      <Button variant="outline" size="icon" aria-label="Close">
+                        <ArrowBigRight className="h-4 w-4" />
                       </Button>
                     </PopoverClose>
 
@@ -229,7 +237,7 @@ export function PropertyBooking({ property, reservations }: any) {
                     {/* Close Button */}
                     <PopoverClose
                       asChild
-                      className="absolute -top-3 -right-3 rounded-full  hover:bg-gray-100"
+                      className="absolute -top-3 -left-3 rounded-full  hover:bg-gray-100"
                     >
                       <Button
                         variant="outline"
@@ -238,6 +246,14 @@ export function PropertyBooking({ property, reservations }: any) {
                         className="text-red-600"
                       >
                         ✕
+                      </Button>
+                    </PopoverClose>
+                    <PopoverClose
+                      asChild
+                      className="absolute -top-3 -right-3 rounded-full  hover:bg-gray-100"
+                    >
+                      <Button variant="outline" size="icon" aria-label="Close">
+                        <ArrowBigRight className="h-4 w-4" />
                       </Button>
                     </PopoverClose>
 
