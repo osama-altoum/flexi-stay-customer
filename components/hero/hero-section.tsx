@@ -12,7 +12,7 @@ import slides from "@/data/hero.json";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/hooks/use-language";
 
-const categories = ["Apartments", "Houses", "Villas", "Studios", "Townhouses"];
+const categories = ["Apartments", "Houses"];
 
 export function HeroSection() {
   const { t } = useTranslation();
