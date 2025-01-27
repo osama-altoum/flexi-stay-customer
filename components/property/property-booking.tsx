@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Calendar as CalendarIcon, Users } from "lucide-react";
+import { ArrowBigRight, Calendar as CalendarIcon, Users } from "lucide-react";
 import {
   format,
   differenceInDays,
@@ -21,6 +21,7 @@ import { getToken } from "@/api/storage";
 import { AuthButton } from "../header/auth-button";
 import { AuthDialog } from "../auth/auth-dialog";
 import { useTranslation } from "react-i18next";
+import { PopoverClose } from "@radix-ui/react-popover";
 
 export function PropertyBooking({ property, reservations }: any) {
   const router = useRouter();
@@ -182,14 +183,41 @@ export function PropertyBooking({ property, reservations }: any) {
                     {checkIn ? format(checkIn, "PP") : t("Check in")}
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={checkIn}
-                    onSelect={handleCheckInSelect}
-                    disabled={isDateDisabled}
-                    initialFocus
-                  />
+                <PopoverContent className="w-auto p-4" align="start">
+                  <div className="relative">
+                    {/* Close Button */}
+                    <PopoverClose
+                      asChild
+                      className="absolute -top-3 -left-3 rounded-full  hover:bg-gray-100"
+                    >
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        aria-label="Close"
+                        className="text-red-600"
+                      >
+                        ✕
+                      </Button>
+                    </PopoverClose>
+                    <PopoverClose
+                      asChild
+                      className="absolute -top-3 -right-3 rounded-full  hover:bg-gray-100"
+                    >
+                      <Button variant="outline" size="icon" aria-label="Close">
+                        <ArrowBigRight className="h-4 w-4" />
+                      </Button>
+                    </PopoverClose>
+
+                    {/* Calendar */}
+                    <Calendar
+                      mode="single"
+                      selected={checkIn}
+                      onSelect={handleCheckInSelect}
+                      disabled={isDateDisabled}
+                      initialFocus
+                      className="p-4"
+                    />
+                  </div>
                 </PopoverContent>
               </Popover>
 
@@ -204,14 +232,40 @@ export function PropertyBooking({ property, reservations }: any) {
                     {checkOut ? format(checkOut, "PP") : t("Check out")}
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={checkOut}
-                    onSelect={handleCheckOutSelect}
-                    disabled={isCheckoutDateDisabled}
-                    initialFocus
-                  />
+                <PopoverContent className="w-auto p-4" align="start">
+                  <div className="relative">
+                    {/* Close Button */}
+                    <PopoverClose
+                      asChild
+                      className="absolute -top-3 -left-3 rounded-full  hover:bg-gray-100"
+                    >
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        aria-label="Close"
+                        className="text-red-600"
+                      >
+                        ✕
+                      </Button>
+                    </PopoverClose>
+                    <PopoverClose
+                      asChild
+                      className="absolute -top-3 -right-3 rounded-full  hover:bg-gray-100"
+                    >
+                      <Button variant="outline" size="icon" aria-label="Close">
+                        <ArrowBigRight className="h-4 w-4" />
+                      </Button>
+                    </PopoverClose>
+
+                    <Calendar
+                      mode="single"
+                      selected={checkOut}
+                      onSelect={handleCheckOutSelect}
+                      disabled={isCheckoutDateDisabled}
+                      initialFocus
+                      className="p-4"
+                    />
+                  </div>
                 </PopoverContent>
               </Popover>
             </div>
