@@ -7,6 +7,7 @@ import { AboutStats } from "@/components/about/about-stats";
 import { AboutTestimonials } from "@/components/about/about-testimonials";
 
 export default function AboutPage() {
+  // gg
   return (
     <div className="min-h-screen">
       <AboutHero />
